@@ -48,7 +48,7 @@ function Doc(doc){
 	console.log(membre["prenom"]);
 
 	if ((doc.data().prenomMem == membre["prenom"]) && (doc.data().nomMem == membre["nom"])){
-		window.open("./index.html", "_self");
+		window.open("./sucess.html", "_self");
 	}
 }
 

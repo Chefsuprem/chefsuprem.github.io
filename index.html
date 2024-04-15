@@ -3,9 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Accueil</title>
+	<title>Page connexion</title>
 </head>
 <body>
-	<h1>Success !!</h1>
+	<h1>Page de connexion</h1>
+	<form>
+		<input type="text" name="nom" id="nom" placeholder="Entre ton nom"><br>
+		<input type="text" name="prenom" id="prenom" placeholder="Entre ton prénom"><br>
+		<input type="email" name="email" id="email" placeholder="Entre ton mail"><br>
+		<input type="password" name="mdp" id="mdp" placeholder="Entre ton mot de passe"><br><br>
+		<button type="submit">Valider</button>
+		<button type="reset">Effacer</button>
+	</form>
+	<section>
+		<h2>Le contenu de la data d'un document:</h2>
+	</section>
+
+	<!--Exécution des scripts-->
+	<script type="module" src="connexion.js"></script>
+	<script type="module" src="database.js"></script>
 </body>
 </html>
