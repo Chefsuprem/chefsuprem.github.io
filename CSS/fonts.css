@@ -1,0 +1,138 @@
+
+/*====== DEFINITION DES TYPOS ======*/
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+/*====== Titres ======*//*FREDOKA*/
+
+/*ORDI*/
+.typTtrOrdi60{
+	font-family: "Fredoka";
+	font-weight: 700;
+	font-style: normal;
+	font-size: 60pt;
+}
+
+.typTtrOrdi32{
+	font-family: "Fredoka";
+	font-weight: 600;
+	font-style: normal;
+	font-size: 32pt;
+}
+
+.typTtrOrdi25{
+	font-family: "Fredoka";
+	font-weight: 600;
+	font-style: normal;
+	font-size: 25pt;
+}
+
+/*MOBILE*/
+.typTtrMob40{
+	font-family: "Fredoka";
+	font-weight: 700;
+	font-style: normal;
+	font-size: 40pt;
+}
+
+.typTtrMob22{
+	font-family: "Fredoka";
+	font-weight: 700;
+	font-style: normal;
+	font-size: 22pt;
+}
+
+
+/*====== Sous titre ======*//*FREDOKA*/
+
+/*ORDI*/
+.typSsTtrOrdi64{
+	font-family: "Fredoka";
+	font-weight: 600;
+	font-style: normal;
+	font-size: 64pt;
+}
+
+.typSsTtrOrdi32{
+	font-family: "Fredoka";
+	font-weight: 600;
+	font-style: normal;
+	font-size: 32pt;
+}
+
+/*MOBILE*/
+.typSsTtrMob24{
+	font-family: "Fredoka";
+	font-weight: 600;
+	font-style: normal;
+	font-size: 24pt;
+}
+
+.typSsTtrMob18{
+	font-family: "Fredoka";
+	font-weight: 600;
+	font-style: normal;
+	font-size: 18pt;
+}
+
+/*====== Textes -> paragraphes ======*//*POPPINS*/
+
+/*ORDI*/
+.typTxtOrdi32{
+	font-family: "Poppins";
+	font-weight: 500;
+	font-style: normal;
+	font-size: 32pt;
+}
+
+.typTxtOrdi20{
+	font-family: "Poppins";
+	font-weight: 500;
+	font-style: normal;
+	font-size: 20pt;
+}
+
+.typTxtOrdi27It{
+	font-family: "Poppins";
+	font-weight: 500;
+	font-style: italic;
+	font-size: 27pt;
+}
+
+.typTxtOrdiBol15{
+	font-family: "Poppins";
+	font-weight: 700;
+	font-style: normal;
+	font-size: 15pt;
+}
+
+.typTxtOrdiMed15{
+	font-family: "Poppins";
+	font-weight: 500;
+	font-style: normal;
+	font-size: 15pt;
+}
+
+/*MOBILE*/
+.typTxtMob14{
+	font-family: "Poppins";
+	font-weight: 500;
+	font-style: normal;
+	font-size: 14pt;
+}
+
+.typTxtMob12{
+	font-family: "Poppins";
+	font-weight: 500;
+	font-style: normal;
+	font-size: 15pt;
+}
+
+.typTxtMob12Ita{
+	font-family: "Poppins";
+	font-weight: 400;
+	font-style: italic;
+	font-size: 12pt;
+}

@@ -47,8 +47,9 @@ function Doc(doc){
 	console.log(doc.data().prenomMem);
 	console.log(membre["prenom"]);
 
+//Condition de connexion
 	if ((doc.data().prenomMem == membre["prenom"]) && (doc.data().nomMem == membre["nom"])){
-		window.open("./sucess.html", "_self");
+		window.open("../sucess.html", "_self");
 	}
 }
 

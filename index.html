@@ -2,25 +2,230 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Page connexion</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Agence 1ris</title>
+
+	<!--Liens externes-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+	<!--Local-->
+	<link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
-	<h1>Page de connexion</h1>
-	<form>
-		<input type="text" name="nom" id="nom" placeholder="Entre ton nom"><br>
-		<input type="text" name="prenom" id="prenom" placeholder="Entre ton prénom"><br>
-		<input type="email" name="email" id="email" placeholder="Entre ton mail"><br>
-		<input type="password" name="mdp" id="mdp" placeholder="Entre ton mot de passe"><br><br>
-		<button type="submit">Valider</button>
-		<button type="reset">Effacer</button>
-	</form>
-	<section>
-		<h2>Le contenu de la data d'un document:</h2>
+
+	<!--Debut header-->
+	<header class="pt-1">
+
+		<!--Debut navbar-->
+		<nav class="navbar navbar-expand-lg px-5 justify-content-center justify-content-lg-start">
+			<a href="#" class="navbar-brand">
+				<img src="" alt="Logo de l'agence.">
+			</a>
+			<div class="collapse navbar-collapse justify-content-between">
+				<ul class="col-lg-7 col-xl-9 navbar-nav align-items-center justify-content-center justify-content-xl-start ps-xl-5 gap-3">
+					<li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdiMed15" href="#">Blog</a></li>
+					<li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdiMed15" href="#">Contact</a></li>
+					<li class="nav-item dropdown">
+						<a id="btnNav" role="button" class="nav-link-active dropdown-toggle typTxtOrdiBol15" href="#" data-bs-toggle="dropdown">FR</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="dropdown-item typTxtOrdiMed15">FR</a></li>
+							<li><a href="#" class="dropdown-item typTxtOrdiMed15">EN</a></li>
+						</ul>
+					</li>
+				</ul>
+				<section class="col-lg-5 col-xl-3 btn-group justify-content-center">
+					<button type="button" class="btn connexion bg-white typTxtOrdiMed15">Connexion</button>
+					<button type="button" class="btn inscription text-white typTxtOrdiMed15">Inscription</button>
+				</section>
+			</div>
+		</nav>
+		<!--Fin navbar-->
+	</header>
+	<!--Fin header-->
+
+	<!--Debut accueil-->
+	<section id="accueil" class="container-fluid row p-0 m-0 gap-5">
+		<div class="d-flex col-sm-12 col-lg-6 px-sm-4 flex-column gap-5">
+			<!--Taille md-->
+			<h1 class=" d-none d-sm-block text-center typTtrOrdi60">Bienvenue sur notre site <span class="hilight">web</span></h1>
+
+			<!--Taille xSm-->
+			<h1 class="d-block d-sm-none text-center typTtrOrdi60 fs-4">Bienvenue sur notre site <span class="hilight">web</span></h1>
+			<button id="btnPurp" class="col-5 btn py-1 text-white mx-auto typTxtOrdiMed15">Besoin d'aide ?</button>
+		</div>
+		<div class="col-md-auto justify-content-center">
+			<img src="" alt="persona joyeuse sur ton principal jaune.">
+		</div>
 	</section>
+	<!--Fin accueil-->
+
+	<!--Debut Main-->
+	<main>
+
+		<!--Partie de l'équipe-->
+		<article id="equipe" class="container-fluid text-center py-2 mb-5">
+			<h2 class="typTtrOrdi32">NOTRE EQUIPE</h2>
+			<img src="" alt="Image de l'équipe au complet.">
+		</article>
+
+		<!--Partie des valeurs-->
+		<article id="valeurs" class="container-fluid px-3 py-5">
+			<div class="row text-center py-5 h-75">
+				<div class="col-12 col-sm-6 my-auto">
+					<img src="" alt="Oeil qui regarde le texte.">
+					<h3 class="hilight typSsTtrOrdi32">Créativité</h3>
+				</div>
+				<div class="col-12 col-sm-6">
+					<!--Taille Md-->
+					<p class="typTxtOrdi20 d-none d-md-block">1RIS développe des concepts <span class="hilight">uniques</span> et des stratégies <span class="hilight">innovantes</span> pour chaque projet.</p>
+
+					<!--Taille Sm-->
+					<p class="typTxtOrdi20 d-block d-md-none fs-5">1RIS développe des concepts <span class="hilight">uniques</span> et des stratégies <span class="hilight">innovantes</span> pour chaque projet.</p>
+				</div>
+			</div>
+
+			<!--Sm Mise en page-->
+			<div class="d-none d-sm-flex text-center py-5 h-75">
+				<div class="col-6 my-auto">
+					<p class="typTxtOrdi20 d-none d-sm-block">1RIS se distingue par son <span class="hilight">adaptabilité</span> s'ajustant aux besoins spécifiques de <span class="hilight">chaque client</span> et en proposant des solutions <span class="hilight">sur-mesure</span>.</p>
+				</div>
+				<div class="col-6 my-auto">
+					<img src="" alt="Oeil qui regarde le texte.">
+					<h3 class="hilight typSsTtrOrdi32">Adaptabilité</h3>
+				</div>
+			</div>
+
+			<!--xSm Mise en page-->
+			<div class="d-block d-sm-none text-center py-5 h-75">
+				<div class="col-12">
+					<img src="" alt="Oeil qui regarde le texte.">
+					<h3 class="hilight typSsTtrOrdi32">Adaptabilité</h3>
+				</div>
+				<div class="col-12">
+					<!--Taille Md-->
+					<p class="typTxtOrdi20 d-none d-md-block">1RIS se distingue par son <span class="hilight">adaptabilité</span> s'ajustant aux besoins spécifiques de <span class="hilight">chaque client</span> et en proposant des solutions <span class="hilight">sur-mesure</span>.</p>
+					
+					<!--Taille Sm-->
+					<p class="typTxtOrdi20 d-block d-md-none fs-5">1RIS se distingue par son <span class="hilight">adaptabilité</span> s'ajustant aux besoins spécifiques de <span class="hilight">chaque client</span> et en proposant des solutions <span class="hilight">sur-mesure</span>.</p>
+				</div>
+			</div>
+			<div class="row text-center py-5 h-75">
+				<div class="col-12 col-sm-6 my-auto">
+					<img src="" alt="Oeil qui regarde le texte.">
+					<h3 class="hilight typSsTtrOrdi32">Respect</h3>
+				</div>
+				<div class="col-12 col-sm-6">
+					<!--Taille Md-->
+					<p class="typTxtOrdi20 d-none d-md-block">L'agence respecte les <span class="hilight">opinions</span> les <span class="hilight">cultures</span> et les <span class="hilight">valeurs</span> de tous.</p>
+
+					<!--Taille Sm-->
+					<p class="typTxtOrdi20 d-block d-md-none fs-5">L'agence respecte les <span class="hilight">opinions</span> les <span class="hilight">cultures</span> et les <span class="hilight">valeurs</span> de tous.</p>
+				</div>
+			</div>
+		</article>
+
+		<!--Partie des prestas-->
+		<article id="prestas" class="container-fluid text-center py-5">
+			<h2 class="typTtrOrdi32">NOS PRESTATIONS</h2>
+			<section id="cards" class="container-fluid d-flex flex-column flex-md-row gap-5 mt-5">
+				<div class="col">
+					<section class="card bg-black border border-5 rounded-5">
+						<img class="card-img-top" src="" alt="Illustration du propos.">
+						<div class="card-body">
+							<h4 class="card-title text-white typTtrOrdi25">Brain Content</h4>
+							<p class="card-text mt-4 typTxtMob12Ita text-white">La création de contenus impactant et efficace.</p>
+						</div>
+					</section>
+				</div>
+				<div class="col">
+					<section class="card bg-black border border-5 rounded-5">
+						<img class="card-img-top" src="" alt="Illustration du propos.">
+						<div class="card-body">
+							<h4 class="card-title text-white typTtrOrdi25">Réseaux Sociaux</h4>
+							<p class="card-text mt-4 typTxtMob12Ita text-white">La diffusion sur les divers réseaux sociaux pour une plus grande influence.</p>
+					</section>
+				</div>
+				<div class="col">
+					<section class="card bg-black border border-5 rounded-5">
+						<img class="card-img-top" src="" alt="Illustration du propos.">
+						<div class="card-body">
+							<h4 class="card-title text-white typTtrOrdi25">Stratégie digitale</h4>
+							<p class="card-text mt-4 typTxtMob12Ita text-white">La mise en place d'une stratégie personnalisée pour optimiser votre présence en ligne et atteindre vos objectifs.</p>
+					</section>
+				</div>
+			</section>
+		</article>
+
+		<!--Partie des réalisations-->
+		<article id="reals" class="container-fluid text-center py-5">
+			<h2 class="fw-bold typTtrOrdi32">NOS REALISATIONS</h2>
+			<div class="d-flex flex-column container-fluid col">
+				<video src="" alt="Teaser de l'agence."></video>
+				<button id="btnPurp" class="rounded text-white typTxtMob12 py-2">Nous découvrir</button>
+			</div>
+		</article>
+
+		<!--Partie de l'identité-->
+		<article id="id" class="container-fluid py-5 text-center">
+			<h2 class="fw-bold typTtrOrdi32">NOTRE IDENTITE</h2>
+			<div class="d-flex flex-column gap-5 gap-md-0 flex-md-row container-fluid pt-5 justify-content-center justify-content-md-around">
+				<a class="col-12 col-md-5 text-center idDoc" href="/documents/charteGraphique.pdf" target="_self">
+					<!--Taille Md-->
+					<h3 class="d-none d-md-block hilight idTtl typTtrOrdi25">Identité Visuelle</h3>
+
+					<!--Taille Sm-->
+					<h3 class="d-block d-md-none hilight idTtl typTtrOrdi25 fs-1">Identité Visuelle</h3>
+					<img src="" alt="Miniature de la charte graphique.">
+				</a>
+				<a class="col-12 col-md-5 text-center idDoc" href="/documents/charteEditoriale.pdf" target="_self">
+					<!--Taille Md-->
+					<h3 class="d-none d-md-block hilight idTtl typTtrOrdi25">Notre manière d'être</h3>
+
+					<!--Taille Sm-->
+					<h3 class="d-block d-md-none hilight idTtl typTtrOrdi25 fs-1">Notre manière d'être</h3>
+					<img src="" alt="Miniature de la charte éditoriale.">
+				</a>
+			</div>
+		</article>
+	</main>
+	<!--Fin Main-->
+
+	<!--Début footer-->
+	<footer>
+		<nav class="navbar navbar-expand-md px-4 justify-content-center pt-2">
+			<img class="navbar-brand col-12 col-md-2 m-0" src="" alt="Logo de l'agence.">
+			<div class="col-12 col-md-6 col-lg-8 text-center">
+				<ul class="navbar-nav align-items-center justify-content-center gap-lg-5">
+					<li class="nav-item nav-link text-white typTxtOrdiMed15">Statut juridique</li>
+					<li class="nav-item nav-link text-white typTxtOrdiMed15">Contact</li>
+					<li class="nav-item nav-link text-white typTxtOrdiMed15">Mentions légales</li>
+					<li class="nav-item nav-link text-white typTxtOrdiMed15">Flux RSS</li>
+				</ul>
+				<section class="col-12">
+					<p class="text-white fs-6 typTxtOrdiMed15 m-0">&copy;2024, 1RIS et ses affiliés</p>
+				</section>
+			</div>
+			<section class="col-12 col-md-3 col-lg-2 pt-5 pt-md-0">
+				<ul class="d-flex justify-content-center justify-content-md-around p-0" style="list-style: none;">
+					<li class="col-2 text-center"><i class='bx bxl-instagram-alt' style='color:#ffde42; font-size: 8vh;' ></i></li>
+					<li class="col-2 text-center"><i class='bx bxl-facebook' style='color:#8c9ed1; font-size: 8vh;'  ></i></li>
+					<li class="col-2 text-center"><i class='bx bxl-linkedin' style='color:#ffffff; font-size: 8vh;'  ></i></li>
+				</ul>
+				<div class="row text-center">
+					<a id="fMail" class="text-white typTxtOrdiMed15" href="mailto:agence1ris@gmx.com">agence1ris@gmx.com</a>
+				</div>
+			</section>
+		</nav>
+	</footer>
 
 	<!--Exécution des scripts-->
-	<script type="module" src="connexion.js"></script>
-	<script type="module" src="database.js"></script>
+	<!--Scripts Externes-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+	<!--SCRIPTS LOCAUX-->
+	<script type="module" src="JS/database.js"></script>
 </body>
 </html>
