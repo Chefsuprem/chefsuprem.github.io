@@ -1,6 +1,8 @@
 
 # Repo GitHub du projet 1RIS WEB
 
+<img src="images\readme\banniere_IRIS_WEB.png">
+
 ## Introduction
 
 - **[ Valable que jusqu'au 26/05 ]** <br> Bienvenu dans l'équipe de dev de l'agence 1RIS! <br> Un gros travail nous attend, on doit se serrer les coudes et être efficace dans notre organisation et nos travaux. C'est pourquoi on va revoir ce qu'il faut impérativement savoir pour bien travailler ensemble et être sur les mêmes bases:
