@@ -22,7 +22,7 @@ Pour bien débuter notre collaboration, on aura besoin de travailler facilement 
 > 2. L'enregistrement de ces modifications ***(en local sur notre PC)***
 > 3. Une fois une tâche finie -> Envoie de ces modifications sur le dépôt distant ***(en ligne)***
 
-> [!WARNING]ATTENTION
+> [!WARNING]
 > Tout ceci se fait en même temps des autres; ce qui fait que si plusieurs envoient ses modifications en même temps, on peut avoir des conflits qui devront se gérer en vitesse vu que les autres collaborateurs peuvent envoyer eux aussi leur modifications.
 
 C'est pourquoi il a été décidé de ne pas travailler en liaison direct avec le repo original pour ne pas se taper dessus si des conflits arrivent mais de travailler avec des copies du repo original sur votre compte GitHub qui sera toujours liée à l'original lorsque l'on aura besoin d'envoyer les modifications mais au moins votre travail reste sur votre compte et si problèmes ou modifs tierces il y a vous pourrez le modifier de votre côté sans reenvoyer des modifs de modifs au repo original.
@@ -31,13 +31,13 @@ C'est pourquoi il a été décidé de ne pas travailler en liaison direct avec l
 
 [![Page d'installation de VSCODE](images\readme\VSCODE.png)](https://code.visualstudio.com)
 
-> [!NOTE]Guide d'installation
+> [!NOTE]
 > Pour installer VSCODE rien de plus simple; après avoir cliquer sur la page au dessus vous cliquez sur "download for Windows" puis vous suivez les étapes.<br>
 > Faites juste bien attention à cocher *"ouvrir avec code dans l'explorer de fichiers"* (et tout outils du même type) quand il vous est demandé si vous le voulez parce que c'est très utile.
 
 [![Page d'installation générale de Git](images\readme\GitMainPage.png)](https://git-scm.com)
 
-> [!NOTE] Idem pour Git
+> [!NOTE]
 > Ici vous aurez besoin de bien cliquer sur la version *setup* car la version *portable* est comme son nom l'indique une version compressée pour être fonctionelle dans une clé USB ou un disque externe pour pouvoir être transporter d'un appareil à l'autre.
 
 [![Page d'installation de Git Windows](images\readme\GitWin.png)](https://git-scm.com)
@@ -46,7 +46,7 @@ C'est pourquoi il a été décidé de ne pas travailler en liaison direct avec l
 
 Une fois ceci fait, pour nous faciliter la vie, on va avoir besoin de quelques extensions:
 
-> [!NOTE]Accéder aux extensions VSCODE
+> [!NOTE]
 > <img src="images\readme\Page des extensions VSCODE.png" alt="Page des extentions VSCODE">
 
 #### Git graph
@@ -88,7 +88,7 @@ permet de récupérer tout vos stash que vous avez créé et vous le réutilisez
 
 Git commit permet donc de faire le commit avec tout les fichiers modifiés et listés.
 
-> [!WARNING]ATTENTION
+> [!WARNING]
 > Il est formelement obligatoire pour nous pour s'y retrouver de rajouter
 > ```git
 > git commit -m "La courte description du commit"
@@ -136,7 +136,7 @@ git tag v0.1.0
 ```
 Ici le tag s'appel v0.1.0 => v pour indiquer que c'est une version et ensuite on arrive sur le principe de versionning.
 
-> [!IMPORTANT]Le versionning
+> [!IMPORTANT]
 > Le versionning c'est simple et pratique, il permet d'indiquer au grand public généralement qu'une nouvelle version est sortie d'un produit.
 > 
 > - Le 1er espace est réservé aux ajouts majeurs (généralement expliqué que quand un ajout majeur est présent, si l'on revient sur l'ajout majeur précédent le produit n'est pratiquement pas le même. Et donc par conséquent on ne peut pas revenir sur l'ajout précédent car actuellement le produit a été amélioré complètement grâce au dernier ajout majeur).
