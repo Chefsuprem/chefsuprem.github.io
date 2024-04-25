@@ -29,18 +29,24 @@ C'est pourquoi il a été décidé de ne pas travailler en liaison direct avec l
 
 ### 1. Installer les logiciels requis
 
-[![Page d'installation de VSCODE](images\readme\VSCODE.png)](https://code.visualstudio.com)
+<a href="https://code.visualstudio.com">
+	<img src="images\readme\VSCODE.png" alt="Page d'installation de VSCODE">
+</a>
 
 > [!NOTE]
 > Pour installer VSCODE rien de plus simple; après avoir cliquer sur la page au dessus vous cliquez sur "download for Windows" puis vous suivez les étapes.<br>
 > Faites juste bien attention à cocher *"ouvrir avec code dans l'explorer de fichiers"* (et tout outils du même type) quand il vous est demandé si vous le voulez parce que c'est très utile.
 
-[![Page d'installation générale de Git](images\readme\GitMainPage.png)](https://git-scm.com)
+<a href="https://git-scm.com">
+	<img src="images\readme\GitMainPage.png" alt="Page d'installation générale de Git">
+</a>
 
 > [!NOTE]
 > Ici vous aurez besoin de bien cliquer sur la version *setup* car la version *portable* est comme son nom l'indique une version compressée pour être fonctionelle dans une clé USB ou un disque externe pour pouvoir être transporter d'un appareil à l'autre.
 
-[![Page d'installation de Git Windows](images\readme\GitWin.png)](https://git-scm.com)
+<a href="https://git-scm.com/download/win">
+	<img src="images\readme\GitWin.png" alt="Page d'installation de Git Windows">
+</a>
 
 ### 2. Quelques extensions
 
