@@ -1,0 +1,139 @@
+body {
+    font-family: Poppins, sans-serif;
+    background-color: #ffffff; /* Couleur de fond */
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 64px;
+    color: rgb(0, 0, 0);
+}
+#header {
+    background-color: #5C57A1; /* Couleur du header */
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border-bottom: 2px solid #333; /* Largeur de la barre de navigation */
+    margin-bottom: 30px; /* Espacement vertical */
+}
+#menu {
+    display: flex;
+}
+#menu a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 20px;
+    margin-left:20px;
+    position: relative;
+    padding: 10px; /* Espacement autour des liens */
+
+}
+#menu a:hover {
+    color: #ffdf43;
+}
+#auth {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+/* Ajout du style pour le formulaire */
+#connexion {
+    background-color: #000000;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    position: relative;
+    margin-right: 10px; /* Espacement entre les liens */
+}
+#connexion:hover {
+    background-color: #8e9ed1;
+    color: #ffffff;
+}
+#inscription {
+    background-color: #5C57A1; /* Couleur du bouton Inscription */
+    color: #ffffff;
+    padding: 10px 20px; /* Ajustement de l'espacement interne */
+    margin-top: 5px; /* Espacement depuis le haut */
+    border: none;
+    border-radius: 5px; /* Arrondi de 5 pixels pour le bouton Inscription */
+    cursor: pointer;
+    display: block; /* Affichage en bloc pour centrer */
+    margin: 0 auto; /* Centrage horizontal */
+    width: 107px; /* Largeur */
+    font-size: 16px; /* Taille de police */
+    text-decoration: none;
+}
+#inscription:hover {
+    color: #ffdf43;
+}
+.center {
+    display: block; /* Permet de centrer l'image */
+    margin: auto;
+}
+#content {
+    padding: 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    text-align: center; /* Centrage du contenu */
+    margin-bottom: 30px; /* Espacement vertical */
+}
+#content form {
+    display: inline-block;
+    text-align: left; /* Alignement du texte à gauche dans le formulaire */
+}
+#content label {
+    margin-bottom: 6px; /* Espacement de 6 pixels entre le titre et la case */
+    display: block;
+}
+#content input[type="text"], #content input[type="email"], #content input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #8e9ed1;
+    width: 257px; /* Largeur de la case */
+}
+#content input[type="submit"] {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #5C57A1;
+    color: #ffffff;
+    cursor: pointer;
+}
+#content input[type="submit"]:hover {
+    background-color: #8e9ed1;
+}
+#content input[type="submit"]:hover {
+    background-color: #8e9ed1;
+}
+#loginLink {
+    margin-top: 20px; /* Espacement depuis le bouton S'inscrire */
+    font-style: italic; /* Texte en italique */
+}
+/* Styles CSS pour le footer */
+#footer {
+    background-color: #5C57A1; /* Couleur du footer */
+    padding: 20px 0;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between; /* Pour aligner les frames sur l'horizontale */
+} 
+#statuts a {
+    text-decoration: none;
+    color:#ffffff;
+    cursor: pointer;
+}
+#statuts:hover {
+    color: #ffffff;
+}
+.frame1, .frame3 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
