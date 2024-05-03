@@ -1,0 +1,77 @@
+@import url(components/navBar.css);
+@import url(components/footer.css);
+@import url(components/fonts.css);
+
+/*Modification nav bar*/
+#btnNav{
+	color: white;
+}
+
+.navbar{
+    background-color: var(--irisPurple);
+}
+
+header{
+	position: relative;
+}
+
+header nav{
+	z-index: 99;
+}
+
+header:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20vh;
+	width: 100%;
+	background-color: var(--irisPurple);
+	clip-path: polygon(0 0, 0 57%, 15% 80%, 65% 55%, 100% 100%, 100% 0, 0 0);
+	z-index: 90;
+}
+
+main{
+    padding:15vh 0 0 0;
+}
+
+hgroup{
+    height:77vh;
+    row-gap: 10vh;
+}
+
+.border{
+	border-radius:50px;
+}
+
+.case{
+	border-radius:10px;
+	background-color: var(--irisBlue);
+	height:6vh;
+	width:70vw;
+	color:white;
+}
+
+.case2{
+	width: 100%;
+	border-radius:10px;
+	color:white;
+	background-color: var(--irisBlue);
+	resize: none;
+	overflow: hidden;
+}
+
+#envoyer{
+	background-color:var(--irisPurple);
+	color:white;
+	border-radius:10px;
+	width:20vw;
+	height:7vh;
+}
+
+/*Les couleurs du placeholder de la description*/
+
+textarea::placeholder{
+	color: white;
+	padding-left: .5vw;
+}
