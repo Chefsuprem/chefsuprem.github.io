@@ -100,8 +100,3 @@ hgroup {
     display: block; /* Affichage en bloc pour centrer */
     margin: 0 auto; /* Centrage horizontal */
 }
-}
-.frame1, .frame3 {
-    margin-left: 20px;
-    margin-right: 20px;
-}
