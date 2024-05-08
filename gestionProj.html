@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gestion de projet</title>
+
+	<!--Liens externes-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+	<!--Local-->
+	<link rel="stylesheet" href="CSS/gestionProj.css">
+</head>
+<body class="position-relative">
+
+	<!--Début sidebar-->
+	<article id="sidebar" class="col-3 d-flex flex-column position-absolute gap-3 overflow-hidden" style="height: 100vh;">
+		<section id="navGestion" class="d-flex justify-content-between py-2 px-2 bg-white">
+			<nav class="col-9 navbar m-0">
+				<ul class="col-12 list-unstyled navbar-nav gap-2">
+					<li class="d-flex navbar-item mainBtn px-3 align-items-center">
+						<i class='bx bx-home-alt bx-md'></i>
+						<button class="btn text-white typTxtOrdi16">Home</button>
+					</li>
+					<li class="d-flex navbar-item mainBtn px-3 align-items-center px-2">
+						<i class='bx bxs-widget bx-md'></i>
+						<button class="btn text-white typTxtOrdi16">My Work</button>
+					</li>
+				</ul>
+			</nav>
+			<i class='col-2 bx bx-chevron-left bx-lg'></i>
+		</section>
+		<section class="bg-white container-fluid pe-4 overflow-y-scroll">
+
+			<!--Section de sélection de projets-->
+			<section class="d-flex pt-3 pb-4 sticky-top bg-white">
+				<div class="d-flex align-items-center col" style="flex: auto;">
+					<h3 class="typTxtOrdi16 fs-3">Nom Projet</h3>
+					<i class='bx bx-chevron-down bx-md ms-2' style="transform: translateY(-.3vh)"></i>
+				</div>
+				<div class="d-flex col justify-content-end align-items-center" style=" flex: 1;">
+					<i class='bx bxs-bell bx-md' ></i>
+				</div>
+			</section>
+
+			<div id="widWrapper" class="d-flex flex-column gap-4">
+
+				<!--Section de personnalisation du widget n°1-->
+				<section id="widTaches" class="flex-column">
+					<div id="wrapper" class="d-flex">
+						<div class="d-flex container-fluid align-items-center col p-0" style="flex: auto;">
+							<div id="btnWrap" class="d-flex justify-content-between align-items-center" style="width: 22%;">
+								<i class='bx bx-show-alt bx-md' ></i>
+								<i class='bx bxs-down-arrow bx-xsm' ></i>
+							</div>
+							<h3 class="ms-3 my-0 me-0 typTxtOrdi16">Tâches</h3>
+						</div>
+						<div class="d-flex justify-content-center" style="flex: 1;">
+						
+							<i class='bx bx-menu bx-md' ></i>
+						</div>
+					</div>
+					<ul class="list-unstyled ms-4 mt-4">
+						<li class="d-flex align-items-center mb-3">
+							<i class='bx bx-plus bx-md' style="transform: translateY(.3vh);"></i>
+							<p class="m-0 ms-2 fs-6 typTxtOrdi16">Ajouter une tâche</p>
+						</li>
+						<li class="d-flex align-items-center mb-3">
+							<i class='bx bx-checkbox bx-md' ></i>
+							<p class="m-0 ms-2 fs-6 typTxtOrdi16">Tâches principales</p>
+						</li>
+						<li class="d-flex align-items-center mb-3">
+							<i class='bx bx-checkbox bx-md' ></i>
+							<p class="m-0 ms-2 fs-6 typTxtOrdi16">Echéancier</p>
+						</li>
+						<li class="d-flex align-items-center">
+							<i class='bx bx-checkbox bx-md' ></i>
+							<p class="m-0 ms-2 fs-6 typTxtOrdi16">Détails/Jours</p>
+						</li>
+					</ul>
+				</section>
+
+				<!--Section personnalisation du widget n°2-->
+				<section id="widProfils" class="d-flex flex-column">
+					<div id="wrapper" class="d-flex">
+						<div class="d-flex container-fluid align-items-center col p-0" style="flex: auto;">
+							<div id="btnWrap" class="d-flex justify-content-between align-items-center" style="width: 22%;">
+								<i class='bx bx-show-alt bx-md' ></i>
+								<i class='bx bxs-down-arrow bx-xsm' ></i>
+							</div>
+							<h3 class="ms-3 my-0 me-0 typTxtOrdi16">Profils</h3>
+						</div>
+						<div class="d-flex justify-content-center" style="flex: 1;">
+							<i class='bx bx-menu bx-md' ></i>
+						</div>
+					</div>
+					<ul class="list-unstyled ms-4 mt-4">
+						<li class="d-flex align-items-center mb-3">
+							<i class='bx bx-plus bx-md' style="transform: translateY(.3vh);"></i>
+							<p class="m-0 ms-2 fs-6 typTxtOrdi16">Ajouter un membre</p>
+						</li>
+						<li class="d-flex align-items-center mb-3">
+							<i class='bx bx-plus bx-md' style="transform: translateY(.3vh);"></i>
+							<p class="m-0 ms-2 fs-6 typTxtOrdi16">Ajouter un client</p>
+						</li>
+					</ul>
+				</section>
+
+				<!--Section personnalisation du widget n°3-->
+				<section id="widDocs" class="d-flex flex-column">
+					<div id="wrapper" class="d-flex">
+						<div class="d-flex container-fluid align-items-center col p-0" style="flex: auto;">
+							<div id="btnWrap" class="d-flex justify-content-between align-items-center" style="width: fit-content;">
+								<i class='bx bx-show-alt bx-md' ></i>
+							</div>
+							<h3 class="ms-3 my-0 me-0 typTxtOrdi16">Documents Récents</h3>
+						</div>
+						<div class="d-flex justify-content-center" style="flex: 1;">
+							<i class='bx bx-menu bx-md' ></i>
+						</div>
+					</div>
+					<ul class="list-unstyled ms-4 mt-4">
+
+					</ul>
+				</section>
+			</div>
+			
+			<section id="hPanel" class="d-flex flex-column">
+				<h3 class="ms-3 my-0 me-0 typTxtOrdi16">Home Panel</h3>
+				<ul class="list-unstyled mx-4 mt-4">
+					<li class="d-flex align-items-center mb-3 justify-content-around">
+						<i class='bx bx-fullscreen bx-md'></i>
+						<p class="fs-6 typTxtOrdi16 m-0">Widget Principal</p>
+						<div class="dropdown">
+							<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Vide</button>
+							<ul class="dropdown-menu">
+								
+							</ul>
+
+						</div>
+					</li>
+					<li class="d-flex align-items-center mb-3 justify-content-around">
+						<i class='bx bxs-window-alt bx-md' ></i>
+						<p class="fs-6 typTxtOrdi16 m-0 px-2">Widget Simple 1</p>
+						<div class="dropdown">
+							<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Vide</button>
+							<ul class="dropdown-menu">
+								
+							</ul>
+
+						</div>
+					</li>
+					<li class="d-flex align-items-center mb-3 justify-content-around">
+						<i class='bx bxs-window-alt bx-md' ></i>
+						<p class="fs-6 typTxtOrdi16 m-0 px-2">Widget Simple 2</p>
+						<div class="dropdown">
+							<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Vide</button>
+							<ul class="dropdown-menu">
+								
+							</ul>
+
+						</div>
+					</li>
+					<li class="d-flex align-items-center mb-3 justify-content-around">
+						<i class='bx bxs-window-alt bx-md' ></i>
+						<p class="fs-6 typTxtOrdi16 m-0 px-2">Widget Simple 3</p>
+						<div class="dropdown">
+							<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Vide</button>
+							<ul class="dropdown-menu">
+								
+							</ul>
+
+						</div>
+					</li>
+					<li class="d-flex align-items-center mb-3 justify-content-around">
+						<i class='bx bxs-window-alt bx-md' ></i>
+						<p class="fs-6 typTxtOrdi16 m-0 px-2">Widget Simple 4</p>
+						<div class="dropdown">
+							<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Vide</button>
+							<ul class="dropdown-menu">
+								
+							</ul>
+						</div>
+					</li>
+					<li class="d-flex align-items-center mb-3 ps-2" style="gap: 1vw;">
+						<i class='bx bx-vertical-bottom bx-md'></i>
+						<p class="fs-6 typTxtOrdi16 m-0 px-2">Widget Footer</p>
+						<div class="dropdown">
+							<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Vide</button>
+							<ul class="dropdown-menu">
+								
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</section>
+		</section>
+	</article>
+	<!--Fin sidebar-->
+
+	<header>
+
+	</header>
+	<main>
+
+	</main>
+	<footer>
+
+	</footer>
+
+	<!--Scripts Externes-->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+	<!--Scripts Locaux-->
+	<script src="JS/sidebarGestion.js"></script>
+</body>
+</html>

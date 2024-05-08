@@ -1,0 +1,25 @@
+
+@import url(components/navBar.css);
+@import url(components/fonts.css);
+@import url(components/footer.css);
+
+body{
+	background-color: var(--gestionBg);
+}
+
+.mainBtn{
+	width: 100%;
+	border-radius: 10px;
+	background-color: var(--irisBlue);
+}
+
+
+/*Condition de role d'utilisateurs*/
+
+#widTaches{
+	display: none;
+}
+
+#widTaches.active{
+	display: flex;
+}
