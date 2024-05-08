@@ -12,10 +12,10 @@
 	<!--Local-->
 	<link rel="stylesheet" href="CSS/gestionProj.css">
 </head>
-<body class="position-relative">
+<body class="d-flex gap-3 pe-3 position-relative">
 
 	<!--Début sidebar-->
-	<article id="sidebar" class="col-3 d-flex flex-column position-absolute gap-3 overflow-hidden" style="height: 100vh;">
+	<article id="sidebar" class="col-3 d-flex flex-column gap-3 overflow-hidden" style="height: 100vh; position: sticky; top: 0;">
 		<section id="navGestion" class="d-flex justify-content-between py-2 px-2 bg-white">
 			<nav class="col-9 navbar m-0">
 				<ul class="col-12 list-unstyled navbar-nav gap-2">
@@ -126,6 +126,7 @@
 				</section>
 			</div>
 			
+			<!--====== Home Panel ======-->
 			<section id="hPanel" class="d-flex flex-column">
 				<h3 class="ms-3 my-0 me-0 typTxtOrdi16">Home Panel</h3>
 				<ul class="list-unstyled mx-4 mt-4">
@@ -199,15 +200,59 @@
 	</article>
 	<!--Fin sidebar-->
 
-	<header>
+	<!--Début contenu de la page-->
 
-	</header>
-	<main>
+	<article id="pageContent" class="d-flex flex-column container-fluid m-0 p-0 gap-3">
+		<header class="d-flex container-fluid justify-content-between py-4 px-4 bg-white">
+			<hgroup class="col-6">
+				<h1 class="typTtrOrdi50">Phrase D'accueil</h1>
+				<p class="typSsTtrOrdi18">Phrase complémentaire</p>
+			</hgroup>
+			<div class="d-flex gap-5 container col-5 m-0 p-0">
+				<div id="status" class="d-flex flex-column text-end justify-content-center" style="flex: auto;">
+					<h2>Nom Prénom</h2>
+					<p>Status</p>
+				</div>
+				<div id="imgProfil" style="width: 100%; flex: 2;">
+					<img class="img-fluid rounded-circle" src="images/images_profils/_5e10ee16-9e02-4f5a-8157-4b78b046b1db.jpg" alt="Image de profil de l'utilisateur">
+				</div>
+			</div>
+		</header>
+		<main style="height: 200vh; overflow: hidden;">
 
-	</main>
-	<footer>
+			<!--Positionnement des emplacements de widgets-->
+			<article id="widgetPrincipal" class="bg-white container-fluid p-2 ps-4 mb-2" style="height: 20%;">
+				<h3>Widget Principal</h3>
 
-	</footer>
+			</article>
+			<article class="wrapper d-flex flex-column" style="height: 60%;">
+				<div class="row container-fluid m-0 p-0 justify-content-between gap-2 mb-2" style="height: 50%;">
+					<section id="widgetSimple1" class="bg-white p-2 ps-4" style="flex: 6;">
+						<h3>Widget Simple 1</h3>
+		
+					</section>
+					<section id="widgetSimple2" class="bg-white p-2 ps-4" style="flex: 6;">
+						<h3>Widget Simple 2</h3>
+		
+					</section>
+				</div>
+				<div class="row container-fluid m-0 p-0 justify-content-between gap-2 mb-2" style="height: 50%">
+					<section id="Simple3" class="bg-white p-2 ps-4" style="flex: 6;">
+						<h3>Widget Simple 3</h3>
+		
+					</section>
+					<section id="Simple4" class="bg-white p-2 ps-4" style="flex: 6;">
+						<h3>Widget Simple 4</h3>
+		
+					</section>
+				</div>
+			</article>
+			<article id="widgetPrincipal" class="bg-white container-fluid p-2 ps-4" style="height: 20%;">
+				<h3>Widget Footer</h3>
+
+			</article>
+		</main>
+	</article>
 
 	<!--Scripts Externes-->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

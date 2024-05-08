@@ -200,5 +200,3 @@ for (let i = 0; i < dd.length; i++){
 		}
 	})
 }
-
-//====== A L'EXECUTION DU SCRIPT (loop) ======
