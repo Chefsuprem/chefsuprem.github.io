@@ -1,96 +1,84 @@
+@import url(components/navBar.css);
+@import url(components/footer.css);
+@import url(components/fonts.css);
+
+#btnNav{
+	color: white;
+}
+
+.navbar {
+    background-color: var(--irisPurple);
+}
+
 body {
     font-family: Poppins, sans-serif;
-    background-color: #ffffff; /* Couleur de fond */
-    margin: 0;
-    padding: 0;
 }
-h1 {
-    font-family: 'Fredoka One', sans-serif;
-    font-size: 64px;
-    color: rgb(0, 0, 0);
-}
-#header {
-    background-color: #5C57A1; /* Couleur du header */
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    border-bottom: 2px solid #333; /* Largeur de la barre de navigation */
-    margin-bottom: 30px; /* Espacement vertical */
-}
-#menu {
-    display: flex;
-}
-#menu a {
-    text-decoration: none;
-    color: #ffffff;
-    margin-right: 20px;
-    margin-left:20px;
-    position: relative;
-    padding: 10px; /* Espacement autour des liens */
 
-}
-#menu a:hover {
-    color: #ffdf43;
-}
-#auth {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-/* Ajout du style pour le formulaire */
-#connexion {
-    background-color: #000000;
-    text-decoration: none;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 20px;
+header {
     position: relative;
-    margin-right: 10px; /* Espacement entre les liens */
 }
-#connexion:hover {
-    background-color: #8e9ed1;
-    color: #ffffff;
+
+header nav {
+    z-index: 99;
 }
-#inscription {
-    background-color: #5C57A1; /* Couleur du bouton Inscription */
-    color: #ffffff;
-    padding: 10px 20px; /* Ajustement de l'espacement interne */
-    margin-top: 5px; /* Espacement depuis le haut */
-    border: none;
-    border-radius: 5px; /* Arrondi de 5 pixels pour le bouton Inscription */
-    cursor: pointer;
-    display: block; /* Affichage en bloc pour centrer */
-    margin: 0 auto; /* Centrage horizontal */
-    width: 107px; /* Largeur */
-    font-size: 16px; /* Taille de police */
-    text-decoration: none;
+
+header:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20vh;
+    width: 100%;
+    background-color: var(--irisPurple);
+    clip-path: polygon(0 0, 0 57%, 15% 80%, 65% 55%, 100% 100%, 100% 0, 0 0);
+    z-index: 90;
 }
-#inscription:hover {
-    color: #ffdf43;
+
+main {
+    padding: 15vh 0 0 0;
 }
+
+/* Styles spécifiques au contenu */
+main {
+    padding: 15vh 0 0 0;
+}
+
+hgroup {
+    height: auto; /* Ajustement de la hauteur automatique */
+    margin-bottom: 30px; /* Espacement entre le texte et le formulaire */
+    margin-top: 30px; /* Espacement entre l'image de l'oeil et le formulaire'*/ 
+}
+
 .center {
     display: block; /* Permet de centrer l'image */
     margin: auto;
 }
-#content {
+
+.contenu {
     padding: 20px;
     background-color: #ffffff;
     color: #000000;
     border-radius: 10px;
     text-align: center; /* Centrage du contenu */
     margin-bottom: 30px; /* Espacement vertical */
+    padding-bottom: 10vh;
 }
-#content form {
+
+.contenu form {
     display: inline-block;
     text-align: left; /* Alignement du texte à gauche dans le formulaire */
 }
-#content label {
+.w-100 {
+    max-width: 400px;
+}
+.contenu label {
     margin-bottom: 6px; /* Espacement de 6 pixels entre le titre et la case */
     display: block;
 }
-#content input[type="text"], #content input[type="email"], #content input[type="password"] {
+
+.contenu input[type="text"],
+.contenu input[type="email"],
+.contenu input[type="password"] {
     padding: 10px;
     margin-bottom: 10px;
     border: none;
@@ -98,42 +86,34 @@ h1 {
     background-color: #8e9ed1;
     width: 257px; /* Largeur de la case */
 }
-#content input[type="submit"] {
-    padding: 14px 20px;
+
+.contenu input[type="submit"] {
     border: none;
-    border-radius: 10px;
+    border-radius: 5px; /*Arrondis les angles de 5*/
     background-color: #5C57A1;
     color: #ffffff;
     cursor: pointer;
+    padding: 5px 8px;
 }
-#content input[type="submit"]:hover {
+
+.contenu input[type="submit"]:hover {
     background-color: #8e9ed1;
 }
-#content input[type="submit"]:hover {
-    background-color: #8e9ed1;
-}
+
+
 #loginLink {
     margin-top: 20px; /* Espacement depuis le bouton S'inscrire */
     font-style: italic; /* Texte en italique */
 }
-/* Styles CSS pour le footer */
-#footer {
-    background-color: #5C57A1; /* Couleur du footer */
-    padding: 20px 0;
-    text-align: center;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between; /* Pour aligner les frames sur l'horizontale */
-} 
-#statuts a {
-    text-decoration: none;
-    color:#ffffff;
-    cursor: pointer;
+
+#loginLink :hover {
+    text-decoration: none; /* Supprimer le soulignement */
+    background-color: #5C57A1;
 }
-#statuts:hover {
-    color: #ffffff;
+
+#inscrire { /* Bouton s'inscrire*/
+    display: block; /* Affichage en bloc pour centrer */
+    margin: 15px auto; /* Centrage horizontal */
 }
-.frame1, .frame3 {
-    margin-left: 20px;
-    margin-right: 20px;
-}
+
+
