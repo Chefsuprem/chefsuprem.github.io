@@ -130,7 +130,7 @@
 			<section id="hPanel" class="d-flex flex-column">
 				<h3 class="ms-3 my-0 me-0 typTxtOrdi16">Home Panel</h3>
 				<ul class="list-unstyled mx-4 mt-4">
-					<li class="d-flex align-items-center mb-3 justify-content-around">
+					<li id="principal" class="d-flex align-items-center mb-3 justify-content-around">
 						<i class='bx bx-fullscreen bx-md'></i>
 						<p class="fs-6 typTxtOrdi16 m-0">Widget Principal</p>
 						<div class="dropdown">
@@ -141,7 +141,7 @@
 
 						</div>
 					</li>
-					<li class="d-flex align-items-center mb-3 justify-content-around">
+					<li id="simple1" class="d-flex align-items-center mb-3 justify-content-around">
 						<i class='bx bxs-window-alt bx-md' ></i>
 						<p class="fs-6 typTxtOrdi16 m-0 px-2">Widget Simple 1</p>
 						<div class="dropdown">
@@ -152,7 +152,7 @@
 
 						</div>
 					</li>
-					<li class="d-flex align-items-center mb-3 justify-content-around">
+					<li id="simple2" class="d-flex align-items-center mb-3 justify-content-around">
 						<i class='bx bxs-window-alt bx-md' ></i>
 						<p class="fs-6 typTxtOrdi16 m-0 px-2">Widget Simple 2</p>
 						<div class="dropdown">
@@ -163,7 +163,7 @@
 
 						</div>
 					</li>
-					<li class="d-flex align-items-center mb-3 justify-content-around">
+					<li id="simple3" class="d-flex align-items-center mb-3 justify-content-around">
 						<i class='bx bxs-window-alt bx-md' ></i>
 						<p class="fs-6 typTxtOrdi16 m-0 px-2">Widget Simple 3</p>
 						<div class="dropdown">
@@ -174,7 +174,7 @@
 
 						</div>
 					</li>
-					<li class="d-flex align-items-center mb-3 justify-content-around">
+					<li id="simple4" class="d-flex align-items-center mb-3 justify-content-around">
 						<i class='bx bxs-window-alt bx-md' ></i>
 						<p class="fs-6 typTxtOrdi16 m-0 px-2">Widget Simple 4</p>
 						<div class="dropdown">
@@ -184,7 +184,7 @@
 							</ul>
 						</div>
 					</li>
-					<li class="d-flex align-items-center mb-3 ps-2" style="gap: 1vw;">
+					<li id="footer" class="d-flex align-items-center mb-3 ps-2" style="gap: 1vw;">
 						<i class='bx bx-vertical-bottom bx-md'></i>
 						<p class="fs-6 typTxtOrdi16 m-0 px-2">Widget Footer</p>
 						<div class="dropdown">
@@ -214,43 +214,60 @@
 					<p>Status</p>
 				</div>
 				<div id="imgProfil" style="width: 100%; flex: 2;">
-					<img class="img-fluid rounded-circle" src="images/images_profils/_5e10ee16-9e02-4f5a-8157-4b78b046b1db.jpg" alt="Image de profil de l'utilisateur">
+					<img class="img-fluid rounded-circle" src="images/images_profils/ppTest.jpg" alt="Image de profil de l'utilisateur">
 				</div>
 			</div>
 		</header>
 		<main style="height: 200vh; overflow: hidden;">
 
 			<!--Positionnement des emplacements de widgets-->
-			<article id="widgetPrincipal" class="bg-white container-fluid p-2 ps-4 mb-2" style="height: 20%;">
-				<h3>Widget Principal</h3>
+			<section id="principal" class="bg-white container-fluid p-2 ps-4 mb-2 overflow-hidden" style="height: 20%;">
+				<section id="titre" class="container-fluid m-0 p-0">
+					<h3>Widget Principal</h3>
+				</section>
 
-			</article>
-			<article class="wrapper d-flex flex-column" style="height: 60%;">
+			</section>
+			<div class="wrapper d-flex flex-column" style="height: 60%;">
 				<div class="row container-fluid m-0 p-0 justify-content-between gap-2 mb-2" style="height: 50%;">
-					<section id="widgetSimple1" class="bg-white p-2 ps-4" style="flex: 6;">
-						<h3>Widget Simple 1</h3>
+					<section id="simple1" class="bg-white p-2 ps-4" style="flex: 6;">
+						<section id="titre">
+							<h3>Widget Simple 1</h3>
+
+						</section>
 		
 					</section>
-					<section id="widgetSimple2" class="bg-white p-2 ps-4" style="flex: 6;">
-						<h3>Widget Simple 2</h3>
+					<section id="simple2" class="bg-white p-2 ps-4" style="flex: 6;">
+						<section id="titre">
+							<h3>Widget Simple 2</h3>
+
+						</section>
 		
 					</section>
 				</div>
 				<div class="row container-fluid m-0 p-0 justify-content-between gap-2 mb-2" style="height: 50%">
-					<section id="Simple3" class="bg-white p-2 ps-4" style="flex: 6;">
-						<h3>Widget Simple 3</h3>
+					<section id="simple3" class="bg-white p-2 ps-4" style="flex: 6;">
+						<section id="titre">
+							<h3>Widget Simple 3</h3>
+
+						</section>
 		
 					</section>
 					<section id="Simple4" class="bg-white p-2 ps-4" style="flex: 6;">
-						<h3>Widget Simple 4</h3>
+						<section id="titre">
+							<h3>Widget Simple 4</h3>
+
+						</section>
 		
 					</section>
 				</div>
-			</article>
-			<article id="widgetPrincipal" class="bg-white container-fluid p-2 ps-4" style="height: 20%;">
-				<h3>Widget Footer</h3>
+			</div>
+			<section id="footer" class="bg-white container-fluid p-2 ps-4" style="height: 20%;">
+				<section id="titre">
+					<h3>Widget Footer</h3>
 
-			</article>
+				</section>
+
+			</section>
 		</main>
 	</article>
 
@@ -259,6 +276,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 	<!--Scripts Locaux-->
-	<script src="JS/sidebarGestion.js"></script>
+	<script type="module" src="JS/gestionProjet/sidebarGestion.js"></script>
 </body>
 </html>
