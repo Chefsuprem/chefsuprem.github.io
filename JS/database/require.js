@@ -2,6 +2,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,42 +28,44 @@ const db = getFirestore(app);
 
 //============ Connexion ============
 
-//Récupération de la requête de connexion
-let urlBrut = document.location.search;
-let membre = [];
+////Récupération de la requête de connexion
+//let urlBrut = document.location.search;
+//let membre = [];
 
-function url(urlBrut){
-	let net = (urlBrut.substring(1)).split("&").forEach((string => {
-		let position = (string.indexOf("=") + 1);
-		let cle = string.substring(0, position - 1);
-		let value = string.substring(position);
-		membre[cle] = value;
-	}));
-};
+//function url(urlBrut){
+//	let net = (urlBrut.substring(1)).split("&").forEach((string => {
+//		let position = (string.indexOf("=") + 1);
+//		let cle = string.substring(0, position - 1);
+//		let value = string.substring(position);
+//		membre[cle] = value;
+//	}));
+//};
 
 
-//Récupération de données 
+////Récupération de données 
 
-function Doc(doc){
-	console.log(doc.data().prenomMem);
-	console.log(membre["prenom"]);
+//function Doc(doc){
+//	console.log(doc.data().prenomMem);
+//	console.log(membre["prenom"]);
 
-//Condition de connexion
-	if ((doc.data().prenomMem == membre["prenom"]) && (doc.data().nomMem == membre["nom"])){
-		window.open("../sucess.html", "_self");
-	}
-}
+////Condition de connexion
+//	if ((doc.data().prenomMem == membre["prenom"]) && (doc.data().nomMem == membre["nom"])){
+//		window.open("../sucess.html", "_self");
+//	}
+//}
 
-async function getMember(db){
-	const memberCol = collection(db, "Membre");
-	const memberSnapshot = await getDocs(memberCol);
-	const memberList = memberSnapshot.docs.forEach(doc => {
-		Doc(doc);
-	});
-}
+//async function getMember(db){
+//	const memberCol = collection(db, "Membre");
+//	const memberSnapshot = await getDocs(memberCol);
+//	const memberList = memberSnapshot.docs.forEach(doc => {
+//		Doc(doc);
+//	});
+//}
 
-//Condition de connexion
-if (document.location.search != null){
-	url(urlBrut);
-	getMember(db);
-}
+////Condition de connexion
+//if (document.location.search != null){
+//	url(urlBrut);
+//	getMember(db);
+//}
+
+export { app, db };
