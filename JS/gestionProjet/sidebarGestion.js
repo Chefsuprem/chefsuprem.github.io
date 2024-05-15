@@ -1,4 +1,7 @@
 
+import { assigner } from "./components/widgetsDef.js";
+
+
 //====== AU CHARGEMENT DU SCRIPT ======
 
 const state = ["admin", "membre", "client"];
@@ -66,7 +69,6 @@ for (let i = 0; i < dd.length; i++){
 	//Ajout des écouteurs d'évènements sur chaques Items pour pouvoir créer l'interaction souhaitée
 	dd[i].addEventListener("click", (event) => {
 		const ddListItems = document.getElementsByClassName("dropdown-item");
-		let verify = Array.from(ddListItems);
 		let flagReset;
 
 		if (event.target.classList.contains("dropdown-item") && event.target.classList.contains("clear") === false) {
@@ -82,24 +84,32 @@ for (let i = 0; i < dd.length; i++){
 
 				panelsList.splice(panelsList.indexOf(ddItem.textContent), 1); //Supprime de la liste des propositions le widget choisi
 
-				let newLi = document.createElement("li");
-				let newA = document.createElement("a");
+				Array.from(ddMenu).forEach((menu) => {
 
-				newA.setAttribute("class", "dropdown-item");
-				newA.textContent = parent.textContent;
-				newA.setAttribute("id", parent.textContent);
+					let newLi = document.createElement("li");
+					let newA = document.createElement("a");
+
+					newA.setAttribute("class", "dropdown-item");
+					newA.textContent = parent.textContent;
+					newA.setAttribute("id", parent.textContent);
+
+					newLi.appendChild(newA);
+
+					menu.appendChild(newLi);
+					
+				});
 
 				parent.textContent = ddItem.textContent; //Affecte comme textContent du parent le widget choisi
 
-				verify.forEach((key) => {
+				Array.from(ddListItems).forEach((key) => {
 					if (key.id == parent.textContent) {
 						
 						key.parentElement.remove();
 					}
 				}) //Supprime de la liste le widget choisi
 
-				newLi.appendChild(newA);
-				menu.appendChild(newLi);
+				//Assignation à l'emplacement
+				assigner(dd[i].parentElement.id, ddItem.textContent);
 
 			} else {
 
@@ -107,7 +117,7 @@ for (let i = 0; i < dd.length; i++){
 
 				parent.textContent = ddItem.textContent;
 
-				verify.forEach((key) => {
+				Array.from(ddListItems).forEach((key) => {
 					if (key.id == parent.textContent) {
 
 						key.parentElement.remove();
@@ -136,6 +146,9 @@ for (let i = 0; i < dd.length; i++){
 					menu.insertBefore(clearLi, menu.firstElementChild);
 					
 				}
+
+				//Assignation à l'emplacement
+				assigner(dd[i].parentElement.id, ddItem.textContent);
 
 			}
 
@@ -168,6 +181,8 @@ for (let i = 0; i < dd.length; i++){
 					menu.appendChild(newLi);
 				})
 
+				//Assignation à l'emplacement
+				assigner(dd[i].parentElement.id, ddItem.textContent);
 			}
 
 
@@ -183,6 +198,7 @@ for (let i = 0; i < dd.length; i++){
 					}
 				})
 			})
+
 
 			if (event.target.classList.contains("dropdown-toggle") && flagReset != true && menu.childElementCount < 6) {
 				
@@ -200,5 +216,3 @@ for (let i = 0; i < dd.length; i++){
 		}
 	})
 }
-
-//====== A L'EXECUTION DU SCRIPT (loop) ======
