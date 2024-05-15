@@ -46,22 +46,22 @@
 	<main>
         <hgroup class="d-flex flex-column container-fluid justify-content-center text-center" style="height:70vh;">
             <h1 class="text-center typTtrOrdi50" style="color:black">Nous contacter</h1>
-            <p class="typSsTtrOrdi18 text-center">Si vous souhaitez nous contacter, merci de remplir le formulaire <br>ci-dessous</p>
+            <p class="typSsTtrOrdi18 text-center" style="color:black;">Si vous souhaitez nous contacter, merci de remplir le formulaire <br>ci-dessous</p>
         </hgroup>
 		<section class="d-flex flex-md-row flex-column container-fluid px-2 px-md-4 px-lg-5 align-items-center justify-content-xl-between justify-content-xxl-center" style="padding-bottom: 10vh;">
 
 			<ul class="d-flex flex-column flex-col-6 col-md-6 m-0 me-lg-3 justify-content-md-start justify-content-center" style="padding-left:0px;">
 				<li class="d-flex flex-md-row flex-column justify-content-center align-items-center">
-					<i class='bx bxs-map' style='color:#5c57a1; font-size:5vh;'></i>
-					<p class="d-flex col-12 col-md-8 typTxtOrdi16 justify-content-md-start m-0 py-2 text-center text-md-start">70 Avenue Roger Devoucoux, 83000 Toulon</p>
+					<i class='bx bxs-map pe-0 pe-md-2' style='color:#5c57a1; font-size:5vh;'></i>
+					<p id="adr" class="d-flex col-12 col-md-8 typTxtOrdi16 justify-content-md-start m-0 py-2 text-center text-md-start">70 Avenue Roger Devoucoux, 83000 Toulon</p>
 				</li>
 				<li class="d-flex flex-md-row flex-column justify-content-center align-items-center">
-					<i class='bx bxs-phone' style='color:#5c57a1; font-size:5vh;'></i>
-					<p class="d-flex col-12 col-md-8 typTxtOrdi16 justify-content-md-start m-0 py-2 justify-content-center">07.69.43.07.54</p>
+					<i class='bx bxs-phone pe-0 pe-md-2' style='color:#5c57a1; font-size:5vh;'></i>
+					<p id="num" class="d-flex col-12 col-md-8 typTxtOrdi16 justify-content-md-start m-0 py-2 justify-content-center">07.69.43.07.54</p>
 				</li>
 				<li class="d-flex flex-md-row flex-column justify-content-center align-items-center">
-					<i class='bx bxs-envelope' style='color:#5c57a1; font-size:5vh;'></i>
-					<p class="d-flex col-12 col-md-8 typTxtOrdi16 justify-content-md-start m-0 py-2 justify-content-center">agence-1ris@gmx.com</p>
+					<i class='bx bxs-envelope pe-0 pe-md-2' style='color:#5c57a1; font-size:5vh;'></i>
+					<p id="adrm" class="d-flex col-12 col-md-8 typTxtOrdi16 justify-content-md-start m-0 py-2 justify-content-center">agence-1ris@gmx.com</p>
 				</li>
 			</ul>
 			
@@ -72,22 +72,22 @@
 
 				<fieldset class="mb-3">
 
-					<label class="typTxtOrdi16 py-1 pt-3" style="color:black" for="nom">Nom</label> <!-- Nom -->
+					<label class="typTxtOrdi16 py-1 pt-3" style="color:black;" for="nom">Nom</label> <!-- Nom -->
 					<input class="case" type="text" id="nom" name="nom" style="width: 100%;" required> <!-- input de type text pour le nom requis pour l'envoie du formulaire-->
 
-					<label class="typTxtOrdi16 py-1 pt-3" style="color:black" for="prenom">Prénom</label> <!-- Prénom -->
+					<label class="typTxtOrdi16 py-1 pt-3" style="color:black;" for="prenom">Prénom</label> <!-- Prénom -->
 					<input class="case" type="text" id="prenom" name="prenom" style="width: 100%;" required><!-- input de type text pour le prénom requis pour l'envoie du formulaire-->
 					
-					<label class="typTxtOrdi16 py-1 pt-3" style="color:black" for="email">Email </label> <!-- Email -->
+					<label class="typTxtOrdi16 py-1 pt-3" style="color:black;" for="email">Email </label> <!-- Email -->
 					<input class="case" type="email" id="email" name="email" style="width: 100%;" required> <!-- input de type email pour l'adresse mail requis pour l'envoie du formulaire-->                      
 					
-					<label class="typTxtOrdi16 py-1 pt-3" style="color:black" for="description">Description</label> <!-- Message -->
+					<label class="typTxtOrdi16 py-1 pt-3" style="color:black;" for="description">Description</label> <!-- Message -->
 					<textarea class="case2" id="description" name="date" placeholder="Votre message"></textarea><!-- input de type date pour la date de naissance requis pour l'envoie du formulaire-->
 					
 					
 				</fieldset>
 
-					<input type="submit" id="envoyer"> <!-- Bouton de soumission du formulaire -->
+				<button type="submit" id="envoyer" class="typTxtOrdi16">Se connecter</button> <!-- Bouton de soumission du formulaire -->
 			</form>
 		</section>
 		
@@ -121,6 +121,9 @@
         </nav>
     </footer>
 
+	<!--Scripts externes-->
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 	<!--Scripts Locaux-->
 	<script src="/JS/contact.js"></script>
 </body>
