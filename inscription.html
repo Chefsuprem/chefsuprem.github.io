@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="inscription.css">
     </head>
     <body>
-<<<<<<< Updated upstream
         <!--Début header-->
 	<header class="pt-1">
 		<!--Debut navbar-->
@@ -41,36 +40,6 @@
 		<!--Fin navbar-->
 	</header>
 	<!--Fin header-->
-=======
-        <!--Debut header-->
-        <header class="pt-1">
-            <!--Debut navbar-->
-            <nav class="navbar navbar-expand-lg px-5 justify-content-center justify-content-lg-start">
-                <a href="index.html" class="navbar-brand">
-                    <img src="" alt="Logo de l'agence.">
-                </a>
-                <div class="collapse navbar-collapse justify-content-between">
-                    <ul class="col-lg-7 col-xl-9 navbar-nav align-items-center justify-content-center justify-content-xl-start ps-xl-5 gap-3">
-                        <li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdiMed15" href="blog.html">Blog</a></li>
-                        <li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdiMed15" href="contact.html">Contact</a></li>
-                        <li class="nav-item dropdown">
-                            <a id="btnNav" role="button" class="nav-link-active dropdown-toggle typTxtOrdiBol15"  data-bs-toggle="dropdown">FR</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="inscription.html" class="dropdown-item typTxtOrdiMed15">FR</a></li>
-                                <li><a href="inscriptionen.html" class="dropdown-item typTxtOrdiMed15">EN</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <section class="col-lg-5 col-xl-3 btn-group justify-content-center">
-                        <a href="connexion.html"><button type="button" class="btn connexion bg-white typTxtOrdiMed15">Connexion</button></a>
-                        <a href="inscription.html"><button type="button" class="btn inscription text-white typTxtOrdiMed15">Inscription</button></a>
-                    </section>
-                </div>
-            </nav>
-            <!--Fin navbar-->
-        </header>
-        <!--Fin Header-->
->>>>>>> Stashed changes
         
         <main class="my-5 pt-5">
             <section class="col-12 d-flex flex-column align-items-center gap-3 mb-5">
@@ -84,37 +53,8 @@
             <div id="passwordError" class="error mb-3" style="text-align: center; background-color: #ffdf43;font-weight: bold; /* Mettre en gras */
             font-size: 130%;"></div>
             </section>
-<<<<<<< Updated upstream
             <form class=" col-12 col-md-5 d-flex flex-column align-items-center justify-content-center gap-5 px-3 mx-auto">
                 <fieldset class="d-flex flex-column align-items-center" style="width:100%; max-width: 350px;">
-=======
-            <section class="d-flex container-fluid justify-content-center pt-5 contenu">
-                <div class="d-flex flex-column align-items-center"> <!-- Nouveau conteneur pour centrer verticalement, cela évite que le p parte sur une colonne à droite malgré le fait que tout reste centré -->
-                    <form id="inscriptionForm" onsubmit="return validateForm()" class="w-100">
-                        <label class="typTxtOrdi16" for="nom">Nom :</label>
-                        <input type="text" id="nom" name="nom" required class="form-control mb-3">
-                        
-                        <label for="prenom">Prénom :</label>
-                        <input type="text" id="prenom" name="prenom" required class="form-control mb-3">
-                        
-                        <label for="email">Email :</label>
-                        <input type="email" id="email" name="email" required class="form-control mb-3">
-                        
-                        <label for="mdp">Mot de passe :</label>
-                        <input type="password" id="mdp" name="mdp" required class="form-control mb-3">
-                        
-                        <label for="confMdp">Confirmer le mot de passe :</label>
-                        <input type="password" id="confMdp" name="confMdp" required class="form-control mb-3">
-                        
-                        <input type="submit" value="S'inscrire" id="inscrire" class="btn btn-primary">
-                    </form>
-                    <p id="loginLink" class="mt-3"> <!-- Ajout de la classe mt-3 pour un espace vertical -->
-                        <a href="connexionjour.html"style="color: rgb(0, 0, 0); text-decoration:none; ">Déjà un compte ?</a>
-                    </p>
-                
-                </div>
-            </section>
->>>>>>> Stashed changes
 
                     <label class="typTxtOrdi16" style="color:black; align-self:start;" for="nom">Nom :</label>
                     <input type="text" id="nom" name="nom" required class="case mb-5">
@@ -170,15 +110,9 @@
     </footer>
     <script>
         function validateForm() {
-<<<<<<< Updated upstream
             let password = document.getElementById("motdepasse").value;
             let confirmPassword = document.getElementById("confmotdepasse").value;
             let errorDiv = document.getElementById("passwordError");
-=======
-            var password = document.getElementById("mdp").value;
-            var confirmPassword = document.getElementById("confMdp").value;
-            var errorDiv = document.getElementById("passwordError");
->>>>>>> Stashed changes
             
             if (password !== confirmPassword) {
                 errorDiv.textContent = "Les mots de passe ne correspondent pas.";
