@@ -1,25 +1,43 @@
-import { app, db } from "./require.js";
-import { getAuth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { db } from "./require.js";
+import { getAuth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { collection, doc, getDocs, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const auth = getAuth();
 
 const signUpForm = document.getElementById("inscriptionForm");
+const user = auth.currentUser;
 
 //Inscription
 signUpForm.addEventListener(("submit"), (event) => {
 
 	event.preventDefault(); //Evite le rechargement de la page au submit;
-	console.log(event);
+
+	//Récupération des valeurs pour les users "pending"
+	const pendingLastName = signUpForm["nom"].value;
+	const pendingFirstName = signUpForm["prenom"].value;
 
 	//Définitions du form et des inputs
 	const email = signUpForm["email"].value;
 	const mdp = signUpForm["mdp"].value;
+
+	const colRef = collection(db, "Pending");
+
+	//Création de la collection qui va contenir tout les users
 
 	createUserWithEmailAndPassword(auth, email, mdp)
 	.then((userCred) => {
 		
 		// Signed up 
 		console.log(userCred.user);
+
+		//Création de la collection qui va contenir tout les users
+		setDoc(doc(collection(db, "Pending"), `${userCred.user.uid}`), {
+			
+			nom: pendingLastName,
+			prenom: pendingFirstName,
+			email: email,
+			mdp: mdp
+		});
 
 	})
 	.catch((error) => {
@@ -36,46 +54,49 @@ signUpForm.addEventListener(("submit"), (event) => {
 
 //========== Connexion ==========
 
-//Connexion
-const signInForm = document.getElementById("connexionForm");
+////Connexion
+//const signInForm = document.getElementById("connexionForm");
 
-signInForm.addEventListener(("submit"), (event) => {
+//signInForm.addEventListener(("submit"), (event) => {
 	
-	event.preventDefault();
+//	event.preventDefault();
 
-	const email = signInForm["email"];
-	const mdp = signInForm["mdp"];
+//	const email = signInForm["email"];
+//	const mdp = signInForm["mdp"];
 
-	signInWithEmailAndPassword(auth, email, password)
-	.then((userCred) => {
+//	signInWithEmailAndPassword(auth, email, password)
+//	.then((userCred) => {
 
-		// Signed in 
-		open("../../gestionProj.html", "_self");
-	})
-	.catch((error) => {
+//		// Signed in 
+//		open("../../gestionProj.html", "_self");
+//	})
+//	.catch((error) => {
 
-		console.log(error.code);
-		console.log(error.message);
-	});
+//		console.log(error.code);
+//		console.log(error.message);
+//	});
 
-});
+//});
 
 
-//Réinitialisation de mot de passe
-const mdpResetForm = document.getElementById("mdpResetForm");
+////Réinitialisation de mot de passe
+//const mdpResetForm = document.getElementById("mdpResetForm");
 
-mdpResetForm.addEventListener(("submit"), (event) => {
+//mdpResetForm.addEventListener(("submit"), (event) => {
 	
-	event.preventDefault(); //Evite le rechargement de la page au submit;
+//	event.preventDefault(); //Evite le rechargement de la page au submit;
 
-	const email = mdpResetForm["email"];
+//	const email = mdpResetForm["email"];
 	
-	sendPasswordResetEmail(auth, email)
-	.then(() => {
-		// Prévoir un message qui dit que ça été envoyé
-	})
-	.catch((error) => {
-		console.log(error.code);
-		console.log(error.message);
-	});
-});
+//	sendPasswordResetEmail(auth, email)
+//	.then(() => {
+//		// Prévoir un message qui dit que ça été envoyé
+//	})
+//	.catch((error) => {
+//		console.log(error.code);
+//		console.log(error.message);
+//	});
+//});
+
+export { auth };
+

@@ -129,7 +129,7 @@
 			<!--====== Home Panel ======-->
 			<section id="hPanel" class="d-flex flex-column">
 				<h3 class="ms-3 my-0 me-0 typTxtOrdi16">Home Panel</h3>
-				<ul class="list-unstyled mx-4 mt-4">
+				<ol class="list-unstyled mx-4 mt-4">
 					<li id="principal" class="d-flex align-items-center mb-3 justify-content-around">
 						<i class='bx bx-fullscreen bx-md'></i>
 						<p class="fs-6 typTxtOrdi16 m-0">Widget Principal</p>
@@ -194,7 +194,7 @@
 							</ul>
 						</div>
 					</li>
-				</ul>
+				</ol>
 			</section>
 		</section>
 	</article>
@@ -277,5 +277,12 @@
 
 	<!--Scripts Locaux-->
 	<script type="module" src="JS/gestionProjet/sidebarGestion.js"></script>
+
+	<!--Database-->
+	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js"></script>
+
+	<script type="module" src="./JS/database/require.js"></script>
+	<script type="module" src="./JS/database/functions.js"></script>
 </body>
 </html>

@@ -170,50 +170,30 @@ function assigner(emplacement, widget){
 
 	}else if (widget == "validation"){
 
-		let status = "client";
-		let email = "salut.coucou@heya.fr";
-		let mdp = "123456";
-
 		const defaultState = `
 		
 			<section id="titre" class="container-fluid m-0 p-0">
 				<h3>Validation</h3>
 			</section>
 			
-			<ul class="list-unstyled container-fluid p-0 pt-3 m-0">
-				<li class="d-flex container-fluid p-0 pe-2 m-0 justify-content-between">
-					<div id="idWrapper" class="col-8 d-flex gap-2">
-						<img src="../../../images/images_profils/ppTest.jpg" alt="Photo de profil de l'utilisateur." id="ppUser" class="col-6 img-thumbnail rounded-circle" style="max-width: 30%;">
-						
-						<section id="idUser" class="d-flex flex-column" style="flex: auto;">
-							
-							<div class="d-flex align-items-center gap-1">
-								<p class="m-0 typTxtOrdi16 fs-5">Nom Prénom</p>
-								<span class="typTxtOrdi16 fs-5">|</span>
-								<p class="m-0 typTxtOrdi16 fs-6" style=""height: fit-content>date</p>
-							</div>
-							
-							<div class="d-flex flex-column">
-								<p class="m-0 typTxtOrdi16" style="font-size: 9pt;">Statut annoncé: <span>${status}</span></p>
-								<p class="m-0 typTxtOrdi16" style="font-size: 9pt;">Email: <span>${email}</span></p>
-								<p class="m-0 typTxtOrdi16" style="font-size: 9pt;">Mot de passe: <span>${mdp}</span></p>
-							</div>
-						</section>
-					</div>
-					
-					<div class="d-flex flex-column col-4 btnWrapper align-items-center justify-content-center gap-1">
-						
-						<button id="modifBtn" class="btn text-white" style="background-color: var(--irisBlue); height: fit-content;">Modifier</button>
-						
-						<button id="refusBtn" class="btn text-white bg-danger" style="height: fit-content;">Refuser</button>
-						
-					</div>
-				</li>
+			<ul id="usersList" class="list-unstyled container-fluid p-0 pt-3 m-0">
+				
 			</ul>
 		
 		`;
 
 		wrapper.innerHTML = defaultState;
+
+		db.collection("pending").get().then((snapshot) => {
+
+			snapshot.docs.forEach((doc) => {
+				
+				renderPending(doc);
+			});
+		})
+
+		const wrapperUserId = document.getElementById("wrapperUserId");
+		const infos = db.collection
 
 		const liModifTggl = document.querySelectorAll(`main section#${wrapper.id} ul li`);
 
@@ -349,6 +329,35 @@ function assigner(emplacement, widget){
 			<section id="titre" class="container-fluid m-0 p-0">
 				<h3>Résumé des commentaires</h3>
 			</section>
+
+			<ul class="content container-fluid p-0 m-0 list-unstyled">
+				<li class="d-flex flex-column container-fluid p-0 m-0">
+					<h5>Nom de tâche</h5>
+					<ol id="coms" class="ps-5">
+						<li class="d-flex flex-column">
+							<section id="infosUser" class="d-flex">
+								<div class="ppUser" style="max-width: 20%;">
+									<img src="../../../images/images_profils/ppTest.jpg" alt="" class="img-fluid rounded-circle">
+								</div>
+								<div id="idUser" class="row">
+									
+									<p class="m-0">Nom Prénom</p>
+									
+									<span id="onlineState" class="d-flex justify-content-between align-items-center rounded-pill text-white typTxtOrdi16" style="background-color: var(--irisPurple); max-height: 3vh; max-width: 9vw; width: 8.5vw; font-size: 10pt;">
+										déconnecté
+										<span class="bg-danger badge rounded-circle" style="height: 1.6vh;">
+											<span class="visually-hidden">Statut de connexion</span>
+										</span>
+									</span>
+
+								</div>
+								<p id="dateCom" class="m-0">Date commentaire</p>
+							</section>
+							<p id="descCom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto similique vel repellat, distinctio ducimus expedita, obcaecati quam quisquam sapiente dolorum natus sequi suscipit mollitia inventore velit quaerat. Itaque, iste culpa?</p>
+						</li>
+					</ol>
+				</li>
+			</ul>
 			
 		
 		`;
@@ -362,6 +371,8 @@ function assigner(emplacement, widget){
 			<section id="titre" class="container-fluid m-0 p-0">
 				<h3>Dernier widget</h3>
 			</section>
+
+
 		
 		`;
 
