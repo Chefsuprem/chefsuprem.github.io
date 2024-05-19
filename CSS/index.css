@@ -38,6 +38,25 @@ header:after{
 	z-index: 90;
 }
 
+.dark .val{
+	color:var(--irisYellow);
+}
+
+.ident{
+	color:black;
+}
+
+.dark h3{
+	color:white;
+}
+
+.a2{
+	color:white;
+}
+
+.dark .a2{
+	color:var(--blackTheme);
+}
 
 #equipe{
 	width:100%; 
@@ -45,13 +64,12 @@ header:after{
 	border-radius: 32px;
 }
 
-h2{
-	color: var(--irisYellow);
-}
-
 .card{
 	height: 100%;
 	border-color: var(--irisPurple) !important;
+}
+.dark .card{
+	border-color: var(--irisYellow) !important;
 }
 
 /*Identité*/
@@ -61,8 +79,6 @@ h2{
 }
 
 .btnPurp{
-	background-color:var(--irisPurple);
-	color:white;
 	border-radius:12px;
 	max-width:220px;
 	width: 100%;
