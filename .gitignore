@@ -1,0 +1,47 @@
+
+#Ignorer des fichiers css
+!CSS/
+CSS/*
+!CSS/header.css
+!CSS/index.css
+
+#Ignore le contenu du dossier images
+!images/
+images/*
+!Logo.png
+!oeil_bleu_clair.png
+!persona_joyeuse.jpg
+!bg-equipe.png
+!equipe.jpg
+!OeilBleu1.png
+!OeilBleu2.png
+!OeilJaune1.png
+!OeilJaune2.png
+!OeilViolet1.png
+!OeilViolet2.png
+!Brain.jpg
+!RS.jpg
+!Ampoule.jpg
+!Miniature_Charte_Graphique.png
+!Miniature_Charte_Editoriale.png
+
+#Ignore le contenu du dossier JS
+!JS/
+JS/*
+!header.js
+!modesombre.js
+!index.js
+
+#Pages html ignorées
+blog.html
+connexion.html
+contact.html
+
+!fluxrss.xml
+
+gestionProj.html
+inscription.html
+
+!mentionsLegales.html
+
+LICENSE
