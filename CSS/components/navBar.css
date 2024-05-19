@@ -1,0 +1,21 @@
+
+@import url(colors.css);
+
+
+/*Partie Light*/
+#btnNav{
+	text-decoration: none;
+	color: white;
+}
+
+.dropdown-menu{
+	z-index: 99;
+}
+
+
+
+/*Partie Dark*/
+.dark .navbar {
+    background-color: var(--irisYellow); /* Fond jaune en mode sombre */
+    color: var(--blackTheme); /* Texte noir en mode sombre */
+}

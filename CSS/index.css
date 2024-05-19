@@ -1,0 +1,141 @@
+
+@import url(components/navBar.css);
+@import url(components/footer.css);
+@import url(components/fonts.css);
+@import url(components/colors.css);
+
+html{
+	scroll-behavior: smooth;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+	width: 100vw;
+	
+}
+
+/*Pour cacher la barre de scroll tout en gardant la fonctionnalité de scroll sur chrome, safari et opera*/
+body::-webkit-scrollbar{
+	width: 0px;
+	background: transparent;
+
+}
+
+header{
+	position: relative;
+}
+
+header nav{
+	z-index: 99;
+}
+
+header:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20vh;
+	width: 100%;
+	background-color: var(--irisPurple);
+	clip-path: polygon(0 0, 0 57%, 15% 80%, 65% 55%, 100% 100%, 100% 0, 0 0);
+	z-index: 90;
+}
+
+.dark .val{
+	color:var(--irisYellow);
+}
+
+.ident{
+	color:black;
+}
+
+.dark h3{
+	color:white;
+}
+
+.a2{
+	color:white;
+}
+
+.dark .a2{
+	color:var(--blackTheme);
+}
+
+#equipe{
+	width:100%; 
+	max-width: 400pt; 
+	border-radius: 32px;
+}
+
+.card{
+	height: 100%;
+	border-color: var(--irisPurple) !important;
+}
+.dark .card{
+	border-color: var(--irisYellow) !important;
+}
+
+/*Identité*/
+
+.idDoc{
+	text-decoration: none;
+}
+
+.btnPurp{
+	border-radius:12px;
+	max-width:220px;
+	width: 100%;
+	height:7vh;
+	padding:12px 24px;
+}
+
+.btnPurp:hover{
+	background-color:var(--irisBlue);
+}
+
+
+/* Au survol, le mot grossit */
+#valeurs>.hilight:hover {
+    font-size: 1.2em; /* Taille de police agrandie */
+	cursor: default;
+}
+
+.card-img-top{
+    transition: transform 0.3s ease; /* Transition pour un effet de zoom fluide */
+}
+
+.card-img-top:hover{
+	transform: scale(1.1);
+}
+
+#cgraphique>img, #ceditoriale>img {
+    transition: transform 0.3s ease; /* Transition pour un effet de zoom fluide */
+}
+
+#cgraphique>img:hover, #ceditoriale>img:hover{
+	transform: scale(1.1);
+}
+
+#equipeimg{
+    transition: transform 0.3s ease; /* Transition pour un effet de zoom fluide */
+	width:100%;
+	max-width:400pt;
+	border-radius:10px;
+}
+
+#equipeimg:hover{
+	transform: scale(1.1);
+}
+
+#personaimg{
+    transition: transform 0.3s ease; /* Transition pour un effet de zoom fluide */
+}
+
+#personaimg:hover{
+	transform: scale(1.1);
+}

@@ -1,0 +1,160 @@
+@import url(components/navBar.css);
+@import url(components/fonts.css);
+@import url(components/colors.css);
+
+/*btnNav contient tout les textes du header et footer sauf "Connexion" du header qui est établi directement de le html*/
+#btnNav{
+	color: white;
+}
+#btnNav:hover{
+    color:var(--irisBlue);
+}
+.dark #btnNav{
+    color:var(--blackTheme);
+}
+.dark #btnNav:hover{
+	color:var(--irisPurple);
+}
+#toggle-mode {
+    color: white; /* Couleur par défaut Elle a été retirée du lien et placée ici afin de pouvoir utiliser :hover ensuite*/
+}
+  
+#toggle-mode:hover {
+    fill: var(--irisYellow); /* Couleur au survol */
+    cursor: pointer;
+}
+
+.dark #toggle-mode{
+    color: var(--blackTheme);
+    cursor: pointer;
+}
+
+.dark #toggle-mode:hover {
+    fill: var(--irisPurple)!important; /* Couleur au survol */
+}
+
+#btnconnexion:hover{
+    background-color:var(--irisYellow)!important;
+}
+
+.dark #btnconnexion:hover{
+    background-color:var(--irisPurple)!important;
+}
+
+.navbar {
+    background-color: var(--irisPurple);
+}
+
+.nav-link{
+    transition: none;
+}
+
+.dark .navbar {
+    background-color: var(--irisYellow); 
+}
+
+.dark {
+    background-color: var(--blackTheme); /* Couleur de fond pour le mode sombre */
+    color: #ffffff; /* Couleur du texte pour le mode sombre */
+  }
+/* Styles pour le bouton de bascule */
+
+.navbar-toggler:focus { /* Supprimer la bordure de focus du bouton */
+    box-shadow: none;
+}
+
+.navbar-toggler {
+    border: none; /* Supprimer la bordure */
+    background-color: transparent; /* Fond transparent */
+}
+
+/* Styles pour les barres du bouton */
+.bar {
+    display: block;
+    width: 40px; /* Largeur des barres */
+    height: 8px; /* Hauteur des barres */
+    background-color: var(--irisYellow); /* Couleur par défaut pour le mode clair */
+    margin-bottom: 8px;
+}
+
+/* Styles spécifiques pour le mode sombre pour les barres du bouton : le seul paramètre qui change est la couleur*/
+.dark .bar {
+    background-color: var(--irisPurple);
+}
+
+/* Styles pour animer le bouton du menu : cela le grossit légèrement, comme un zoom */
+.navbar-toggler:focus .bar {
+    transform: scale(1.1);
+}
+
+header {
+    position: relative;
+}
+
+header nav {
+    z-index: 99;
+}
+
+header:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20vh;
+    width: 100%;
+    background-color: var(--irisPurple);
+    clip-path: polygon(0 0, 0 57%, 15% 80%, 65% 55%, 100% 100%, 100% 0, 0 0);
+    z-index: 90;
+}
+
+.dark header:after {
+    background-color: var(--irisYellow);
+}
+
+/* Paramètres dans main et qui se répètent sur différentes pages */
+#boutonclassiques{
+    background-color:var(--irisPurple);
+	color:white;
+	border-radius:10px;
+	width:200px;
+	height:7vh;
+}
+
+
+
+
+
+/* Concernant le footer spécifiquement */
+.bxl-instagram-alt {
+    color: var(--irisYellow); /* Changement de la couleur pour le réseau social instagram lorsque nous sommes en version jour*/
+    font-size: 6vh; /* Modifie les dimensions de l'icône*/
+}
+
+.bxl-facebook {
+    color: var(--irisBlue); /* Changement de la couleur pour le réseau social Facebook lorsque nous sommes en version jour*/
+    font-size: 6vh;
+}
+.bxl-linkedin {
+    color: white; /* Changement de la couleur pour le réseau social Linkedin lorsque nous sommes en version jour*/
+    font-size: 6vh;
+}
+
+/* Changment de couleur des icônes au survol en mode jour.: */
+.bxl-instagram-alt:hover, .bxl-linkedin:hover {
+    color: var(--irisBlue); 
+}
+
+.bxl-facebook:hover { /*facebook est différent des deux autres logos car on ne remarquerait pas la différence sinon*/
+    color: white;
+}
+
+/* Changment de couleur des icônes en mode sombre : */
+.dark footer .bxl-instagram-alt, .dark footer .bxl-facebook, .dark footer .bxl-linkedin {
+    color: var(--irisPurple); 
+}
+
+/* Changment de couleur des icônes au survol en mode sombre : */
+.dark footer .bxl-instagram-alt:hover, .dark footer .bxl-facebook:hover, .dark footer .bxl-linkedin:hover {
+    color: var(--irisBlue);
+}
+
