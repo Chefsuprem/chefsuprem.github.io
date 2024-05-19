@@ -16,6 +16,14 @@ html{
 
 body{
 	width: 100vw;
+	
+}
+
+/*Pour cacher la barre de scroll tout en gardant la fonctionnalité de scroll sur chrome, safari et opera*/
+body::-webkit-scrollbar{
+	width: 0px;
+	background: transparent;
+
 }
 
 header{

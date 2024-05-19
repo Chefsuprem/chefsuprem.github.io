@@ -1,4 +1,8 @@
 
+import { db, auth } from "../../database/require.js";
+import { collection, getDocs, doc, query } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { renderPending } from "./functions.js";
 
 function assigner(emplacement, widget){
 		
@@ -184,16 +188,23 @@ function assigner(emplacement, widget){
 
 		wrapper.innerHTML = defaultState;
 
-		db.collection("pending").get().then((snapshot) => {
+		//Tracker d'état de connexion
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
 
-			snapshot.docs.forEach((doc) => {
+				const querySnapshot = getDocs(collection(db, "Pending"));
 				
-				renderPending(doc);
-			});
+				querySnapshot.then((snapshot) => {
+
+					renderPending(snapshot);
+				});
+				
+			}else{
+			console.log("Pas connecté");
+			}
 		})
 
 		const wrapperUserId = document.getElementById("wrapperUserId");
-		const infos = db.collection
 
 		const liModifTggl = document.querySelectorAll(`main section#${wrapper.id} ul li`);
 

@@ -16,12 +16,19 @@
 	color:var(--irisPurple);
 }
 #toggle-mode {
-    fill: rgb(255, 255, 255); /* Couleur par défaut Elle a été retirée du lien et placée ici afin de pouvoir utiliser :hover ensuite*/
+    color: white; /* Couleur par défaut Elle a été retirée du lien et placée ici afin de pouvoir utiliser :hover ensuite*/
 }
   
 #toggle-mode:hover {
     fill: var(--irisYellow); /* Couleur au survol */
+    cursor: pointer;
 }
+
+.dark #toggle-mode{
+    color: var(--blackTheme);
+    cursor: pointer;
+}
+
 .dark #toggle-mode:hover {
     fill: var(--irisPurple)!important; /* Couleur au survol */
 }
@@ -36,6 +43,10 @@
 
 .navbar {
     background-color: var(--irisPurple);
+}
+
+.nav-link{
+    transition: none;
 }
 
 .dark .navbar {

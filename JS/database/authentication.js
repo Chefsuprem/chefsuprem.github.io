@@ -1,82 +1,87 @@
-import { db } from "./require.js";
-import { getAuth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { db, auth } from "./require.js";
+import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { collection, doc, getDocs, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const auth = getAuth();
-
 const signUpForm = document.getElementById("inscriptionForm");
-const user = auth.currentUser;
 
-//Inscription
-signUpForm.addEventListener(("submit"), (event) => {
+if (signUpForm != undefined){
 
-	event.preventDefault(); //Evite le rechargement de la page au submit;
+	//Inscription
+	signUpForm.addEventListener(("submit"), (event) => {
 
-	//Récupération des valeurs pour les users "pending"
-	const pendingLastName = signUpForm["nom"].value;
-	const pendingFirstName = signUpForm["prenom"].value;
+		event.preventDefault(); //Evite le rechargement de la page au submit;
 
-	//Définitions du form et des inputs
-	const email = signUpForm["email"].value;
-	const mdp = signUpForm["mdp"].value;
+		//Récupération des valeurs pour les users "pending"
+		const pendingLastName = signUpForm["nom"].value;
+		const pendingFirstName = signUpForm["prenom"].value;
 
-	const colRef = collection(db, "Pending");
+		//Définitions du form et des inputs
+		const email = signUpForm["email"].value;
+		const mdp = signUpForm["mdp"].value;
 
-	//Création de la collection qui va contenir tout les users
-
-	createUserWithEmailAndPassword(auth, email, mdp)
-	.then((userCred) => {
-		
-		// Signed up 
-		console.log(userCred.user);
+		const colRef = collection(db, "Pending");
 
 		//Création de la collection qui va contenir tout les users
-		setDoc(doc(collection(db, "Pending"), `${userCred.user.uid}`), {
+
+		createUserWithEmailAndPassword(auth, email, mdp)
+		.then((userCred) => {
 			
-			nom: pendingLastName,
-			prenom: pendingFirstName,
-			email: email,
-			mdp: mdp
+			// Signed up 
+			console.log(userCred.user);
+
+			//Création de la collection qui va contenir tout les users
+			setDoc(doc(collection(db, "Pending"), `${userCred.user.uid}`), {
+				
+				nom: pendingLastName,
+				prenom: pendingFirstName,
+				email: email,
+				mdp: mdp
+			});
+
+		})
+		.catch((error) => {
+
+			console.log(error.code);
+			console.log(error.message);
+
+			if (error.code == "auth/email-already-in-use"){
+				alert("Email déjà utilisé !");
+			}
 		});
 
-	})
-	.catch((error) => {
-
-		console.log(error.code);
-		console.log(error.message);
-
-		if (error.code == "auth/email-already-in-use"){
-			alert("Email déjà utilisé !");
-		}
 	});
-
-});
+};
 
 //========== Connexion ==========
 
-////Connexion
-//const signInForm = document.getElementById("connexionForm");
+//Connexion
+const signInForm = document.getElementById("connexionForm");
+//const user = undefined;
 
-//signInForm.addEventListener(("submit"), (event) => {
-	
-//	event.preventDefault();
+if (signInForm != undefined){
 
-//	const email = signInForm["email"];
-//	const mdp = signInForm["mdp"];
+	signInForm.addEventListener(("submit"), (event) => {
+		
+		event.preventDefault();
 
-//	signInWithEmailAndPassword(auth, email, password)
-//	.then((userCred) => {
+		const email = signInForm["email"].value;
+		const mdp = signInForm["mdp"].value;
 
-//		// Signed in 
-//		open("../../gestionProj.html", "_self");
-//	})
-//	.catch((error) => {
+		signInWithEmailAndPassword(auth, email, mdp)
+		.then((userCred) => {
 
-//		console.log(error.code);
-//		console.log(error.message);
-//	});
+			// Signed in 
+			open("../../gestionProj.html", "_self");
 
-//});
+		})
+		.catch((error) => {
+
+			console.log(error.code);
+			console.log(error.message);
+		});
+
+	});
+};
 
 
 ////Réinitialisation de mot de passe

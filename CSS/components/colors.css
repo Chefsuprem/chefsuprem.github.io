@@ -1,6 +1,7 @@
 
 :root{
 	--irisPurple: #5C57A1;
+	--irisPurpleClair: #7973D0;
 	--irisYellow: #FFDE42;
 	--irisBlue: #8C9ED1;
 	--blackTheme: #3D3D3D;
@@ -16,4 +17,3 @@
 .hilight{
 	color: var(--irisPurple);
 }
-
