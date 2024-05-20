@@ -180,7 +180,7 @@ header:after{
 	position: absolute;
 	top: 27%;
 	left: 0;
-	max-height: 70%;
+	height: 70%;
 	max-width: 25%;
 	border: 5px solid var(--irisYellow);
 	border-radius: 5px;
@@ -216,7 +216,7 @@ header:after{
 	position: absolute;
 	top: 27%;
 	left: 0;
-	max-height: 70%;
+	height: 70%;
 	max-width: 25%;
 	border: 5px solid var(--irisYellow);
 	border-radius: 5px;
@@ -252,7 +252,7 @@ header:after{
 	position: absolute;
 	top: 27%;
 	left: 0;
-	max-height: 70%;
+	height: 70%;
 	max-width: 25%;
 	border: 5px solid var(--irisYellow);
 	border-radius: 5px;
@@ -288,7 +288,7 @@ header:after{
 	position: absolute;
 	top: 27%;
 	left: 0;
-	max-height: 70%;
+	height: 70%;
 	max-width: 25%;
 	border: 5px solid var(--irisYellow);
 	border-radius: 5px;
@@ -324,7 +324,7 @@ header:after{
 	position: absolute;
 	top: 27%;
 	left: 0;
-	max-height: 70%;
+	height: 70%;
 	max-width: 25%;
 	border: 5px solid var(--irisYellow);
 	border-radius: 5px;
