@@ -15,6 +15,7 @@
 
 
 /*Partie Dark*/
+
 .dark .navbar {
     background-color: var(--irisYellow); /* Fond jaune en mode sombre */
     color: var(--blackTheme); /* Texte noir en mode sombre */
