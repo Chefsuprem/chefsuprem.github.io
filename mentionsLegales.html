@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X8LP6974C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-3X8LP6974C');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions Légales - Agence 1RIS</title>
@@ -26,10 +36,10 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="col-lg-7 col-xl-9 navbar-nav align-items-center justify-content-center justify-content-xl-start ps-xl-5 gap-3">
-                    <li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdi16" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdi16" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="btnNav nav-link typTxtOrdi16" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="btnNav nav-link typTxtOrdi16" href="contact.html">Contact</a></li>
                     <li class="nav-item dropdown">
-                        <a id="btnNav" role="button" class="nav-link-active dropdown-toggle typTxtOrdi16" href="#" data-bs-toggle="dropdown">FR</a>
+                        <a role="button" class="btnNav nav-link-active dropdown-toggle typTxtOrdi16" href="#" data-bs-toggle="dropdown">FR</a>
                     <ul class="dropdown-menu">
                         <li><a href="inscription.html" class="dropdown-item typTxtOrdi16">FR</a></li>
                         <li><a href="#" class="dropdown-item typTxtOrdi16">EN</a></li>
@@ -40,7 +50,7 @@
                 </ul>
                 <section class="col-lg-5 col-xl-3 btn-group d-flex justify-content-center mt-2 mt-md-0">
                     <button type="button" id="btnconnexion" class="btn connexion bg-white typTxtOrdi16"><a href="connexion.html" style="text-decoration: none; color:black">Connexion</a></button>
-                    <button type="button" class="btn inscription typTxtOrdi16 inscriptionheader"><a href="inscription.html" id="btnNav" style="text-decoration: none;">Inscription</a></button>
+                    <button type="button" class="btn inscription typTxtOrdi16 inscriptionheader"><a href="inscription.html" class="btnNav" style="text-decoration: none;">Inscription</a></button>
                 </section>
             </div>
         </nav>
@@ -89,13 +99,13 @@
             </div>            
             <div class="col-12 col-md-6 col-lg-7 text-center">
                 <ul class="navbar-nav align-items-center justify-content-center gap-lg-5">
-                    <li class="nav-item typTxtOrdi16"><a href="#" id="btnNav" class="nav-link ">Statut juridique</a></li>
-                    <li class="nav-item typTxtOrdi16"><a href="contact.html" id="btnNav" class="nav-link ">Contact</a></li>
-                    <li class="nav-item typTxtOrdi16"><a href="#" id="btnNav" class="nav-link ">Mentions Légales</a></li>
-                    <li class="nav-item typTxtOrdi16"><a href="#" id="btnNav" class="nav-link ">Flux RSS</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="#" class="btnNav nav-link ">Statut juridique</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="contact.html" class="btnNav nav-link ">Contact</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="#" class="btnNav nav-link ">Mentions Légales</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="#" class="btnNav nav-link ">Flux RSS</a></li>
                 </ul>
                 <section class="col-12">
-                    <p class="fs-6 typTxtOrdi16 m-0" id="btnNav">&copy;2024, 1RIS et ses affiliés</p>
+                    <p class="fs-6 typTxtOrdi16 m-0 btnNav">&copy;2024, 1RIS et ses affiliés</p>
                 </section>
             </div>
             <section class="col-12 col-md-3 col-lg-2 pt-5 pt-md-0">
@@ -105,7 +115,7 @@
                     <li class="col-2" style="width: fit-content;"><a href="https://www.linkedin.com/in/company/1ris/"><i class='bx bxl-linkedin'></i></a></li>
                 </ul>
                 <div class="row text-center">
-                    <a id="btnNav" class="p-0 fs-6 typTxtOrdi16" href="mailto:agence1ris@gmx.com">agence1ris@gmx.com</a>
+                    <a class="btnNav p-0 fs-6 typTxtOrdi16" href="mailto:agence1ris@gmx.com">agence1ris@gmx.com</a>
                 </div>
             </section>
         </nav>
