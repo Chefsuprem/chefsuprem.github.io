@@ -65,19 +65,120 @@
 					<a class="a2" href="contact.html" style="text-decoration: none;"> Besoin d'aide ?</a>
 				</button>
 			</div>
-			<div id="persona" class =" d-flex col-12 col-sm-6 justify-content-center px-4 px-md-0">
+			<figure id="persona" class =" d-flex col-12 col-sm-6 justify-content-center px-4 px-md-0 position-relative" style="max-width: fit-content;">
 				<img id="personaimg" src="/images/persona_joyeuse.jpg" alt="persona joyeuse sur ton principal jaune." style=" width:100%; min-width:220pt; max-width: 400pt; border-radius: 32px;">
-			</div>
+				<figcaption class="position-absolute typTxtOrdi16" style="bottom: -13%; right: 5%; font-size: 14pt;">Designed by <span class="hilight">Freepik</span></figcaption>
+			</figure>
 		</section>
 		<!--Fin accueil-->
 
 		<!--Partie de l'équipe-->
-		<article class="container-fluid text-center mb-5 d-flex flex-column gap-3">
+		<article class="d-flex flex-column container-fluid text-center mb-5 p-0 p-sm-2 justify-content-between" style="background-image: url(images/bg-equipe.png); background-position: center; background-size: contain; background-repeat: no-repeat;">
+
 			<h2 id="equipeh2" class="typTtrOrdi32">NOTRE EQUIPE</h2>
-			<div id="equipei" class="d-flex justify-content-center" style= "background-image: url(images/bg-equipe.png); background-size:cover; background-repeat: none; border-radius: 32px;">
-				<img id="equipeimg" id="equipe" src="/images/equipe.jpg" alt="Image de l'équipe au complet.">
-			</div>
-			<p id="equipetxt" class="typTxtOrdi16">1RIS est une agence de communication créée dans le cadre d’un projet par cinq étudiants.</p>
+
+			<section id="equipeImg" class="d-block d-sm-none container-fluid my-3 p-0">
+				<img src="images/equipe.jpg" alt="Image Statique de l'équipe." style="max-width: 100%;">
+			</section>
+
+			<section id="equipeSection" class="d-none d-sm-block position-relative mb-4">
+
+				
+				<img id="seraphItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Seraphin.svg" alt="Svg du fond de image de l'équipe.">
+				<aside id="seraphAside" class="pt-2">
+
+					<!--Taille Lg-->
+					<div class="d-none d-lg-flex wrapper d-flex flex-column justify-content-center gap-1 h-100">
+						<h3 class="typTxtOrdi16">Séraphin Boyer</h3>
+						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 10pt; padding: 0 5% 0 10%;">Séraphin ne capture pas simplement des images, il crée des histoires visuelles captivantes.</p>
+						<p class="typTxtOrdi16 text-start" style="font-size: 10pt; padding: 0 5% 0 10%;">En tant que photographe et créateur de contenu numérique, il donne vie à vos idées à travers des visuels percutants.<br>Des photos de produits aux flyers accrocheurs; chaque visuel respecte soigneusement vos attendus et apportent un plus à votre communication</p>
+					</div>
+
+					<!--Taille Md-->
+					<div class=" d-md-flex d-lg-none wrapper flex-column justify-content-center gap-1 h-100">
+						<h3 class="typTxtOrdi16" style="font-size: 14pt;">Séraphin Boyer</h3>
+						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 7pt; padding: 0 5% 0 10%;">Séraphin ne capture pas simplement des images, il crée des histoires visuelles captivantes.</p>
+						<p class="typTxtOrdi16 text-start" style="font-size: 7pt; padding: 0 5% 0 10%;">En tant que photographe et créateur de contenu numérique, il donne vie à vos idées à travers des visuels percutants.<br>Des photos de produits aux flyers accrocheurs; chaque visuel respecte soigneusement vos attendus et apportent un plus à votre communication</p>
+					</div>
+				</aside>
+				
+				<img id="raphItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Raphael.svg" alt="Svg du fond de image de l'équipe.">
+				<aside id="raphAside" class="pt-2">
+
+					<!--Taille Lg-->
+					<div class="d-none d-lg-flex wrapper d-flex flex-column justify-content-center gap-1 h-100">
+						<h3 class="typTxtOrdi16">Raphaël Vasseur</h3>
+						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 10pt; padding: 0 5% 0 12%;">Raphaël est un développeur hors pair.<br> Il donne vie à la présence en ligne de votre entreprise entre autre en façonnant des sites web dynamiques et intuitifs.</p><p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 12%;">Que ce soit pour créer une vitrine en ligne élégante ou une plateforme e-commerce robuste, Raphaël transforme vos aspirations numériques en réalité.</p><p class="typTxtOrdi16 text-start" style="font-size: 10pt; padding: 0 5% 0 12%;">Il est un vrai plus pour l'agence.</p>
+					</div>
+
+					<!--Taille Md-->
+					<div class="d-md-flex d-lg-none wrapper flex-column justify-content-center gap-1 h-100">
+						<h3 class="typTxtOrdi16" style="font-size: 14pt;">Raphaël Vasseur</h3>
+						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 7pt; padding: 0 5% 0 12%;">Raphaël est un développeur hors pair.<br> Il donne vie à la présence en ligne de votre entreprise entre autre en façonnant des sites web dynamiques et intuitifs.</p><p class="typTxtOrdi16 text-start mb-1" style="font-size: 7pt; padding: 0 5% 0 12%;">Que ce soit pour créer une vitrine en ligne élégante ou une plateforme e-commerce robuste, Raphaël transforme vos aspirations numériques en réalité.</p><p class="typTxtOrdi16 text-start" style="font-size: 7pt; padding: 0 5% 0 12%;">Il est un vrai plus pour l'agence.</p>
+					</div>
+				</aside>
+
+				<img id="rahnyaItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Rahnya.svg" alt="Svg du fond de image de l'équipe.">
+				<aside id="rahnyaAside" class="pt-2">
+					
+					<!--Taille Lg-->
+					<div class="d-none d-lg-flex wrapper d-flex flex-column justify-content-center gap-1 h-100">
+						<h3 class="typTxtOrdi16">Rahnya Lanyeri</h3>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 7%;">Chargée de Communication et Cheffe de Projet,
+							Rahnya met en forme votre message pour toucher de manière efficace votre public, vos médias et vos sponsors.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 10pt; padding: 0 5% 0 7%;">Responsable de la gestion globale de l’agence, c'est aussi elle qui coordonnera tous les aspects de votre stratégie de communication, veillant à ce que chaque éléments soit parfaitement mit en place pour maximiser l'impact de chaque initiative.</p>
+					</div>
+
+					<!--Taille Md-->
+					<div class="d-md-flex d-lg-none wrapper flex-column justify-content-center gap-1 h-100">
+						<h3 class="typTxtOrdi16" style="font-size: 14pt;">Rahnya Lanyeri</h3>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 7pt; padding: 0 5% 0 7%;">Chargée de Communication et Cheffe de Projet,
+							Rahnya met en forme votre message pour toucher de manière efficace votre public, vos médias et vos sponsors.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 7%;">Responsable de la gestion globale de l’agence, c'est aussi elle qui coordonnera tous les aspects de votre stratégie de communication, veillant à ce que chaque éléments soit parfaitement mit en place pour maximiser l'impact de chaque initiative.</p>
+					</div>
+				</aside>
+
+				<img id="ameItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Amelie.svg" alt="Svg du fond de image de l'équipe.">
+				<aside id="ameAside" class="pt-2">
+
+					<!--Taille lg-->
+					<div class="d-none d-lg-flex wrapper d-flex flex-column justify-content-center gap-1 h-100">
+						<h3 class="typTxtOrdi16">Amélie Jammes</h3>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 5%;">Organisatrice Evènementiel et Rédactrice
+							Amélie est votre guide vers des événements mémorables et des contenus percutants.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 10pt; padding: 0 5% 0 5%;">Elle transforme vos idées en expériences inoubliables: de la conférence professionnelle jusqu'aux lancements de produits en passant par l'application de sa plume créative, Amélie alimente votre stratégie éditoriale et renforçe votre présence en ligne.</p>
+					</div>
+
+					<!--Taille Md-->
+					<div class="d-md-flex d-lg-none wrapper flex-column justify-content-center gap-1 h-100">
+						<h3 class="typTxtOrdi16" style="font-size: 14pt;">Amélie Jammes</h3>
+						<p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 5%;">Organisatrice Evènementiel et Rédactrice
+							Amélie est votre guide vers des événements mémorables et des contenus percutants.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 5%;">Elle transforme vos idées en expériences inoubliables: de la conférence professionnelle jusqu'aux lancements de produits en passant par l'application de sa plume créative, Amélie alimente votre stratégie éditoriale et renforçe votre présence en ligne.</p>
+					</div>
+				</aside>
+
+				<img id="yoannItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Yoann.svg" alt="Svg du fond de image de l'équipe.">
+				<aside id="yoannAside" class="pt-2">
+
+					<!--Taille Lg-->
+					<div class="d-none d-lg-flex wrapper d-flex flex-column justify-content-center gap-1 h-100">
+						<h3 class="typTxtOrdi16">Yoann Fejean</h3>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 5%;">Community manager et web développeur,
+							Yoann est le maestro de votre présence en ligne.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 10pt; padding: 0 5% 0 5%;">Il élabore des contenus engageants et pertinents stimulant l'interaction et renforçant les liens avec votre communauté.<br>Grâce à lui, vous maximisez l'impact de votre communication digitale, et en parallèle, Yoann créer votre site web dynamique et intuitif.</p>
+					</div>
+
+					<!--Taille Md-->
+					<div class="d-md-flex d-lg-none wrapper flex-column justify-content-center gap-1 h-100">
+						<h3 class="typTxtOrdi16" style="font-size: 14pt;">Yoann Fejean</h3>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 7pt; padding: 0 5% 0 5%;">Community manager et web développeur,
+							Yoann est le maestro de votre présence en ligne.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 5%;">Il élabore des contenus engageants et pertinents stimulant l'interaction et renforçant les liens avec votre communauté.<br>Grâce à lui, vous maximisez l'impact de votre communication digitale, et en parallèle, Yoann créer votre site web dynamique et intuitif.</p>
+					</div>
+				</aside>
+
+				<!--Image de fond-->
+				<img id="equipeFond" src="images/SVG/Equipe_Fond.svg" alt="SVG de fond de l'image de l'équipe" >
+			</section>
+			
+			<p id="equipetxt" class="typTxtOrdi16 m-0">1RIS est une agence de communication créée dans le cadre d’un projet par cinq étudiants.</p>
+			
+
 		</article>
 
 		<!--Partie des valeurs-->
@@ -145,17 +246,21 @@
 				<div class="col-12 col-sm-9 col-lg-4">
 					<section class="card bg-black border border-5 rounded-5 pt-2" style="max-height: 70vh; height: 100vh;">
 						
-						<!--Taille xSm-->
-						<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;">
-
-						<!--Taille Sm-->
-						<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+						<figure style="max-width: fit-content;">
+							<!--Taille xSm-->
+							<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;">
+	
+							<!--Taille Sm-->
+							<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							
+							<!--Taille md-->
+							<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;">
+							
+							<!--Taille lg-->
+							<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
 						
-						<!--Taille md-->
-						<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;">
-						
-						<!--Taille lg-->
-						<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							<figcaption class="position-absolute typTxtOrdi16" style="bottom: -8%; left: 5%; font-size: 14pt;">Designed by <span class="hilight">Freepik</span></figcaption>
+						</figure>
 
 						<div class="card-body d-flex flex-column gap-3">
 							<h4 class="card-title text-white typTtrOrdi25">Brain Content</h4>
@@ -166,17 +271,21 @@
 				<div class="col-12 col-sm-9 col-lg-4">
 					<section class="card bg-black border border-5 rounded-5 pt-2" style="max-height: 70vh; height: 100vh;">
 						
-						<!--Taille xSm-->
-						<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;">
+						<figure style="max-width: fit-content;">
+							<!--Taille xSm-->
+							<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;">
+	
+							<!--Taille Sm-->
+							<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							
+							<!--Taille md-->
+							<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;">
+							
+							<!--Taille lg-->
+							<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
 
-						<!--Taille Sm-->
-						<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
-						
-						<!--Taille md-->
-						<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;">
-						
-						<!--Taille lg-->
-						<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							<figcaption class="position-absolute typTxtOrdi16" style="bottom: -8%; left: 5%; font-size: 14pt;">Designed by <span class="hilight">Freepik</span></figcaption>
+						</figure>
 
 						<div class="card-body d-flex flex-column gap-3">
 							<h4 class="card-title text-white typTtrOrdi25">Réseaux Sociaux</h4>
@@ -186,17 +295,21 @@
 				<div class="col-12 col-sm-9 col-lg-4">
 					<section class="card bg-black border border-5 rounded-5 pt-2 pb-2" style="max-height: 70vh; height: 100vh;">
 						
-						<!--Taille xSm-->
-						<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;">
+						<figure style="max-width: fit-content;">
+							<!--Taille xSm-->
+							<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;">
+	
+							<!--Taille Sm-->
+							<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							
+							<!--Taille md-->
+							<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;">
+							
+							<!--Taille lg-->
+							<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
 
-						<!--Taille Sm-->
-						<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
-						
-						<!--Taille md-->
-						<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;">
-						
-						<!--Taille lg-->
-						<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							<figcaption class="position-absolute typTxtOrdi16" style="bottom: -8%; left: 5%; font-size: 14pt;">Designed by <span class="hilight">Freepik</span></figcaption>
+						</figure>
 
 						<div class="card-body d-flex flex-column gap-3">
 							<h4 class="card-title text-white typTtrOrdi25">Stratégie digitale</h4>
@@ -216,9 +329,13 @@
 				</button>
 
 				<!--Teaser local-->
-				<video controls preload="metadata" style="max-width: 800px; width: 100%;">
-					<source src="Documents/Teaser_1Ris_V2.mp4" type="video/mp4">
-				</video>
+				<figure>
+					<video controls preload="metadata" style="max-width: 800px; width: 100%;" poster="images/minia_teaser.png">
+						<source src="Documents/Teaser_1Ris_V2.mp4" type="video/mp4">
+					</video>
+					
+					<figcaption class="d-flex typTxtOrdi16It align-items-center justify-content-center gap-3 mt-3"><i class='bx bxs-music bx-md' style='color: var(--irisPurple)'></i>Space Walk | Hoyo-Mix</figcaption>
+				</figure>
 				
 			</div>
 		</article>
@@ -264,7 +381,7 @@
                     <li class="nav-item typTxtOrdi16"><a href="fluxrss.xml" id="btnNav" class="nav-link ">Flux RSS</a></li>
                 </ul>
                 <section class="col-12">
-                    <p class="fs-6 typTxtOrdi16 m-0 text-white">&copy;2024, 1RIS et ses affiliés</p>
+                    <p id="copyR" class="fs-6 typTxtOrdi16 m-0 text-white">&copy;2024, 1RIS et ses affiliés</p>
                 </section>
             </div>
             <section class="col-12 col-md-3 col-lg-2 pt-5 pt-md-0">
@@ -290,6 +407,7 @@
 	<!--SCRIPTS LOCAUX-->
 	<script type="module" src="./JS/database/require.js"></script>
 	
+	<script src="JS/components/header.js"></script>
 	<script src="JS/modesombre.js"></script>
 	<script src="JS/index.js"></script>
 </body>

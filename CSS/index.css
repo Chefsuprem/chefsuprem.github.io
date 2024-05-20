@@ -3,6 +3,7 @@
 @import url(components/footer.css);
 @import url(components/fonts.css);
 @import url(components/colors.css);
+@import url(components/animations.css);
 
 html{
 	scroll-behavior: smooth;
@@ -60,10 +61,6 @@ header:after{
 
 .a2{
 	color:white;
-}
-
-.dark .a2{
-	color:var(--blackTheme);
 }
 
 #equipe{
@@ -138,4 +135,214 @@ header:after{
 
 #personaimg:hover{
 	transform: scale(1.1);
+}
+
+/*====== A PROPOS DES SVG ======*/
+#equipeh2{
+	top: 0;
+	left: 0;
+	width: inherit;
+}
+
+#equipeFond{
+	max-width: 85%;
+	max-height: 91%;
+}
+
+#equipeSection{
+	overflow: hidden;
+}
+
+#equipeSection:has(img.equipeItem:hover) img.equipeItem:not(:hover){
+	filter: blur(1px) brightness(0.8);
+}
+
+#equipeSection:has(img.equipeItem:hover) img#equipeFond{
+	filter: blur(0.5px);
+}
+
+/*=== Seraph Item ===*/
+
+#seraphItem{
+	top: 25.8%;
+	left: 11.7%;
+	max-width: 20%;
+	z-index: 80;
+}
+
+#seraphItem:hover{
+	scale: 1.1;
+	top: 27.8%;
+}
+
+#seraphAside{
+	display: none;
+	position: absolute;
+	top: 27%;
+	left: 0;
+	height: 70%;
+	max-width: 25%;
+	border: 5px solid var(--irisYellow);
+	border-radius: 5px;
+	border-left: none;
+}
+
+#seraphItem:hover + #seraphAside{
+	display: block;
+	left: 31%;
+	background-color: rgba(100%, 100%, 100%, .5);
+	backdrop-filter: blur(10px);
+	animation: .7s ease-in moveInSeraph;
+	transition: ease-in .5s;
+	z-index: 79;
+}
+
+/*=== Raph Item ===*/
+#raphItem{
+	top: 33%;
+	left: 29.2%;
+	max-width: 18.1%;
+	z-index: 78;
+}
+
+#raphItem:hover{
+	scale: 1.1;
+	top: 35%;
+	z-index: 80;
+}
+
+#raphAside{
+	display: none;
+	position: absolute;
+	top: 27%;
+	left: 0;
+	height: 70%;
+	max-width: 25%;
+	border: 5px solid var(--irisYellow);
+	border-radius: 5px;
+	border-left: none;
+}
+
+#raphItem:hover + #raphAside{
+	display: block;
+	left: 46%;
+	background-color: rgba(100%, 100%, 100%, .5);
+	backdrop-filter: blur(10px);
+	animation: .7s ease-in moveInRaph;
+	transition: ease-in .5s;
+	z-index: 79;
+}
+
+/*=== Rahnya Item ===*/
+#rahnyaItem{
+	top: 37%;
+	left: 43.5%;
+	max-width: 17%;
+	z-index: 76;
+}
+
+#rahnyaItem:hover{
+	scale: 1.1;
+	top: 38%;
+	z-index: 80;
+}
+
+#rahnyaAside{
+	display: none;
+	position: absolute;
+	top: 27%;
+	left: 0;
+	height: 70%;
+	max-width: 25%;
+	border: 5px solid var(--irisYellow);
+	border-radius: 5px;
+	border-left: none;
+}
+
+#rahnyaItem:hover + #rahnyaAside{
+	display: block;
+	left: 60%;
+	background-color: rgba(100%, 100%, 100%, .5);
+	backdrop-filter: blur(10px);
+	animation: .6s ease-in moveInRahnya;
+	transition: ease-in .5s;
+	z-index: 79;
+}
+
+/*=== Rahnya Item ===*/
+#ameItem{
+	top: 44%;
+	left: 58.3%;
+	max-width: 17%;
+	z-index: 74;
+}
+
+#ameItem:hover{
+	scale: 1.1;
+	top: 45%;
+	z-index: 80;
+}
+
+#ameAside{
+	display: none;
+	position: absolute;
+	top: 27%;
+	left: 0;
+	height: 70%;
+	max-width: 25%;
+	border: 5px solid var(--irisYellow);
+	border-radius: 5px;
+	border-right: none;
+}
+
+#ameItem:hover + #ameAside{
+	display: block;
+	left: 32%;
+	background-color: rgba(100%, 100%, 100%, .5);
+	backdrop-filter: blur(10px);
+	animation: .6s ease-in moveInAme;
+	transition: ease-in .5s;
+	z-index: 79;
+}
+
+/*=== Rahnya Item ===*/
+#yoannItem{
+	top: 30.1%;
+	left: 71.8%;
+	max-width: 18%;
+	z-index: 72;
+}
+
+#yoannItem:hover{
+	scale: 1.1;
+	top: 31.8%;
+	z-index: 80;
+}
+
+#yoannAside{
+	display: none;
+	position: absolute;
+	top: 27%;
+	left: 0;
+	height: 70%;
+	max-width: 25%;
+	border: 5px solid var(--irisYellow);
+	border-radius: 5px;
+	border-right: none;
+}
+
+#yoannItem:hover + #yoannAside{
+	display: block;
+	left: 47%;
+	background-color: rgba(100%, 100%, 100%, .5);
+	backdrop-filter: blur(10px);
+	animation: .7s ease-in moveInYoann;
+	transition: ease-in .5s;
+	z-index: 79;
+}
+
+#equipetxt{
+	bottom: 0;
+	left: 0;
+	width: inherit;
 }
