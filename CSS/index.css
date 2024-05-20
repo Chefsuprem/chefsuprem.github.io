@@ -59,6 +59,10 @@ header:after{
 	color:white;
 }
 
+.dark section#equipeSection, .dark section#equipeSection h3{
+	color: var(--blackTheme);
+}
+
 .a2{
 	color:white;
 }
