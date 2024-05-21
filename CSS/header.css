@@ -20,14 +20,6 @@
     color: var(--blackTheme) !important;
 }
 
-.dark figcaption{
-    color: white;
-}
-
-.dark .hilight{
-    color: var(--irisPurpleClair);
-}
-
 #toggle-mode {
     color: white; /* Couleur par défaut Elle a été retirée du lien et placée ici afin de pouvoir utiliser :hover ensuite*/
 }

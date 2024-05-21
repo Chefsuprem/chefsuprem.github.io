@@ -2,7 +2,7 @@
 import { db, auth } from "../../database/require.js";
 import { collection, getDocs, doc, query } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { renderPending } from "./functions.js";
+import { renderPending, pendLastName, pendFirstName, pendEmail, pendMdp } from "./functions.js";
 
 function assigner(emplacement, widget){
 		
@@ -192,133 +192,151 @@ function assigner(emplacement, widget){
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
 
-				const querySnapshot = getDocs(collection(db, "Pending"));
-				
-				querySnapshot.then((snapshot) => {
+				//Récupération + affichage des documents dans la collection Pending
+				renderPending();
 
-					renderPending(snapshot);
-				});
+				//Interaction après récupération
+				const liModifTggl = document.querySelectorAll(`main section#${wrapper.id} ul li`);
+
+				console.log(liModifTggl);
+
+				Array.from(liModifTggl).forEach((li) => {
+
+					console.log(li);
+
+					li.addEventListener("click", (event) => {
+
+						//Definition des états du li
+						//const modifyingState = `
+							
+						//	<form class="d-flex justify-content-center container-fluid p-0 m-0">
+						//		<div id="idWrapper" class="col-8 d-flex align-items-center gap-3">
+						//			<img src="../../../images/images_profils/ppTest.jpg" alt="Photo de profil de l'utilisateur." id="ppUser" class="col-6 img-thumbnail rounded-circle" style="max-width: 30%;">
+									
+						//			<section id="idUser" class="d-flex flex-column" style="flex: auto;">
+										
+						//				<div class="d-flex align-items-center gap-1">
+						//					<p class="m-0 typTxtOrdi16 fs-5">Nom Prénom</p>
+						//					<span class="typTxtOrdi16 fs-5">|</span>
+						//					<p class="m-0 typTxtOrdi16 fs-6" style=""height: fit-content>date</p>
+						//				</div>
+										
+						//				<div class="d-flex flex-column">
+						//					<label for="status" class="m-0 typTxtOrdi16" style="font-size: 9pt;">Statut annoncé: </label>
+						//					<input type="text" id="status" name="status" placeholder="${status}" class="border border-secondary rounded-3">
+
+						//					<label for="email" class="m-0 typTxtOrdi16" style="font-size: 9pt;">Email: </label>
+						//					<input type="email" id="email" name="email" placeholder="${email}" class="border border-secondary rounded-3">
+
+						//					<label for="mdp" class="m-0 typTxtOrdi16" style="font-size: 9pt;">Mot de passe: </label>
+						//					<input type="text" id="mdp" name="mdp" placeholder="${mdp}" class="border border-secondary rounded-3">
+
+						//				</div>
+						//			</section>
+						//		</div>
+							
+						//		<div class="d-flex flex-column col-4 btnWrapper align-items-center justify-content-end pb-3 gap-1">
+									
+						//			<button id="finModif" type="button" class="btn text-white" style="background-color: green; height: fit-content;">Terminer</button>
+									
+						//			<button type="reset" class="btn" style="height: fit-content; background-color: white; color: var(--irisBlue); border: solid 5px var(--irisblue);">Réinitialiser</button>
+									
+						//		</div>
+						//	</form>
+						
+						//`;
+
+						if (event.target.id == "validerBtn"){
+			
+							assignMember(doc, doc.data().nom, doc.data().prenom);
+			
+						}else if (event.target.id == "refusBtn"){
+			
+							deleteDoc(doc(db, "Pending", `${doc.id}`));
+			
+							deleteUser(doc.id)
+							.then(() => {
+								//l'utilisateur a été supprimé
+							})
+							.catch((error) => {
+								console.log(error.code);
+								console.log(error.message);
+							})
+			
+						}else if (click.target.id == "modifBtn"){
+							li.classList.toggle("modifying");
+			
+							//li.innerHTML = modifyingState;
+			
+						}else if (click.target.id == "finModif"){
+			
+							const inputStatus = document.querySelector(`main section#${wrapper.id} form input#status`);
+							const inputEmail = document.querySelector(`main section#${wrapper.id} form input#email`);
+							const inputMdp = document.querySelector(`main section#${wrapper.id} form input#mdp`);
+			
+							if (inputStatus.value == "" || inputEmail.value == "" || inputMdp.value == ""){
+			
+								li.classList.toggle("modifying");
+			
+								li.innerHTML = changedState(status, email, mdp);
+			
+							}else{
+			
+								status = inputStatus.value;
+								email = inputEmail.value;
+								mdp = inputMdp.value;
+			
+			
+								li.classList.toggle("modifying");
+			
+								li.innerHTML = changedState(status, email, mdp);
+							}
+						}
+					})
+
+				})
 				
 			}else{
-			console.log("Pas connecté");
+				console.log("Pas connecté");
 			}
 		})
 
-		const wrapperUserId = document.getElementById("wrapperUserId");
+		//const wrapperUserId = document.getElementById("wrapperUserId");
 
-		const liModifTggl = document.querySelectorAll(`main section#${wrapper.id} ul li`);
 
-		Array.from(liModifTggl).forEach((li) => {
-
-			li.addEventListener("click", (click) => {
-
-				//Definition des états du li
-				const modifyingState = `
-					
-					<form class="d-flex justify-content-center container-fluid p-0 m-0">
-						<div id="idWrapper" class="col-8 d-flex align-items-center gap-3">
-							<img src="../../../images/images_profils/ppTest.jpg" alt="Photo de profil de l'utilisateur." id="ppUser" class="col-6 img-thumbnail rounded-circle" style="max-width: 30%;">
-							
-							<section id="idUser" class="d-flex flex-column" style="flex: auto;">
-								
-								<div class="d-flex align-items-center gap-1">
-									<p class="m-0 typTxtOrdi16 fs-5">Nom Prénom</p>
-									<span class="typTxtOrdi16 fs-5">|</span>
-									<p class="m-0 typTxtOrdi16 fs-6" style=""height: fit-content>date</p>
-								</div>
-								
-								<div class="d-flex flex-column">
-									<label for="status" class="m-0 typTxtOrdi16" style="font-size: 9pt;">Statut annoncé: </label>
-									<input type="text" id="status" name="status" placeholder="${status}" class="border border-secondary rounded-3">
-
-									<label for="email" class="m-0 typTxtOrdi16" style="font-size: 9pt;">Email: </label>
-									<input type="email" id="email" name="email" placeholder="${email}" class="border border-secondary rounded-3">
-
-									<label for="mdp" class="m-0 typTxtOrdi16" style="font-size: 9pt;">Mot de passe: </label>
-									<input type="text" id="mdp" name="mdp" placeholder="${mdp}" class="border border-secondary rounded-3">
-
-								</div>
-							</section>
-						</div>
-					
-						<div class="d-flex flex-column col-4 btnWrapper align-items-center justify-content-end pb-3 gap-1">
-							
-							<button id="finModif" type="button" class="btn text-white" style="background-color: green; height: fit-content;">Terminer</button>
-							
-							<button type="reset" class="btn" style="height: fit-content; background-color: white; color: var(--irisBlue); border: solid 5px var(--irisblue);">Réinitialiser</button>
-							
-						</div>
-					</form>
-				
-				`;
-
-				function changedState(status, email, mdp){
+				//function changedState(status, email, mdp){
 				 
-					return(`	
+				//	return(`	
 
-						<div id="idWrapper" class="col-8 d-flex gap-2">
-							<img src="../../../images/images_profils/ppTest.jpg" alt="Photo de profil de l'utilisateur." id="ppUser" class="col-6 img-thumbnail rounded-circle" style="max-width: 30%;">
+				//		<div id="idWrapper" class="col-8 d-flex gap-2">
+				//			<img src="../../../images/images_profils/ppTest.jpg" alt="Photo de profil de l'utilisateur." id="ppUser" class="col-6 img-thumbnail rounded-circle" style="max-width: 30%;">
 							
-							<section id="idUser" class="d-flex flex-column" style="flex: auto;">
+				//			<section id="idUser" class="d-flex flex-column" style="flex: auto;">
 								
-								<div class="d-flex align-items-center gap-1">
-									<p class="m-0 typTxtOrdi16 fs-5">Nom Prénom</p>
-									<span class="typTxtOrdi16 fs-5">|</span>
-									<p class="m-0 typTxtOrdi16 fs-6" style=""height: fit-content>date</p>
-								</div>
+				//				<div class="d-flex align-items-center gap-1">
+				//					<p class="m-0 typTxtOrdi16 fs-5">Nom Prénom</p>
+				//					<span class="typTxtOrdi16 fs-5">|</span>
+				//					<p class="m-0 typTxtOrdi16 fs-6" style=""height: fit-content>date</p>
+				//				</div>
 								
-								<div class="d-flex flex-column">
-									<p class="m-0 typTxtOrdi16" style="font-size: 9pt;">Statut annoncé: <span>${status}</span></p>
-									<p class="m-0 typTxtOrdi16" style="font-size: 9pt;">Email: <span>${email}</span></p>
-									<p class="m-0 typTxtOrdi16" style="font-size: 9pt;">Mot de passe: <span>${mdp}</span></p>
-								</div>
-							</section>
-						</div>
+				//				<div class="d-flex flex-column">
+				//					<p class="m-0 typTxtOrdi16" style="font-size: 9pt;">Statut annoncé: <span>${status}</span></p>
+				//					<p class="m-0 typTxtOrdi16" style="font-size: 9pt;">Email: <span>${email}</span></p>
+				//					<p class="m-0 typTxtOrdi16" style="font-size: 9pt;">Mot de passe: <span>${mdp}</span></p>
+				//				</div>
+				//			</section>
+				//		</div>
 						
-						<div class="d-flex flex-column col-4 btnWrapper align-items-center justify-content-center gap-1">
+				//		<div class="d-flex flex-column col-4 btnWrapper align-items-center justify-content-center gap-1">
 							
-							<button id="modifBtn" class="btn text-white" style="background-color: var(--irisBlue); height: fit-content;">Modifier</button>
+				//			<button id="modifBtn" class="btn text-white" style="background-color: var(--irisBlue); height: fit-content;">Modifier</button>
 							
-							<button id="refusBtn" class="btn text-white bg-danger" style="height: fit-content;">Refuser</button>
+				//			<button id="refusBtn" class="btn text-white bg-danger" style="height: fit-content;">Refuser</button>
 							
-						</div>
+				//		</div>
 					
-					`);
-				}
-
-				//Execution des conditions de changement
-				if (click.target.id == "modifBtn"){
-					li.classList.toggle("modifying");
-
-					li.innerHTML = modifyingState;
-
-				}else if (click.target.id == "finModif"){
-
-					const inputStatus = document.querySelector(`main section#${wrapper.id} form input#status`);
-					const inputEmail = document.querySelector(`main section#${wrapper.id} form input#email`);
-					const inputMdp = document.querySelector(`main section#${wrapper.id} form input#mdp`);
-
-					if (inputStatus.value == "" || inputEmail.value == "" || inputMdp.value == ""){
-
-						li.classList.toggle("modifying");
-
-						li.innerHTML = changedState(status, email, mdp);
-
-					}else{
-
-						status = inputStatus.value;
-						email = inputEmail.value;
-						mdp = inputMdp.value;
-
-
-						li.classList.toggle("modifying");
-
-						li.innerHTML = changedState(status, email, mdp);
-					}
-				}
-			})
-
-		});
+				//	`);
+				//}
 
 		
 	}else if (widget == "graphTaches"){
