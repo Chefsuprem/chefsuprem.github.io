@@ -94,4 +94,4 @@ function renderPending(){
 }
 
 
-export { renderPending, pendLastName, pendFirstName, pendEmail, pendMdp };
+export { renderPending, pendLastName, pendFirstName, pendEmail, pendMdp, assignMember };

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 	<meta charset="UTF-8">
@@ -11,41 +11,54 @@
 		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 	<!--Liens locaux-->
+	<link rel="stylesheet" href="CSS/header.css">
 	<link rel="stylesheet" href="CSS/blog.css">
+	<link rel="website icon" type="png"
+	href="images/logoresaux2.png">
 </head>
 
 <body>
 
 	<!--Début header-->
 	<header class="pt-1">
-		<!--Debut navbar-->
+		<!-- Debut navbar -->
 		<nav class="navbar navbar-expand-lg px-5 justify-content-center justify-content-lg-start">
-			<a href="#" class="navbar-brand">
-				<img src="" alt="Logo de l'agence.">
+			<a href="index.html" class="navbar-brand me-auto" style="max-width:fit-content;">
+				<img src="images/Logo.png" alt="Logo de l'agence." style="width:100%; max-width:100px;">
 			</a>
-			<div class="collapse navbar-collapse justify-content-between">
-				<ul
-					class="col-lg-7 col-xl-9 navbar-nav align-items-center justify-content-center justify-content-xl-start ps-xl-5 gap-3">
-					<li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdiMed15" href="#">Blog</a></li>
-					<li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdiMed15" href="#">Contact</a></li>
+			
+			<!-- Bouton burger pour mobile -->
+			<button class="navbar-toggler ms-auto " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="bar bar1"></span>
+				<span class="bar bar2"></span>
+				<span class="bar bar3"></span>
+			</button>    
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="col-lg-7 col-xl-9 navbar-nav align-items-center justify-content-center justify-content-xl-start ps-xl-5 gap-3">
+					<li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdi16" href="blog.html">Blog</a></li>
+					<li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdi16" href="contact.html">Contact</a></li>
 					<li class="nav-item dropdown">
-						<a id="btnNav" role="button" class="nav-link-active dropdown-toggle typTxtOrdiBol15" href="#"
-							data-bs-toggle="dropdown">FR</a>
-						<ul class="dropdown-menu">
-							<li><a href="#" class="dropdown-item typTxtOrdiMed15">FR</a></li>
-							<li><a href="#" class="dropdown-item typTxtOrdiMed15">EN</a></li>
-						</ul>
-					</li>
+						<a id="btnNav" role="button" class="nav-link-active dropdown-toggle typTxtOrdiBol15" href="#" data-bs-toggle="dropdown">FR</a>
+					<ul class="dropdown-menu">
+						<li><a href="inscription.html" class="dropdown-item typTxtOrdi16">FR</a></li>
+						<li><a href="#" class="dropdown-item typTxtOrdi16">EN</a></li>
+					</ul>
+					<li> <!--  provient de boxicons -->
+						<svg id="toggle-mode" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"style="transform: msFilter; cursor: pointer;">
+							<path d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"></path>
+						</svg>
+					</li>    
 				</ul>
-				<section class="col-lg-5 col-xl-3 btn-group justify-content-center">
-					<button type="button" class="btn connexion bg-white typTxtOrdiMed15">Connexion</button>
-					<button type="button" class="btn inscription text-white typTxtOrdiMed15">Inscription</button>
+				<section class="col-lg-5 col-xl-3 btn-group d-flex justify-content-center mt-2 mt-md-0">
+					<button type="button" id="btnconnexion" class="btn connexion bg-white typTxtOrdi16"><a href="connexion.html" style="text-decoration: none; color:black">Connexion</a></button>
+					<button type="button" class="btn inscription typTxtOrdi16 inscriptionheader"><a href="inscription.html" id="btnNav" style="text-decoration: none;">Inscription</a></button>
 				</section>
 			</div>
 		</nav>
-		<!--Fin navbar-->
+		<!-- Fin navbar -->
 	</header>
-	<!--Fin header-->
+<!--Fin header-->
 
 	<!--Début main-->
 	<main>
@@ -54,7 +67,7 @@
 		<hgroup id="accueil" class="container-fluid">
 
 			<!--Taille Sm-->
-			<h1 class="d-none d-sm-block text-center typTtrOrdi60">Notre Blog</h1>
+			<h1 class="d-none d-sm-block text-center typTtrOrdi50">Notre Blog</h1>
 			<img class="d-none d-sm-block" src="#" alt="Image de décoration de la page blog.">
 
 			<!--Taille xSm-->
@@ -62,108 +75,214 @@
 			<img class="d-block d-sm-none" src="#" alt="Image de décoration de la page blog.">
 		</hgroup>
 
-		<!--CECI EST UN TEMPLATE DE POST DANS LE BLOG !!Il sera généré par le serv quand il y aura un nouveau post !-->
-		<section id="postTemp" class="d-flex container-fluid pb-5 justify-content-around">
-			<div class="col-md-5 rounded position-relative" style="background-image: url(images/blog_scrable.jpg); background-position: center; background-size: cover; height: 30vh;">
-				<hgroup class="position-absolute" style="top: 70%; left: 2%;">
-					<h2 class="m-0 text-white">Ceci est le titre du blog</h2>
-					<p class="m-0 text-white">6 mars 2024</p>
+		<!--CECI EST LE PREMIER POST DANS LE BLOG !!-->
+		<section id="post1" class="d-flex container-fluid pb-5 justify-content-around flex-column flex-md-row gap-3 gap-md-0">
+			<div class="d-flex col-12 col-md-5 rounded position-relative" style="background-image: url(images/blog_scrable.jpg); background-position: center; background-size: cover; height: 30vh;">
+				<hgroup class="position-absolute" style=" right: 2%; left: 2%; bottom: 2%">
+					<h2 class="m-0 text-white typTtrOrdi25">Améliorer sa présence en ligne</h2>
+					<p class="m-0 text-white typTxtOrdi16">6 mai 2024</p>
 				</hgroup>
 			</div>
 			<div class="d-flex flex-column col-md-6 text-center justify-content-center">
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis impedit fugiat deserunt facere voluptate dignissimos. Facere vitae culpa natus, accusamus quas necessitatibus voluptatem, iure nobis omnis excepturi autem iusto quaerat.
-				Provident nam numquam asperiores dolores nostrum porro, enim perspiciatis reiciendis voluptatum soluta autem eum ut sequi, culpa aliquam omnis alias quasi cumque esse natus voluptas consectetur laborum! Placeat, maiores quae.</p>
-				<button id="togArt" class="btnPurp btn py-1 text-white mx-auto typTxtOrdiMed15">Voir Plus</button>
+				<p>Vous souhaitez vous lancer sur les réseaux et vous ne savez pas par où commencer ?
+					Pas de soucis ! Cet article vous présente 5 conseils pour avoir la meilleure stratégie de communication possible pour vos débuts !</p>
+				<button id="togArt1" class="btnPurp btn py-1 mx-auto typTxtOrdiMed15">Voir Plus</button>
 			</div>
 		</section>
 
 		<!--Quand le post est étendu-->
-		<section id="postActive" class="d-none d-flex container-fluid text-center px-5 pb-5">
+		<section id="postActive1" class="d-none d-flex container-fluid text-center px-5 pb-5">
 
-			<h2>Ceci est le titre du blog actif</h2>
+			<h2 class="typTtrOrdi25">Conseils pour améliorer sa présence en ligne</h2>
 
 			<div class="row px-5">
-				<p class="hilight">22 mars 2024</p>
-				<p class="mb-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quas nemo atque explicabo aliquid tempora. Corrupti necessitatibus perspiciatis libero amet sed et. Nulla sed tempore blanditiis iure adipisci, quaerat suscipit.
-				Voluptatem sit quo nobis non qui et at tempora ex accusantium quos neque, eum delectus eos voluptas placeat illo cum inventore ipsam facere. Quis, laudantium corporis. Cum ex explicabo incidunt?</p>
+				<p class="hilight typTxtOrdi16"> 6 mai 2024</p>
+				<p class="mb-5" style="text-align: justify;">Vous souhaitez vous lancer sur les réseaux et vous ne savez pas par où commencer ?
+					Pas de soucis ! Cet article vous présente 5 conseils pour avoir la meilleure stratégie de communication possible pour vos débuts !</p>
 			</div>
 
 			<img class="rounded" src="images/blog_scrable.jpg" alt="Image 1 de l'article." class="container-fluid" style="max-width: 93%;">
 
 			<div class="row px-5">
-				<p class="mb-3 mt-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus perferendis nesciunt minima, quia cumque quisquam harum dignissimos iusto alias, commodi porro atque consequatur quasi illo minus animi corrupti sed impedit.
-				Odit eligendi eum, exercitationem delectus obcaecati quaerat aliquam alias dicta repellat amet voluptatibus nesciunt dignissimos rerum quis veniam! Minus pariatur quae ullam corrupti tenetur at laborum quidem iusto. Sapiente, corrupti?</p>
-				<p class="mb-3 mt-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quas nemo atque explicabo aliquid tempora. Corrupti necessitatibus perspiciatis libero amet sed et. Nulla sed tempore blanditiis iure adipisci, quaerat suscipit.
-				Voluptatem sit quo nobis non qui et at tempora ex accusantium quos neque, eum delectus eos voluptas placeat illo cum inventore ipsam facere. Quis, laudantium corporis. Cum ex explicabo incidunt?</p>
-				<p class="my-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quas nemo atque explicabo aliquid tempora. Corrupti necessitatibus perspiciatis libero amet sed et. Nulla sed tempore blanditiis iure adipisci, quaerat suscipit.
-				Voluptatem sit quo nobis non qui et at tempora ex accusantium quos neque, eum delectus eos voluptas placeat illo cum inventore ipsam facere. Quis, laudantium corporis. Cum ex explicabo incidunt?</p>
+				<p class="mb-3 mt-5" style="text-align: justify;"> 1. Définir des objectifs clairs et précis. <br>
+					Avant toute chose, il faut premièrement définir clairement vos objectifs et les actions mises en place pour les atteindre.
+					Que souhaitez-vous accomplir avec votre présence sur les réseaux sociaux ? Quels avantages pouvez-vous tirer des réseaux sociaux ?
+					En connaissant les réponses à ces questions, vous connaitrez plus aisément les bases de votre présence en ligne et pourrez ajuster et affiner votre stratégie de communication
+					</p>
+				<p class="mb-3 mt-5" style="text-align: justify;"> 2. Connaître votre public <br>
+
+					Une chose primordiale également, en vous lançant sur les réseaux sociaux est de savoir à qui votre contenue s’adresse. Et de se fait, sur quel réseaux sociaux, vos publications auront le plus d’impact. En sachant que le public varie en fonction des différents médias, vos internautes influenceront grandement le ton de vos contenus.
+					Instagram et Pinterest : Un public jeune qui aime la communication visuelle
+					Facebook : Un public plus mature
+					Linkedln : un public professionnel
+					Tiktok : un public jeune avec une communication ciblée sur la vidéo et l’humour
+					Une fois que vous aurez bien ciblé votre public, nous passerons à la troisième étape, celle qui donnera vie à votre communication : les contenus !
+					</p>
+				<p class="my-5" style="text-align: justify;"> 3. Créer du contenu <br>
+
+					Afin d’alimenter vos réseaux, il est important de présenter du contenue à partager pour augmenter votre audience et gagné en visibilité.
+					Ainsi, vous pouvez créer beaucoup de différents contenus :
+					-	Photos
+					-	Vidéos
+					-	Posters
+					-	Lives
+					-	Storys
+					C’est par c’est publications, que vous allez être de plus en plus visibles et plus crédibles auprès de votre followers et potentiel followers.
+					Il est donc bénéfique de créer et partager vos postes régulièrement afin de générer d’avantage de trafic.
+					Vous pouvez d’ailleurs partager des moments de votre quotidien de vous et votre temps de travail. Cela fera plus de proximité avec votre communauté et vos réseaux paraîtront 
+					« Plus humain ».
+					</p>
 			</div>
 
 			<img class="rounded" src="images/machine_ecrire.jpg" alt="Image de présentation de l'article" style="max-width: 93%;">
 
 			<div class="row px-5">
-				<p class="mb-3 mt-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quas nemo atque explicabo aliquid tempora. Corrupti necessitatibus perspiciatis libero amet sed et. Nulla sed tempore blanditiis iure adipisci, quaerat suscipit.
-				Voluptatem sit quo nobis non qui et at tempora ex accusantium quos neque, eum delectus eos voluptas placeat illo cum inventore ipsam facere. Quis, laudantium corporis. Cum ex explicabo incidunt?</p>
-				<p class="my-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quas nemo atque explicabo aliquid tempora. Corrupti necessitatibus perspiciatis libero amet sed et. Nulla sed tempore blanditiis iure adipisci, quaerat suscipit.
-				Voluptatem sit quo nobis non qui et at tempora ex accusantium quos neque, eum delectus eos voluptas placeat illo cum inventore ipsam facere. Quis, laudantium corporis. Cum ex explicabo incidunt?</p>
+				<p class="mb-3 mt-5" style="text-align: justify;"> 4. Fréquence des publications <br>
+
+					Certes, alimenter vos médias sociaux c’est bien, mais les poster régulièrement c’est mieux. 
+					Votre fréquence de publication vous rendra plus visible auprès de vos abonnés.
+					Dans ce domaine, il faut apprendre que vos abonnés vous apprécient et par principe ils sont justement là pour recevoir de vos nouvelles.
+					Le mieux est de vous créer notamment un calendrier éditorial sur le mois avec toutes les publications prévues chaque semaine.
+					Ainsi, en parlant de semaine il faut également prévoir combien de postes comptez vous poster dans la semaine ? 1 ? 2 ? 4? 
+					Tous ces paramètres doivent être bien pris en compte afin de vous assurer une bonne et habituelle publication des postes 
+					</p>
+				<p class="my-5" style="text-align: justify;"> 5. Analyser ses performances <br>
+					Une fois tout ces facteurs bien mis en place et maitriser, il ne faut pas oublier de regarder vos performances sur vos réseaux afin de se donner une idée du taux d’engagement, les vus des postes, etc….
+					Ainsi, si tout se passe bien, cela signifie que votre stratégie de communication est bien mise en place. Au cas contraire, cela vous permet de pouvoir réajuster votre stratégie jusqu’à ce qu’elle porte enfin ces fruits.			
+					Voila ! C’était ici les conseils pour une bonne présence en ligne, j’espère que cet article vous aura aidé. Et que vous vous lancerez ainsi dans la présence des réseaux sociaux quelques soit le domaine.
+					Merci de votre Lecture !
+					</p>
+			</div>
+			<button id="togArtAct1" class="btnPurp btn py-1 mx-auto typTxtOrdiMed15">Voir Moins</button>
+		</section>
+
+		<!--CECI EST LE SECOND POST DANS LE BLOG -->
+		<section id="post2" class="d-flex container-fluid pb-5 justify-content-around flex-column flex-md-row gap-3 gap-md-0">
+			<div class="d-flex col-12 col-md-5 rounded position-relative" style="background-image: url(images/blog_scrable.jpg); background-position: center; background-size: cover; height: 30vh;">
+				<hgroup class="position-absolute" style=" right: 2%; left: 2%; bottom: 2%">
+					<h2 class="m-0 text-white typTtrOrdi25">Améliorer sa présence en ligne</h2>
+					<p class="m-0 text-white typTxtOrdi16">6 mai 2024</p>
+				</hgroup>
+			</div>
+			<div class="d-flex flex-column col-md-6 text-center justify-content-center">
+				<p>Vous souhaitez vous lancer sur les réseaux et vous ne savez pas par où commencer ?
+					Pas de soucis ! Cet article vous présente 5 conseils pour avoir la meilleure stratégie de communication possible pour vos débuts !</p>
+				<button id="togArt2" class="btnPurp btn py-1 mx-auto typTxtOrdiMed15">Voir Plus</button>
+			</div>
+		</section>
+
+		<!--Quand le post est étendu-->
+		<section id="postActive2" class="d-none d-flex container-fluid text-center px-5 pb-5">
+
+			<h2 class="typTtrOrdi25">Conseils pour améliorer sa présence en ligne</h2>
+
+			<div class="row px-5">
+				<p class="hilight typTxtOrdi16"> 6 mai 2024</p>
+				<p class="mb-5" style="text-align: justify;">Vous souhaitez vous lancer sur les réseaux et vous ne savez pas par où commencer ?
+					Pas de soucis ! Cet article vous présente 5 conseils pour avoir la meilleure stratégie de communication possible pour vos débuts !</p>
 			</div>
 
-			<button id="togArtAct" class="btnPurp btn py-1 text-white mx-auto typTxtOrdiMed15">Voir Moins</button>
+			<img class="rounded" src="images/blog_scrable.jpg" alt="Image 1 de l'article." class="container-fluid" style="max-width: 93%;">
+
+			<div class="row px-5">
+				<p class="mb-3 mt-5" style="text-align: justify;"> 1. Définir des objectifs clairs et précis. <br>
+					Avant toute chose, il faut premièrement définir clairement vos objectifs et les actions mises en place pour les atteindre.
+					Que souhaitez-vous accomplir avec votre présence sur les réseaux sociaux ? Quels avantages pouvez-vous tirer des réseaux sociaux ?
+					En connaissant les réponses à ces questions, vous connaitrez plus aisément les bases de votre présence en ligne et pourrez ajuster et affiner votre stratégie de communication
+					</p>
+				<p class="mb-3 mt-5" style="text-align: justify;"> 2. Connaître votre public <br>
+
+					Une chose primordiale également, en vous lançant sur les réseaux sociaux est de savoir à qui votre contenue s’adresse. Et de se fait, sur quel réseaux sociaux, vos publications auront le plus d’impact. En sachant que le public varie en fonction des différents médias, vos internautes influenceront grandement le ton de vos contenus.
+					Instagram et Pinterest : Un public jeune qui aime la communication visuelle
+					Facebook : Un public plus mature
+					Linkedln : un public professionnel
+					Tiktok : un public jeune avec une communication ciblée sur la vidéo et l’humour
+					Une fois que vous aurez bien ciblé votre public, nous passerons à la troisième étape, celle qui donnera vie à votre communication : les contenus !
+					</p>
+				<p class="my-5" style="text-align: justify;"> 3. Créer du contenu <br>
+
+					Afin d’alimenter vos réseaux, il est important de présenter du contenue à partager pour augmenter votre audience et gagné en visibilité.
+					Ainsi, vous pouvez créer beaucoup de différents contenus :
+					-	Photos
+					-	Vidéos
+					-	Posters
+					-	Lives
+					-	Storys
+					C’est par c’est publications, que vous allez être de plus en plus visibles et plus crédibles auprès de votre followers et potentiel followers.
+					Il est donc bénéfique de créer et partager vos postes régulièrement afin de générer d’avantage de trafic.
+					Vous pouvez d’ailleurs partager des moments de votre quotidien de vous et votre temps de travail. Cela fera plus de proximité avec votre communauté et vos réseaux paraîtront 
+					« Plus humain ».
+					</p>
+			</div>
+
+			<img class="rounded" src="images/machine_ecrire.jpg" alt="Image de présentation de l'article" style="max-width: 93%;">
+
+			<div class="row px-5">
+				<p class="mb-3 mt-5" style="text-align: justify;"> 4. Fréquence des publications <br>
+
+					Certes, alimenter vos médias sociaux c’est bien, mais les poster régulièrement c’est mieux. 
+					Votre fréquence de publication vous rendra plus visible auprès de vos abonnés.
+					Dans ce domaine, il faut apprendre que vos abonnés vous apprécient et par principe ils sont justement là pour recevoir de vos nouvelles.
+					Le mieux est de vous créer notamment un calendrier éditorial sur le mois avec toutes les publications prévues chaque semaine.
+					Ainsi, en parlant de semaine il faut également prévoir combien de postes comptez vous poster dans la semaine ? 1 ? 2 ? 4? 
+					Tous ces paramètres doivent être bien pris en compte afin de vous assurer une bonne et habituelle publication des postes 
+					</p>
+				<p class="my-5" style="text-align: justify;"> 5. Analyser ses performances <br>
+					Une fois tout ces facteurs bien mis en place et maitriser, il ne faut pas oublier de regarder vos performances sur vos réseaux afin de se donner une idée du taux d’engagement, les vus des postes, etc….
+					Ainsi, si tout se passe bien, cela signifie que votre stratégie de communication est bien mise en place. Au cas contraire, cela vous permet de pouvoir réajuster votre stratégie jusqu’à ce qu’elle porte enfin ces fruits.			
+					Voila ! C’était ici les conseils pour une bonne présence en ligne, j’espère que cet article vous aura aidé. Et que vous vous lancerez ainsi dans la présence des réseaux sociaux quelques soit le domaine.
+					Merci de votre Lecture !
+					</p>
+			</div>
+			<button id="togArtAct2" class="btnPurp btn py-1 mx-auto typTxtOrdiMed15">Voir Moins</button>
 		</section>
 	</main>
 	<!--Fin main-->
 
 	<!--Début footer-->
 	<footer>
-		<nav class="navbar navbar-expand-md px-4 justify-content-between pt-2">
-			<img class="navbar-brand col-12 col-md-2 m-0" src="" alt="Logo de l'agence.">
-			<div class="col-12 col-md-6 col-lg-7 text-center">
-				<ul class="navbar-nav align-items-center justify-content-center gap-lg-5">
-					<li class="nav-item typTxtOrdiMed15"><a href="#" class="nav-link text-white">Statut juridique</a>
-					</li>
-					<li class="nav-item typTxtOrdiMed15"><a href="#" class="nav-link text-white">Contact</a></li>
-					<li class="nav-item typTxtOrdiMed15"><a href="#" class="nav-link text-white">Mentions Légales</a>
-					</li>
-					<li class="nav-item typTxtOrdiMed15"><a href="#" class="nav-link text-white">Flux RSS</a></li>
-				</ul>
-				<section class="col-12">
-					<p class="text-white fs-6 typTxtOrdiMed15 m-0">&copy;2024, 1RIS et ses affiliés</p>
-				</section>
-			</div>
-			<section class="col-12 col-md-3 col-lg-2 pt-5 pt-md-0">
-				<ul class="d-flex justify-content-center justify-content-md-around p-0" style="list-style: none;">
-					<li class="col-2" style="width: fit-content;"><a href="#"><i class='bx bxl-instagram-alt'
-								style='color:#ffde42; font-size: 6vh;'></i></a></li>
-					<li class="col-2" style="width: fit-content;"><a href="#"><i class='bx bxl-facebook'
-								style='color:#8c9ed1; font-size: 6vh;'></i></a></li>
-					<li class="col-2" style="width: fit-content;"><a href="#"><i class='bx bxl-linkedin'
-								style='color:#ffffff; font-size: 6vh;'></i></a></li>
-				</ul>
-				<div class="row text-center">
-					<a id="fMail" class="p-0 fs-6 text-white typTxtOrdiMed15"
-						href="mailto:agence1ris@gmx.com">agence1ris@gmx.com</a>
-				</div>
-			</section>
-		</nav>
-	</footer>
-	<!--Fin footer-->
+        <nav class="navbar navbar-expand-md px-4 justify-content-between pt-2">
+            <div class="d-flex justify-content-center align-items-center col-12 col-md-2 m-0">
+				<a href="index.html">
+				<img src="images/Logo.png" alt="Logo de l'agence." style="max-width:200px;">
+				</a>
+			</div>            
+            <div class="col-12 col-md-6 col-lg-7 text-center">
+                <ul class="navbar-nav align-items-center justify-content-center gap-lg-5">
+                    <li class="nav-item typTxtOrdiMed15"><a href="statutsjuridiques.html" id="btnNav" class="nav-link ">Statut juridique</a></li>
+                    <li class="nav-item typTxtOrdiMed15"><a href="contact.html" id="btnNav" class="nav-link ">Contact</a></li>
+                    <li class="nav-item typTxtOrdiMed15"><a href="mentionslegales.html" id="btnNav" class="nav-link ">Mentions Légales</a></li>
+                    <li class="nav-item typTxtOrdiMed15"><a href="fluxrss.xml" id="btnNav" class="nav-link ">Flux RSS</a></li>
+                </ul>
+                <section class="col-12">
+                    <p class="fs-6 typTxtOrdiMed15 m-0" id="btnNav">&copy;2024, 1RIS et ses affiliés</p>
+                </section>
+            </div>
+            <section class="col-12 col-md-3 col-lg-2 pt-5 pt-md-0">
+                <ul class="d-flex justify-content-center justify-content-md-around p-0" style="list-style: none;">
+                    <li class="col-2" style="width: fit-content;"><a href="https://www.instagram.com/1ris.l/"><i class='bx bxl-instagram-alt'></i></a></li>
+                    <li class="col-2" style="width: fit-content;"><a href="https://www.facebook.com/profile.php?id=61556530599225"><i class='bx bxl-facebook'></i></a></li>
+                    <li class="col-2" style="width: fit-content;"><a href="https://www.linkedin.com/in/company/1ris/"><i class='bx bxl-linkedin'></i></a></li>
+                </ul>
+                <div class="row text-center">
+                    <a id="btnNav" class="p-0 fs-6 typTxtOrdi Med15" href="mailto:agence1ris@gmx.com">agence1ris@gmx.com</a>
+                </div>
+            </section>
+        </nav>
+    </footer>
+    <!--Fin footer-->
 
 	<!--Exécution des scripts-->
 	<!--Scripts Externes-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-		integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-		crossorigin="anonymous"></script>
-	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 	<!--SCRIPTS LOCAUX-->
-	<script type="module" src="JS/database/require.js"></script>
+	<script type="module" src="JS/database.js"></script>
 	<script src="JS/blog.js"></script>
+	<script src="JS/modesombre.js"></script>
 </body>
 
 </html>

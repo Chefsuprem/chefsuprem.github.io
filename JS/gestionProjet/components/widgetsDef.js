@@ -2,7 +2,7 @@
 import { db, auth } from "../../database/require.js";
 import { collection, getDocs, doc, query } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { renderPending, pendLastName, pendFirstName, pendEmail, pendMdp } from "./functions.js";
+import { renderPending, pendLastName, pendFirstName, pendEmail, pendMdp, assignMember } from "./functions.js";
 
 function assigner(emplacement, widget){
 		
