@@ -3,29 +3,21 @@
 @import url(components/colors.css);
 
 /*btnNav contient tout les textes du header et footer sauf "Connexion" du header qui est établi directement de le html*/
-.btnNav{
+#btnNav{
 	color: white;
 }
-.btnNav:hover{
+#btnNav:hover{
     color:var(--irisBlue);
 }
-.dark .btnNav{
+.dark #btnNav{
     color:var(--blackTheme);
 }
-.dark .btnNav:hover{
+.dark #btnNav:hover{
 	color:var(--irisPurple);
 }
 
 .dark #copyR{
     color: var(--blackTheme) !important;
-}
-
-.dark figcaption{
-    color: white;
-}
-
-.dark .hilight{
-    color: var(--irisPurpleClair);
 }
 
 #toggle-mode {
