@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
 	<!-- Google tag (gtag.js) -->
@@ -13,7 +15,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Agence 1ris - Votre partenaire en communication adaptée et respectueuse. Découvrez toutes nos astuces et méthodes ici.">
-	<title> Mentions Légales </title>
+	<title>Contacter l'Agence 1ris</title>
 	<link rel="website icon" href="images/favicons/favicon.png" type="png">
 
 	<!--Liens externes-->
@@ -21,6 +23,7 @@
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<!--Liens locaux-->
 	<link rel="stylesheet" href="CSS/header.css">
+	<link rel="stylesheet" href="CSS/inscription.css">
 </head>
 
 <body>
@@ -69,37 +72,44 @@
 	</header>
 <!--Fin header-->
 
-    <main class="px-sm-4 my-5 pt-5">
-        <hgroup class="d-flex flex-column align-items-center py-4">
-            <h1 id="eyeh1" class="d-md-block d-none typTtrOrdi50 text-center px-4" data-translate="titremention"> Mentions légales </h1>
-            <p class="typSsTtrOrdi18" data-translate="soustitremention">Nos mentions légales</p>
-        </hgroup>
-        <section class="d-flex flex-column gap-4 mx-auto align-items-left px-2 px-sm-0" style="max-width:900px;">
-            <h2 class="typTtrOrdi32"> Agence 1RIS</h2>
-            <ul class="list-unstyled">
-                <li class="typTxtOrdi16">70 Avenue Roger Devoucoux, 83000 Toulon - France</li>
-                <li class="typTxtOrdi16"> 07.69.43.07.54 </li>
-                <li class="typTxtOrdi16">agence-1ris@gmx.com</li>
-            </ul>
-            <h2 class="typTtrOrdi32" data-translate="droitauteur">Droits d'auteur</h2>
-            <p class="typTxtOrdi16" data-translate="p1droit">Tous droits réservés à l'Agence 1RIS, appartenant à l'entreprise SAEMMITLN, toutes utilisations de contenus appartenant à l'agence sans son consentement est formellement interdit. Si besoin d'utilisation du contenu de l'agence ou demandes en lien avec 1RIS, veuillez remplir le formulaire de contact, envoyer un mail ou prendre contact sur notre numéro de téléphone.</p>
-            <h2 class="typTtrOrdi32" data-translate="droitproprietaire">Propriétaire du site</h2>
-            <ul class="list-unstyled">
-                <li class="typTxtOrdi16" data-translate="proprionom">Mr Christophe Lachaume.</li>
-                <li class="typTxtOrdi16" data-translate="proprioadresse">Entreprise : SAEMMITLN - 70 Avenue Roger Devoucoux, 83000 Toulon - France</li>
-            </ul>
-            <h2 class="typTtrOrdi32" data-translate="usedata">Données personnelles et utilisation des cookies</h2>
-            <p class="typTxtOrdi16" data-translate="p1usedata"> L'agence 1RIS n'utilise pas de cookies et toute information personnelle de l'utilisateur est gardée privée. Toutes les informations collectées par le biais des formulaires de contact ou d'inscription resterons confidentielles. Vos informations personnelles sont stockées sur des serveurs sécurisés et protégés contre tout accès non autorisé. Nous prenons toutes les mesures techniques et organisationnelles nécessaires pour assurer la sécurité de vos données et empêcher toute perte, altération ou divulgation non autorisée.</p>
-            <h2 class="typTtrOrdi32" data-translate="heberg">Hébergement</h2>
-            <p class="typTxtOrdi16" data-translate="p1heberg"> Hebergeur du site web : Ce site internet est hébergé par Github Pages, possedé par la société GitHub. Pour contacter cet hébergeur :
-                <ul class="list-unstyled">
-                    <li class="typTxtOrdi16" data-translate="p2heberg">Fondateurs : Tom Preston-Werner et Chris Wanstrath.</li>
-                    <li class="typTxtOrdi16" data-translate="p3heberg">Adresse électronique : <a href="https://support.github.com/?tags=dotcom-footer" style="text-decoration: none;">https://support.github.com/?tags=dotcom-footer. </a></li>
-                    <li class="typTxtOrdi16" data-translate="p4heberg">Adresse postale : 88 Colin P. Kelly Jr Street, San Francisco, CA 94107 United States.</li>
-                </ul>
-            </p>
+	<!--Début main-->
+	<main class="my-5 pt-5">
+        <section class="col-12 d-flex flex-column align-items-center gap-3 mb-5">
+            <img id="eye" src="images/oeil bleu clair.png" alt="Motif oeil bleu clair" style="width:80%; max-width: 250px;" data-alt-translate="oeilbleu_alt">
+            <!--Version Md-->
+            <h1 id="eyeh1" class="d-md-block d-none typTtrOrdi50 text-center px-4" data-translate="vousinscrire">Inscrivez-vous</h1>
+
+            <!--Version xSm-->
+            <h1 id="eyeh1" class=" d-md-none typTtrOrdi50 text-center px-3" style="font-size:40pt;" data-translate="vousinscrire">Inscrivez-vous</h1>
         </section>
+        <div id="passwordError" class="error mb-3" style="text-align: center; background-color: #ffdf43;font-weight: bold; /* Mettre en gras */
+        font-size: 130%;"></div>
+        </section>
+        <form class=" col-12 col-md-5 d-flex flex-column align-items-center justify-content-center gap-5 px-3 mx-auto">
+            <fieldset class="d-flex flex-column align-items-center" style="width:100%; max-width: 350px;">
+
+                <label class="typTxtOrdi16" style="align-self:start;" for="nom" data-translate="nom_form">Nom :</label>
+                <input type="text" id="nom" name="nom" required class="case mb-5">
+                    
+                <label class="typTxtOrdi16" style="align-self:start;" for="prenom" data-translate="prenom_form">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" required class="case mb-5">
+                    
+                <label class="typTxtOrdi16" style="align-self:start;" for="email" data-translate="email_form">Email :</label>
+                <input type="email" id="email" name="email" required class="case mb-5">
+                    
+                <label class="typTxtOrdi16" style="align-self:start;" for="motdepasse" data-translate="mdp_form">Mot de passe :</label>
+                <input type="password" id="motdepasse" name="motdepasse" required class="case mb-5">
+                    
+                <label class="typTxtOrdi16" style="align-self:start;" for="confmotdepasse" data-translate="mdpconfirm_form">Confirmer le mot de passe:</label>
+                <input type="password" id="confmotdepasse" name="confmotdepasse" required class="case mb-3">
+        
+            </fieldset>
+        
+            <button type="submit" id="Inscrire" class="btnPurp typTxtOrdi16" data-translate="btninscrire">S'inscrire</button>
+            <a id="compte" class="typTxtOrdi16It" href="connexion.html" data-translate="compteexist">Déjà un compte ?</a>
+        </form>              
     </main>
+	<!--Fin Main-->
 
 	<!--Début footer-->
 	<footer>
@@ -144,7 +154,7 @@
 	<!--SCRIPTS LOCAUX-->
 	<script type="module" src="JS/database.js"></script>
 	<script src="JS/components/header.js"></script>
-	<script src="JS/elementsfooter.js"></script>
+	<script src="JS/inscription.js"></script>
 	<script src="JS/modesombre.js"></script>
 </body>
 

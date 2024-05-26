@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3X8LP6974C"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-3X8LP6974C');
+	</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Agence 1ris - Votre partenaire en communication adaptée et respectueuse. Découvrez toutes nos astuces et méthodes ici.">
+	<title>Blog - Agence 1ris</title>
+	<link rel="website icon" href="images/favicons/favicon.png" type="png">
+
+	<!--Liens externes-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<!--Liens locaux-->
+	<link rel="stylesheet" href="CSS/header.css">
+	<link rel="stylesheet" href="CSS/blog.css">
+</head>
+
+<body>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const currentMode = localStorage.getItem('mode') || 'light';
+			if (currentMode === 'dark') {
+				document.body.classList.add('dark');
+				document.getElementById('toggle-mode').style.fill = 'black';
+			}
+		});
+	</script>
+	<!--Début header-->
+	<header class="pt-1">
+		<!-- Debut navbar -->
+		<nav class="navbar navbar-expand-lg px-5 justify-content-center justify-content-lg-start">
+			<a href="index.html" class="navbar-brand me-auto" style="max-width:fit-content;">
+				<img src="images/Logo.png" alt="Logo de l'agence." style="width:100%; max-width:100px;" data-alt-translate="logo1ris">
+			</a>
+
+			<!-- Bouton burger pour mobile -->
+			<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="bar bar1"></span>
+				<span class="bar bar2"></span>
+				<span class="bar bar3"></span>
+			</button>    
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="col-lg-7 col-xl-9 navbar-nav align-items-center justify-content-center justify-content-xl-start ps-xl-5 gap-3">
+					<li class="nav-item"><a class="btnNav nav-link typTxtOrdi16" href="blog.html" data-translate="blog_header">Blog</a></li>
+					<li class="nav-item"><a class="btnNav nav-link typTxtOrdi16" href="contact.html" data-translate="contact">Contact</a></li>
+					<li class="nav-item">
+						<a role="button" id="languageToggle" class="btnNav typTxtOrdi16" href="#" data-bs-toggle="dropdown">EN</a>
+					</li>
+					<li> <!-- provient de boxicons -->
+						<i id="toggle-mode" class='bx bxs-sun' style="font-size:30px;"></i>    
+					</li>    
+				</ul>
+				<section class="col-lg-5 col-xl-3 btn-group d-flex justify-content-center mt-2 mt-md-0">
+					<button type="button" id="btnconnexion" class="btn connexion bg-white typTxtOrdi16"><a href="connexion.html" style="text-decoration: none; color:black" data-translate="connexion_header">Connexion</a></button>
+					<button type="button" class="btn inscription typTxtOrdi16 inscriptionheader"><a href="inscription.html" class="btnNav" style="text-decoration: none;" data-translate="inscription_header">Inscription</a></button>
+				</section>
+			</div>
+		</nav>
+		<!-- Fin navbar -->
+	</header>
+<!--Fin header-->
+
+	<!--Début main-->
+	<main>
+
+		<!--Debut accueil-->
+		<hgroup id="accueil" class="container-fluid">
+
+			<!--Taille Sm-->
+			<h1 class="d-none d-sm-block text-center typTtrOrdi50" data-translate="notrepage">Notre Blog</h1>
+
+			<!--Taille xSm-->
+			<h1 class="d-block d-sm-none text-center typTtrOrdi32" data-translate="notrepage">Notre Blog</h1>
+			<img class="d-block d-sm-none" src="#" alt="Image de décoration de la page blog." data-translate="imgdeco_blog">
+		</hgroup>
+
+		<!--CECI EST LE PREMIER POST DANS LE BLOG !!-->
+		<section id="post1" class="d-flex container-fluid pb-5 justify-content-around flex-column flex-md-row gap-3 gap-md-0">
+			<div class="d-flex col-12 col-md-5 rounded position-relative" style="background-image: url(images/blog_articledeux.png); background-position: center; background-size: cover; height: 30vh;">
+				<hgroup class="position-absolute" style=" right: 2%; left: 2%; bottom: 2%">
+					<h2 class="m-0 text-white typTtrOrdi25" data-translate="h2titre_article1"> Améliorer sa présence en ligne</h2>
+					<p class="m-0 text-white typTxtOrdi16" data-translate="date_article1"> 6 mai 2024</p>
+				</hgroup>
+			</div>
+			<div class="d-flex flex-column col-md-6 text-center justify-content-center">
+				<p data-translate="chapo_article1">Vous souhaitez vous lancer sur les réseaux et vous ne savez pas par où commencer ?
+					Pas de soucis ! Cet article vous présente 5 conseils pour avoir la meilleure stratégie de communication possible pour vos débuts !</p>
+				<button id="togArt1" class="btnPurp btn py-1 mx-auto typTxtOrdiMed15" data-translate="boutonvoirplus">Voir Plus</button>
+			</div>
+		</section>
+
+		<!--Quand le post est étendu-->
+		<section id="postActive1" class="d-none d-flex container-fluid text-center px-5 pb-5">
+
+			<h2 class="typTtrOrdi25" data-translate="h2titre_article1complet">Conseils pour améliorer sa présence en ligne</h2>
+
+			<div class="row px-5">
+				<p class="hilight typTxtOrdi16" data-translate="date_article1"> 6 mai 2024</p>
+				<p class="mb-5" style="text-align: justify;"  data-translate="chapo_article1">Vous souhaitez vous lancer sur les réseaux et vous ne savez pas par où commencer ?
+					Pas de soucis ! Cet article vous présente 5 conseils pour avoir la meilleure stratégie de communication possible pour vos débuts !</p>
+			</div>
+
+			<img class="rounded" src="images/blog_articledeux.png" alt="Image 1 de l'article." class="container-fluid" style="max-width: 93%;"  data-alt-translate="imgart1_alt">
+
+			<div class="row px-5">
+				<p class="mb-3 mt-5" style="text-align: justify;" data-translate="article1_p1"> 1. Définir des objectifs clairs et précis. <br>
+					Avant toute chose, il faut premièrement définir clairement vos objectifs et les actions mises en place pour les atteindre.
+					Que souhaitez-vous accomplir avec votre présence sur les réseaux sociaux ? Quels avantages pouvez-vous tirer des réseaux sociaux ?
+					En connaissant les réponses à ces questions, vous connaîtrez plus aisément les bases de votre présence en ligne et pourrez ajuster et affiner votre stratégie de communication.
+					</p>
+				<p class="mb-3 mt-5" style="text-align: justify;" data-translate="article1_p2"> 2. Connaître votre public <br>
+
+					Une chose primordiale également, en vous lançant sur les réseaux sociaux est de savoir à qui votre contenue s’adresse. Et de ce fait, sur quels réseaux sociaux, vos publications auront le plus d’impact. En sachant que le public varie en fonction des différents médias, vos internautes influenceront grandement le ton de vos contenus.
+					Instagram et Pinterest : Un public jeune qui aime la communication visuelle
+					Facebook : Un public plus mature
+					Linkedln : un public professionnel
+					Tiktok : un public jeune avec une communication ciblée sur la vidéo et l’humour
+					Une fois que vous aurez bien ciblé votre public, nous passerons à la troisième étape, celle qui donnera vie à votre communication : les contenus !
+					</p>
+				<p class="my-5" style="text-align: justify;" data-translate="article1_p3"> 3. Créer du contenu <br>
+
+					Afin d’alimenter vos réseaux, il est important de présenter du contenue à partager pour augmenter votre audience et gagner en visibilité.
+					Ainsi, vous pouvez créer beaucoup de différents contenus :
+					-	Photos
+					-	Vidéos
+					-	Posters
+					-	Lives
+					-	Storys
+					C’est par ces publications, que vous allez être de plus en plus visibles et plus crédibles auprès de vos followers et potentiel followers.
+					Il est donc bénéfique de créer et partager vos postes régulièrement afin de générer davantage de trafic.
+					Vous pouvez d’ailleurs partager des moments de votre quotidien de vous et votre temps de travail. Cela fera plus de proximité avec votre communauté et vos réseaux paraîtront 
+					« Plus humain ».
+					</p>
+			</div>
+
+			<img class="rounded" src="images/blog_stratcom_calendrier.jpg" alt="Image de calendrier éditorial" style="max-width: 80%;" data-alt-translate="imgart2_alt">
+
+			<div class="row px-5">
+				<p class="mb-3 mt-5" style="text-align: justify;" data-translate="article1_p4"> 4. Fréquence des publications <br>
+
+					Certes, alimenter vos médias sociaux c’est bien, mais les poster régulièrement c’est mieux. 
+					Votre fréquence de publication vous rendra plus visible auprès de vos abonnés.
+					Dans ce domaine, il faut apprendre que vos abonnés vous apprécient et par principe ils sont justement là pour recevoir de vos nouvelles.
+					Le mieux est de vous créer notamment un calendrier éditorial sur le mois avec toutes les publications prévues chaque semaine.
+					Ainsi, en parlant de semaine il faut également prévoir combien de postes comptez-vous poster dans la semaine ? 1 ? 2 ? 4? 
+					Tous ces paramètres doivent être bien pris en compte afin de vous assurer une bonne et habituelle publication des postes 
+					</p>
+				<p class="my-5" style="text-align: justify;" data-translate="article1_p5"> 5. Analyser ses performances <br>
+					Une fois tous ces facteurs bien mis en place et maitriser, il ne faut pas oublier de regarder vos performances sur vos réseaux afin de se donner une idée du taux d’engagement, les vues des postes, etc….
+					Ainsi, si tout se passe bien, cela signifie que votre stratégie de communication est bien mise en place. Au cas contraire, cela vous permet de pouvoir réajuster votre stratégie jusqu’à ce qu’elle porte enfin ces fruits.			
+					Voilà ! Maintenant, vous avez toutes les informations pour créer votre présence en ligne, j’espère que cet article vous aura été utile quelque soit le domaine.
+					Merci de votre Lecture !
+					</p>
+			</div>
+			<button id="togArtAct1" class="btnPurp btn py-1 mx-auto typTxtOrdiMed15" data-translate="boutonvoirmoins">Voir Moins</button>
+		</section>
+
+		<!--CECI EST LE SECOND POST DANS LE BLOG -->
+		<section id="post2" class="d-flex container-fluid pb-5 justify-content-around flex-column flex-md-row gap-3 gap-md-0">
+			<div class="d-flex col-12 col-md-5 rounded position-relative" style="background-image: url(images/blog_stratcom.jpg); background-position: center; background-size: cover; height: 30vh;">
+				<hgroup class="position-absolute" style=" right: 2%; left: 2%; bottom: 2%">
+					<h2 class="m-0 text-white typTtrOrdi25" data-translate="h2titre_article2">Actualité : la nouvelle tendance du télétravail </h2>
+					<p class="m-0 text-white typTxtOrdi16" data-translate="date_article2">14 mai 2024</p>
+				</hgroup>
+			</div>
+			<div class="d-flex flex-column col-md-6 text-center justify-content-center">
+				<p  data-translate="chapo_article2"> Depuis la crise sanitaire de 2020, le télétravail s'est imposé comme une composante incontournable du monde professionnel. Chez 1ris, nous avons pleinement adopté cette nouvelle réalité qui, pour beaucoup, est devenue une routine quotidienne. Découvrez-en un peu plus sur ce mode de travail ici ! </p>
+				<button id="togArt2" class="btnPurp btn py-1 mx-auto typTxtOrdiMed15" data-translate="boutonvoirplus">Voir Plus</button>
+			</div>
+		</section>
+
+		<!--Quand le post est étendu-->
+		<section id="postActive2" class="d-none d-flex container-fluid text-center px-5 pb-5">
+
+			<h2 class="typTtrOrdi25" data-translate="h2titre_article2complet">Le télétravail aujourd'hui : une tendance ou une réalité durable ?</h2>
+
+			<div class="row px-5">
+				<p class="hilight typTxtOrdi16" data-translate="date_article2"> 14 mai 2024</p>
+				<p class="mb-5" style="text-align: justify;"  data-translate="chapo_article2"> Depuis la crise sanitaire de 2020, le télétravail s'est imposé comme une composante incontournable du monde professionnel. Chez 1ris, nous avons pleinement adopté cette nouvelle réalité qui, pour beaucoup, est devenue une routine quotidienne. Découvrez-en un peu plus sur ce mode de travail ici ! </p>
+			</div>
+			<div class="row px-5">
+				<p class="mb-3 mt-5" style="text-align: justify;"  data-translate="article2_p1">Et oui, nous sommes pleinement engagés dans cette nouvelle réalité, et pour beaucoup, c'est désormais une réalité quotidienne. Mais quelles sont les véritables implications de ce changement pour chacun d'entre nous ?</p>
+				<p class="mb-3 mt-5" style="text-align: justify;"  data-translate="article2_p2">Le télétravail possède des avantages importants comme la flexibilité des horaires et la réduction des temps de trajet (fini les heures de trajets !). Il permet aussi de choisir son environnement de travail : travailler depuis son jardin ou sous la clim dans le bureau.. Nous avons la possibilité de choisir !
+					</p>
+				<p class="my-5" style="text-align: justify;"  data-translate="article2_p3">  Mais il a aussi de lourds inconvénients. Il peut engendrer un isolement social ou causer des difficultés à se déconnecter complètement du travail. Cela peut aussi être plus difficile de séparer sa vie professionnelle et sa vie personnelle si l on ne se fixe pas de limites claires entre les deux. Le mieux pour pallier à cela est de vous en tenir à des horaires fixes et précis. Vous pouvez aussi comptez sur le soutien de vos collègue et vos proches pour vous inciter à vous arrêter lorsqu il se fait tard.
+					</p>
+				<p class="mb-3 mt-5" style="text-align: justify;"  data-translate="article2_p4">En France, le taux de salariés pratiquant le télétravail a augmenté lors de la période Covid 19 et a prouvé ces points. Ses adeptes ont augmenté et les politiques des entreprises ont évolué en conséquence. 
+					</p>
+			</div>
+			<div class="row px-5">
+
+				<p class="my-5" style="text-align: justify;"  data-translate="article2_p5">Chez 1ris, nous sommes amenés, au fil de nos projets, à travailler en distanciel. Cependant, cela ne perturbe pas notre efficacité. <br>
+					Pourquoi ? Parce que nous avons su mettre en place des outils et des méthodes adaptés qui nous permettent de rester connectés, productifs et soudés, malgré la distance. C'est aussi ici que nous pouvons user de créativité 😉
+					</p>
+			</div>
+			<button id="togArtAct2" class="btnPurp btn py-1 mx-auto typTxtOrdiMed15" data-translate="boutonvoirmoins">Voir Moins</button>
+		</section>
+	</main>
+	<!--Fin main-->
+
+	<!--Début footer-->
+	<footer>
+        <nav class="navbar navbar-expand-md px-4 justify-content-between pt-2">
+            <div class="d-flex justify-content-center align-items-center col-12 col-md-2 m-0">          
+				<a href="index.html">
+				<img src="images/Logo.png" alt="Logo de l'agence." style="max-width:200px;" data-alt-translate="logo1ris">
+				</a>
+			</div>            
+            <div class="col-12 col-md-6 col-lg-7 text-center">
+                <ul class="navbar-nav align-items-center justify-content-center gap-lg-5">
+                    <li class="nav-item typTxtOrdi16"><a href="statuts.html" class="btnNav nav-link" data-translate="statut">Statuts juridiques</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="contact.html" class="btnNav nav-link" data-translate="contact">Contact</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="mentionsLegales.html" class="btnNav nav-link" data-translate="mentionslegales">Mentions Légales</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="flux.html" class="btnNav nav-link" data-translate="fluxrss">Flux RSS</a></li>
+                </ul>
+                <section class="col-12">
+                    <p id="copyR" class="fs-6 typTxtOrdi16 m-0 text-white"data-translate="copyr">&copy;2024, 1ris et ses affiliés</p>
+                </section>
+            </div>
+            <section class="col-12 col-md-3 col-lg-2 pt-5 pt-md-0">
+                <ul class="d-flex justify-content-center justify-content-md-around p-0" style="list-style: none;">
+                    <li class="col-2" style="width: fit-content;"><a href="https://www.instagram.com/1ris.l/"><i class='bx bxl-instagram-alt'></i></a></li>
+                    <li class="col-2" style="width: fit-content;"><a href="https://www.facebook.com/profile.php?id=61556530599225"><i class='bx bxl-facebook'></i></a></li>
+                    <li class="col-2" style="width: fit-content;"><a href="https://www.linkedin.com/company/1ris-agence/about/"><i class='bx bxl-linkedin'></i></a></li>
+                </ul>
+                <div class="row text-center">
+                    <a class="btnNav p-0 fs-6 typTxtOrdi16" href="mailto:agence1ris@gmx.com">agence1ris@gmx.com</a>
+                </div>
+            </section>
+        </nav>
+    </footer>
+    <!--Fin footer-->
+
+	<!--Exécution des scripts-->
+	<!--Scripts Externes-->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+	<!--SCRIPTS LOCAUX-->
+	<script type="module" src="JS/database.js"></script>
+	<script src="JS/components/header.js"></script>
+	<script src="JS/blog.js"></script>
+	<script src="JS/modesombre.js"></script>
+</body>
+
+</html>

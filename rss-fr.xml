@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Flux RSS de l'agence 1ris</title>
+        <link>https://www.agence-1ris.com/blog.html</link>
+        <description>Dernières actualités de l'agence</description>
+        <language>fr-fr</language>
+        <pubDate>Wed, 19 May 2024 12:00:00 GMT</pubDate>
+        <lastBuildDate>Wed, 19 May 2024 12:00:00 GMT</lastBuildDate>
+        <item>
+            <title>Comment construire sa présence en ligne ?</title>
+            <link>https://www.agence-1ris.com/blog.html</link>
+            <description>Vous souhaitez vous lancer sur les réseaux et vous ne savez pas par où commencer ? Notre agence a réuni les 5 points principaux pour vos débuts !</description>
+            <pubDate>Wed, 19 May 2024 10:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Partenariat pour un évènement</title>
+            <link>https://www.agence-1ris.com/blog.html</link>
+            <description>Nous sommes fiers d'annoncer notre nouveau partenariat avec une boutique Toulonnaise à l'occasion d'un évènement MMI !</description>
+            <pubDate>Tue, 18 May 2024 14:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
