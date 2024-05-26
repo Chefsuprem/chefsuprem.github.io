@@ -146,7 +146,7 @@ function adminAccount(){
 						})
 			
 						closeModal(newTaskModal);
-						taskRender();
+						taskRenderAdmin();
 
 					})
 					.catch((error) => {
