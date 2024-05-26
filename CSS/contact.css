@@ -1,0 +1,58 @@
+@import url(components/navBar.css);
+@import url(components/colors.css);
+@import url(components/fonts.css);
+
+main{
+    padding:15vh 0 0 0;
+}
+
+hgroup{
+    height:77vh;
+    row-gap: 10vh;
+}
+
+.border{
+	border-radius:50px;
+}
+
+#icone{
+	color:var(--irisPurple)
+}
+.case{
+	border-radius:10px;
+	height:6vh;
+	width:70vw;
+}
+
+.case2{
+	width: 100%;
+	border-radius:10px;
+	resize: none;
+	overflow: hidden;
+}
+
+#envoyer{
+	border-radius:10px;
+	width:100%;
+	height:7vh;
+}
+
+textarea::placeholder{
+	color: white;/*Les couleurs du placeholder de la description*/	
+	padding-left: .5vw;
+}
+
+/*Les styles sombres*/
+.dark .case{
+	background-color: white;
+}
+.dark .case2{
+	background-color: white;
+	color :black;
+}
+.dark #icone{
+	color:var(--irisYellow)
+}
+.dark textarea::placeholder{
+	color:var(--blackTheme)
+}

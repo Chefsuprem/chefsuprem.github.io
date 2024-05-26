@@ -1,0 +1,14 @@
+@import url(components/navBar.css);
+@import url(components/fonts.css);
+@import url(components/colors.css);
+
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+
+#accueil{
+padding: 40vh 0;
+}

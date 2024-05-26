@@ -1,0 +1,33 @@
+@import url(CSS/components/navBar.css);
+@import url(CSS/components/footer.css);
+@import url(CSS/components/fonts.css);
+
+
+body {
+    font-family: Poppins, sans-serif;
+}
+
+
+.case{
+    border-radius:10px;
+	height:6vh;
+	width:100%;
+}
+
+#Inscrire{
+	border-radius:10px;
+	width:200px;
+	height:7vh;
+}
+
+#compte{
+    transition: transform 0.3 ease;
+	color:black;
+	text-decoration: none;
+}
+.dark #compte{
+	color: white;
+}
+#compte:hover{
+    transform:scale(1.1);
+}

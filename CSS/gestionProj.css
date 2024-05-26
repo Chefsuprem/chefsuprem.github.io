@@ -1,0 +1,46 @@
+
+@import url(components/navBar.css);
+@import url(components/fonts.css);
+@import url(components/footer.css);
+
+body{
+	background-color: var(--gestionBg);
+}
+
+.mainBtn{
+	width: 100%;
+	border-radius: 10px;
+	background-color: var(--irisBlue);
+}
+
+
+/*Condition de role d'utilisateurs*/
+
+#widTaches{
+	display: none;
+}
+
+#widTaches.active{
+	display: flex;
+}
+
+/*Les barres de progressions interactives*/
+input[type="range"]{
+	appearance: none;
+	background-color: var(--gestionBg);
+	cursor: pointer;
+	width: 100%;
+	max-width: 100%;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+	appearance: none;
+	background: white;
+	border: solid 2px var(--irisBlue);
+	width: 1.5vw;
+	height: 2.5vh;
+	border-radius: 100px;
+	box-shadow: -35.8vw 0 0 35vw var(--irisBlue);
+}
