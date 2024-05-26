@@ -17,7 +17,7 @@ html{
 
 body{
 	width: 100vw;
-	overflow-x: hidden;
+	overflow-x: hidden !important;
 }
 
 /*Pour cacher la barre de scroll tout en gardant la fonctionnalité de scroll sur chrome, safari et opera*/
@@ -57,6 +57,10 @@ header:after{
 
 .dark h3{
 	color:white;
+}
+
+.dark section#equipeSection, .dark section#equipeSection h3{
+	color: var(--blackTheme);
 }
 
 .a2{

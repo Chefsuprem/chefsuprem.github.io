@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-3X8LP6974C"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-3X8LP6974C');
+		</script>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Page d'accueil - Agence 1RIS</title>
+		<meta name="description" content="Agence 1ris - Votre partenaire en communication créative, adaptée et respectueuse. Découvrez notre équipe et nos prestations.">
+
+        <title>Page d'accueil - Agence 1ris</title>
+		<link rel="website icon" href="images/favicons/favicon.png" type="png">
     
         <!--Liens Externes-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -11,47 +24,56 @@
         <!--Liens Locaux-->
         <link rel="stylesheet" href="CSS/header.css">
 		<link rel="stylesheet" href="CSS/index.css">
-    </head>
-    <body>
-        <!--Début header-->
-        <header class="pt-1">
-            <!-- Debut navbar -->
-            <nav class="navbar navbar-expand-lg px-5 justify-content-center justify-content-lg-start">
-                <a href="index.html" class="navbar-brand me-auto" style="max-width:fit-content;">
-                    <img src="images/Logo.png" alt="Logo de l'agence." style="width:100%; max-width:100px;">
-                </a>
-                
-                <!-- Bouton burger pour mobile -->
-                <button class="navbar-toggler ms-auto " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="bar bar1"></span>
-                    <span class="bar bar2"></span>
-                    <span class="bar bar3"></span>
-                </button>    
-    
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="col-lg-7 col-xl-9 navbar-nav align-items-center justify-content-center justify-content-xl-start ps-xl-5 gap-3">
-                        <li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdi16" href="blog.html">Blog</a></li>
-                        <li class="nav-item"><a id="btnNav" class="nav-link typTxtOrdi16" href="contact.html">Contact</a></li>
-                        <li class="nav-item dropdown">
-                            <a id="btnNav" role="button" class="nav-link-active dropdown-toggle typTxtOrdi16" href="#" data-bs-toggle="dropdown">FR</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="inscription.html" class="dropdown-item typTxtOrdi16">FR</a></li>
-                            <li><a href="#" class="dropdown-item typTxtOrdi16">EN</a></li>
-                        </ul>
-                        <li> <!--  provient de boxicons -->
-							<i id="toggle-mode" class='bx bxs-sun' style="font-size:30px";></i>	
-                        </li>    
-                    </ul>
-                    <section class="col-lg-5 col-xl-3 btn-group d-flex justify-content-center mt-2 mt-md-0">
-                        <button type="button" id="btnconnexion" class="btn connexion bg-white typTxtOrdi16"><a href="connexion.html" style="text-decoration: none; color:black">Connexion</a></button>
-                        <button type="button" class="btn inscription typTxtOrdi16 inscriptionheader"><a href="inscription.html" id="btnNav" style="text-decoration: none;">Inscription</a></button>
-                    </section>
-                </div>
-            </nav>
-            <!-- Fin navbar -->
-        </header>
-	<!--Fin header-->
 
+    </head>
+    
+<body>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const currentMode = localStorage.getItem('mode') || 'light';
+			if (currentMode === 'dark') {
+				document.body.classList.add('dark');
+				document.getElementById('toggle-mode').style.fill = 'black';
+			}
+		});
+	</script>
+	<!--Début header-->
+	<header class="pt-1">
+		<!-- Debut navbar -->
+		<nav class="navbar navbar-expand-lg px-5 justify-content-center justify-content-lg-start">
+			<a href="index.html" class="navbar-brand me-auto" style="max-width:fit-content;">
+				<img src="images/Logo.png" alt="Logo de l'agence." style="width:100%; max-width:100px;" data-alt-translate="logo1ris">
+			</a>
+
+			<!-- Bouton burger pour mobile -->
+			<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="bar bar1"></span>
+				<span class="bar bar2"></span>
+				<span class="bar bar3"></span>
+			</button>    
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="col-lg-7 col-xl-9 navbar-nav align-items-center justify-content-center justify-content-xl-start ps-xl-5 gap-3">
+					<li class="nav-item"><a class="btnNav nav-link typTxtOrdi16" href="blog.html" data-translate="blog_header">Blog</a></li>
+					<li class="nav-item"><a class="btnNav nav-link typTxtOrdi16" href="contact.html" data-translate="contact">Contact</a></li>
+					<li class="nav-item">
+						<a role="button" id="languageToggle" class="btnNav typTxtOrdi16" href="#" data-bs-toggle="dropdown">EN</a>
+					</li>
+					<li> <!-- provient de boxicons -->
+						<i id="toggle-mode" class='bx bxs-sun' style="font-size:30px;"></i>    
+					</li>    
+				</ul>
+				<section class="col-lg-5 col-xl-3 btn-group d-flex justify-content-center mt-2 mt-md-0">
+					<button type="button" id="btnconnexion" class="btn connexion bg-white typTxtOrdi16"><a href="connexion.html" style="text-decoration: none; color:black" data-translate="connexion_header">Connexion</a></button>
+					<button type="button" class="btn inscription typTxtOrdi16 inscriptionheader"><a href="inscription.html" class="btnNav" style="text-decoration: none;" data-translate="inscription_header">Inscription</a></button>
+				</section>
+			</div>
+		</nav>
+		<!-- Fin navbar -->
+	</header>
+<!--Fin header-->
+
+	<!--Début main-->
 	<!--Debut Main-->
 	<main>
 
@@ -59,14 +81,14 @@
 		<section class="d-flex container-fluid flex-column flex-md-row m-0 gap-5 gap-sm-1 p-5 my-5">
 			<div id="bvn_btn" class="d-flex col-12 col-sm-6 px-sm-4 flex-column gap-4 justify-content-center align-items-center text-center">
 				<!--Taille md-->
-				<h1 class=" d-none typTtrOrdi50 pe-0 pe-md-3">Bienvenue sur notre site <span class="hilight">web</span></h1>
-				<h1 class="d-md-block text-center typTtrOrdi50 pe-md-3" style="font-size: 45px;">Bienvenue sur notre site <span class="hilight" style="font-size:45px;">web</span> !</h1>
+				<h1 class=" d-none typTtrOrdi50 pe-0 pe-md-3 "data-translate="welcome_title">Bienvenue sur notre site <span class="hilight">web</span></h1>
+				<h1 class="d-md-block text-center typTtrOrdi50 pe-md-3" style="font-size: 45px;" data-translate="welcome_title">Bienvenue sur notre site <span class="hilight" style="font-size:45px;">web</span> !</h1>
 				<button class="btnPurp d-sm-block col-5 py-1 px-0 mx-auto typTxtOrdi16">
-					<a class="a2" href="contact.html" style="text-decoration: none;"> Besoin d'aide ?</a>
+					<a class="a2" href="contact.html" style="text-decoration: none;" data-translate="boutonaide"> Besoin d'aide ?</a>
 				</button>
 			</div>
 			<figure id="persona" class =" d-flex col-12 col-sm-6 justify-content-center px-4 px-md-0 position-relative" style="max-width: fit-content;">
-				<img id="personaimg" src="/images/persona_joyeuse.jpg" alt="persona joyeuse sur ton principal jaune." style=" width:100%; min-width:220pt; max-width: 400pt; border-radius: 32px;">
+				<img id="personaimg" src="/images/persona_joyeuse.jpg" alt="persona joyeuse sur ton principal jaune." style=" width:100%; min-width:220pt; max-width: 400pt; border-radius: 32px;" data-alt-translate="imgpersonne_alt">
 				<figcaption class="position-absolute typTxtOrdi16" style="bottom: -13%; right: 5%; font-size: 14pt;">Designed by <span class="hilight">Freepik</span></figcaption>
 			</figure>
 		</section>
@@ -75,108 +97,112 @@
 		<!--Partie de l'équipe-->
 		<article class="d-flex flex-column container-fluid text-center mb-5 p-0 p-sm-2 justify-content-between" style="background-image: url(images/bg-equipe.png); background-position: center; background-size: contain; background-repeat: no-repeat;">
 
-			<h2 id="equipeh2" class="typTtrOrdi32">NOTRE EQUIPE</h2>
+			<h2 id="equipeh2" class="typTtrOrdi32" data-translate="equipe_title">NOTRE EQUIPE</h2>
 
 			<section id="equipeImg" class="d-block d-sm-none container-fluid my-3 p-0">
-				<img src="images/equipe.jpg" alt="Image Statique de l'équipe." style="max-width: 100%;">
+				<img src="images/equipe.jpg" alt="Image Statique de l'équipe." style="max-width: 100%;" data-alt-translate="imgequipe_alt">
 			</section>
 
 			<section id="equipeSection" class="d-none d-sm-block position-relative mb-4">
 
 				
-				<img id="seraphItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Seraphin.svg" alt="Svg du fond de image de l'équipe.">
+				<img id="seraphItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Seraphin.svg" alt="Svg du fond de image de l'équipe." data-alt-translate="imgequipemembre_alt">
 				<aside id="seraphAside" class="pt-2">
 
 					<!--Taille Lg-->
 					<div class="d-none d-lg-flex wrapper d-flex flex-column justify-content-center gap-1 h-100">
 						<h3 class="typTxtOrdi16">Séraphin Boyer</h3>
-						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 10pt; padding: 0 5% 0 10%;">Séraphin ne capture pas simplement des images, il crée des histoires visuelles captivantes.</p>
-						<p class="typTxtOrdi16 text-start" style="font-size: 10pt; padding: 0 5% 0 10%;">En tant que photographe et créateur de contenu numérique, il donne vie à vos idées à travers des visuels percutants.<br>Des photos de produits aux flyers accrocheurs; chaque visuel respecte soigneusement vos attendus et apportent un plus à votre communication</p>
+						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 10pt; padding: 0 5% 0 10%;" data-translate="seraphin_caption_1">Séraphin ne capture pas simplement des images, il crée des histoires visuelles captivantes.</p>
+						<p class="typTxtOrdi16 text-start" style="font-size: 10pt; padding: 0 5% 0 10%;"data-translate="seraphin_caption_2">En tant que photographe et créateur de contenu numérique, il donne vie à vos idées à travers des visuels percutants.<br>Des photos de produits aux flyers accrocheurs; chaque visuel respecte soigneusement vos attendus et apportent un plus à votre communication</p>
 					</div>
 
 					<!--Taille Md-->
 					<div class=" d-md-flex d-lg-none wrapper flex-column justify-content-center gap-1 h-100">
-						<h3 class="typTxtOrdi16" style="font-size: 14pt;">Séraphin Boyer</h3>
-						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 7pt; padding: 0 5% 0 10%;">Séraphin ne capture pas simplement des images, il crée des histoires visuelles captivantes.</p>
-						<p class="typTxtOrdi16 text-start" style="font-size: 7pt; padding: 0 5% 0 10%;">En tant que photographe et créateur de contenu numérique, il donne vie à vos idées à travers des visuels percutants.<br>Des photos de produits aux flyers accrocheurs; chaque visuel respecte soigneusement vos attendus et apportent un plus à votre communication</p>
+						<h3 class="typTxtOrdi16" style="font-size: 14pt;" data-translate="seraphin_boyer">Séraphin Boyer</h3>
+						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 7pt; padding: 0 5% 0 10%;" data-translate="seraphin_caption_1">Séraphin ne capture pas simplement des images, il crée des histoires visuelles captivantes.</p>
+						<p class="typTxtOrdi16 text-start" style="font-size: 7pt; padding: 0 5% 0 10%;" data-translate="seraphin_caption_2">En tant que photographe et créateur de contenu numérique, il donne vie à vos idées à travers des visuels percutants.<br>Des photos de produits aux flyers accrocheurs; chaque visuel respecte soigneusement vos attendus et apportent un plus à votre communication</p>
 					</div>
 				</aside>
 				
-				<img id="raphItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Raphael.svg" alt="Svg du fond de image de l'équipe.">
+				<img id="raphItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Raphael.svg" alt="Svg du fond de image de l'équipe."data-alt-translate="imgequipemembre_alt">
 				<aside id="raphAside" class="pt-2">
 
 					<!--Taille Lg-->
 					<div class="d-none d-lg-flex wrapper d-flex flex-column justify-content-center gap-1 h-100">
-						<h3 class="typTxtOrdi16">Raphaël Vasseur</h3>
-						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 10pt; padding: 0 5% 0 12%;">Raphaël est un développeur hors pair.<br> Il donne vie à la présence en ligne de votre entreprise entre autre en façonnant des sites web dynamiques et intuitifs.</p><p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 12%;">Que ce soit pour créer une vitrine en ligne élégante ou une plateforme e-commerce robuste, Raphaël transforme vos aspirations numériques en réalité.</p><p class="typTxtOrdi16 text-start" style="font-size: 10pt; padding: 0 5% 0 12%;">Il est un vrai plus pour l'agence.</p>
+						<h3 class="typTxtOrdi16"data-translate="raphael_vasseur">Raphaël Vasseur</h3>
+						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 10pt; padding: 0 5% 0 12%;" data-translate="raphael_caption_1">Raphaël est un développeur hors pair.<br> Il donne vie à la présence en ligne de votre entreprise entre autre en façonnant des sites web dynamiques et intuitifs.</p>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 12%;" data-translate="raphael_caption_2">Que ce soit pour créer une vitrine en ligne élégante ou une plateforme e-commerce robuste, Raphaël transforme vos aspirations numériques en réalité.</p><p class="typTxtOrdi16 text-start" style="font-size: 10pt; padding: 0 5% 0 12%;" data-translate="raphael_caption_3">Il est un vrai plus pour l'agence.</p>
 					</div>
 
 					<!--Taille Md-->
 					<div class="d-md-flex d-lg-none wrapper flex-column justify-content-center gap-1 h-100">
-						<h3 class="typTxtOrdi16" style="font-size: 14pt;">Raphaël Vasseur</h3>
-						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 7pt; padding: 0 5% 0 12%;">Raphaël est un développeur hors pair.<br> Il donne vie à la présence en ligne de votre entreprise entre autre en façonnant des sites web dynamiques et intuitifs.</p><p class="typTxtOrdi16 text-start mb-1" style="font-size: 7pt; padding: 0 5% 0 12%;">Que ce soit pour créer une vitrine en ligne élégante ou une plateforme e-commerce robuste, Raphaël transforme vos aspirations numériques en réalité.</p><p class="typTxtOrdi16 text-start" style="font-size: 7pt; padding: 0 5% 0 12%;">Il est un vrai plus pour l'agence.</p>
+						<h3 class="typTxtOrdi16" style="font-size: 14pt;" data-translate="raphael_vasseur">Raphaël Vasseur</h3>
+						<p class="typTxtOrdi16 text-start mb-2" style="font-size: 7pt; padding: 0 5% 0 12%;" data-translate="raphael_caption_1">Raphaël est un développeur hors pair.<br> Il donne vie à la présence en ligne de votre entreprise entre autre en façonnant des sites web dynamiques et intuitifs.</p><p class="typTxtOrdi16 text-start mb-1" style="font-size: 7pt; padding: 0 5% 0 12%;" data-translate="raphael_caption_2">Que ce soit pour créer une vitrine en ligne élégante ou une plateforme e-commerce robuste, Raphaël transforme vos aspirations numériques en réalité.</p><p class="typTxtOrdi16 text-start" style="font-size: 7pt; padding: 0 5% 0 12%;" data-translate="raphael_caption_3">Il est un vrai plus pour l'agence.</p>
 					</div>
 				</aside>
 
-				<img id="rahnyaItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Rahnya.svg" alt="Svg du fond de image de l'équipe.">
+				<img id="rahnyaItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Rahnya.svg" alt="Svg du fond de image de l'équipe." data-alt-translate="imgequipemembre_alt">
 				<aside id="rahnyaAside" class="pt-2">
 					
 					<!--Taille Lg-->
 					<div class="d-none d-lg-flex wrapper d-flex flex-column justify-content-center gap-1 h-100">
 						<h3 class="typTxtOrdi16">Rahnya Lanyeri</h3>
-						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 7%;">Chargée de Communication et Cheffe de Projet,
-							Rahnya met en forme votre message pour toucher de manière efficace votre public, vos médias et vos sponsors.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 10pt; padding: 0 5% 0 7%;">Responsable de la gestion globale de l’agence, c'est aussi elle qui coordonnera tous les aspects de votre stratégie de communication, veillant à ce que chaque éléments soit parfaitement mit en place pour maximiser l'impact de chaque initiative.</p>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 7%;" data-translate="rahnya_caption_1">Chargée de Communication et Cheffe de Projet,
+							Rahnya met en forme votre message pour toucher de manière efficace votre public, vos médias et vos sponsors.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 10pt; padding: 0 5% 0 7%;" data-translate="rahnya_caption_2">Responsable de la gestion globale de l’agence, c'est aussi elle qui coordonnera tous les aspects de votre stratégie de communication, veillant à ce que chaque éléments soit parfaitement mit en place pour maximiser l'impact de chaque initiative.</p>
 					</div>
 
 					<!--Taille Md-->
 					<div class="d-md-flex d-lg-none wrapper flex-column justify-content-center gap-1 h-100">
 						<h3 class="typTxtOrdi16" style="font-size: 14pt;">Rahnya Lanyeri</h3>
-						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 7pt; padding: 0 5% 0 7%;">Chargée de Communication et Cheffe de Projet,
-							Rahnya met en forme votre message pour toucher de manière efficace votre public, vos médias et vos sponsors.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 7%;">Responsable de la gestion globale de l’agence, c'est aussi elle qui coordonnera tous les aspects de votre stratégie de communication, veillant à ce que chaque éléments soit parfaitement mit en place pour maximiser l'impact de chaque initiative.</p>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 7pt; padding: 0 5% 0 7%;" data-translate="rahnya_caption_1">Chargée de Communication et Cheffe de Projet,
+							Rahnya met en forme votre message pour toucher de manière efficace votre public, vos médias et vos sponsors.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 7%;" data-translate="rahnya_caption_2">Responsable de la gestion globale de l’agence, c'est aussi elle qui coordonnera tous les aspects de votre stratégie de communication, veillant à ce que chaque éléments soit parfaitement mit en place pour maximiser l'impact de chaque initiative.</p>
 					</div>
 				</aside>
 
-				<img id="ameItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Amelie.svg" alt="Svg du fond de image de l'équipe.">
+				<img id="ameItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Amelie.svg" alt="Svg du fond de image de l'équipe." data-alt-translate="imgequipemembre_alt">
 				<aside id="ameAside" class="pt-2">
 
 					<!--Taille lg-->
 					<div class="d-none d-lg-flex wrapper d-flex flex-column justify-content-center gap-1 h-100">
-						<h3 class="typTxtOrdi16">Amélie Jammes</h3>
-						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 5%;">Organisatrice Evènementiel et Rédactrice
-							Amélie est votre guide vers des événements mémorables et des contenus percutants.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 10pt; padding: 0 5% 0 5%;">Elle transforme vos idées en expériences inoubliables: de la conférence professionnelle jusqu'aux lancements de produits en passant par l'application de sa plume créative, Amélie alimente votre stratégie éditoriale et renforçe votre présence en ligne.</p>
+						<h3 class="typTxtOrdi16" data-translate="amelie_jammes">Amélie Jammes</h3>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 5%;" data-translate="amelie_caption_1">Organisatrice Evènementiel et Rédactrice
+							Amélie est votre guide vers des événements mémorables et des contenus percutants.</p>
+							<p class="typTxtOrdi16 text-start m-0" style="font-size: 10pt; padding: 0 5% 0 5%;"data-translate="amelie_caption_2">Elle transforme vos idées en expériences inoubliables: de la conférence professionnelle jusqu'aux lancements de produits en passant par l'application de sa plume créative, Amélie alimente votre stratégie éditoriale et renforçe votre présence en ligne.</p>
 					</div>
 
 					<!--Taille Md-->
 					<div class="d-md-flex d-lg-none wrapper flex-column justify-content-center gap-1 h-100">
-						<h3 class="typTxtOrdi16" style="font-size: 14pt;">Amélie Jammes</h3>
-						<p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 5%;">Organisatrice Evènementiel et Rédactrice
-							Amélie est votre guide vers des événements mémorables et des contenus percutants.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 5%;">Elle transforme vos idées en expériences inoubliables: de la conférence professionnelle jusqu'aux lancements de produits en passant par l'application de sa plume créative, Amélie alimente votre stratégie éditoriale et renforçe votre présence en ligne.</p>
+						<h3 class="typTxtOrdi16" style="font-size: 14pt;"data-translate="amelie_jammes">Amélie Jammes</h3>
+						<p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 5%;" data-translate="amelie_caption_1">Organisatrice Evènementiel et Rédactrice
+							Amélie est votre guide vers des événements mémorables et des contenus percutants.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 5%;" data-translate="amelie_caption_2">Elle transforme vos idées en expériences inoubliables: de la conférence professionnelle jusqu'aux lancements de produits en passant par l'application de sa plume créative, Amélie alimente votre stratégie éditoriale et renforçe votre présence en ligne.</p>
 					</div>
 				</aside>
 
-				<img id="yoannItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Yoann.svg" alt="Svg du fond de image de l'équipe.">
+				<img id="yoannItem" class="equipeItem position-absolute" src="images/SVG/Equipe_Yoann.svg" alt="Svg du fond de image de l'équipe."data-alt-translate="imgequipemembre_alt">
 				<aside id="yoannAside" class="pt-2">
 
 					<!--Taille Lg-->
 					<div class="d-none d-lg-flex wrapper d-flex flex-column justify-content-center gap-1 h-100">
 						<h3 class="typTxtOrdi16">Yoann Fejean</h3>
-						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 5%;">Community manager et web développeur,
-							Yoann est le maestro de votre présence en ligne.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 10pt; padding: 0 5% 0 5%;">Il élabore des contenus engageants et pertinents stimulant l'interaction et renforçant les liens avec votre communauté.<br>Grâce à lui, vous maximisez l'impact de votre communication digitale, et en parallèle, Yoann créer votre site web dynamique et intuitif.</p>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 10pt; padding: 0 5% 0 5%;" data-translate="yoann_caption_1">Community manager et web développeur,
+							Yoann est le maestro de votre présence en ligne.</p>
+							<p class="typTxtOrdi16 text-start m-0" style="font-size: 10pt; padding: 0 5% 0 5%;" data-translate="yoann_caption_2">Il élabore des contenus engageants et pertinents stimulant l'interaction et renforçant les liens avec votre communauté.<br>Grâce à lui, vous maximisez l'impact de votre communication digitale, et en parallèle, Yoann créer votre site web dynamique et intuitif.</p>
 					</div>
 
 					<!--Taille Md-->
 					<div class="d-md-flex d-lg-none wrapper flex-column justify-content-center gap-1 h-100">
 						<h3 class="typTxtOrdi16" style="font-size: 14pt;">Yoann Fejean</h3>
-						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 7pt; padding: 0 5% 0 5%;">Community manager et web développeur,
-							Yoann est le maestro de votre présence en ligne.</p><p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 5%;">Il élabore des contenus engageants et pertinents stimulant l'interaction et renforçant les liens avec votre communauté.<br>Grâce à lui, vous maximisez l'impact de votre communication digitale, et en parallèle, Yoann créer votre site web dynamique et intuitif.</p>
+						<p class="typTxtOrdi16 text-start mb-1" style="font-size: 7pt; padding: 0 5% 0 5%;" data-translate="yoann_caption_1">Community manager et web développeur,
+							Yoann est le maestro de votre présence en ligne.</p>
+							<p class="typTxtOrdi16 text-start m-0" style="font-size: 7pt; padding: 0 5% 0 5%;" data-translate="yoann_caption_2">Il élabore des contenus engageants et pertinents stimulant l'interaction et renforçant les liens avec votre communauté.<br>Grâce à lui, vous maximisez l'impact de votre communication digitale, et en parallèle, Yoann créer votre site web dynamique et intuitif.</p>
 					</div>
 				</aside>
 
 				<!--Image de fond-->
-				<img id="equipeFond" src="images/SVG/Equipe_Fond.svg" alt="SVG de fond de l'image de l'équipe" >
+				<img id="equipeFond" src="images/SVG/Equipe_Fond.svg" alt="SVG de fond de l'image de l'équipe" data-alt-translate="imgequipefond_alt">
 			</section>
 			
-			<p id="equipetxt" class="typTxtOrdi16 m-0">1RIS est une agence de communication créée dans le cadre d’un projet par cinq étudiants.</p>
+			<p id="equipetxt" class="typTxtOrdi16 m-0" data-translate="agenceexplication">1ris est une agence de communication créée dans le cadre d’un projet par cinq étudiants.</p>
 			
 
 		</article>
@@ -185,86 +211,90 @@
 		<article id="valeurs" class="container-fluid px-3 py-5">
 			<div class="row text-center py-5 h-75">
 				<div id="oeilbleu" class="col-12 col-sm-6 my-auto d-flex flex-column align-items-center gap-5 gap-sm-1">
-					<img class="d-none d-sm-flex" src="/images/OeilBleu1.png" alt="Oeil qui regarde le texte.">
-					<img class="d-sm-none" src="/images/OeilBleu2.png" alt="Oeil qui regarde le texte." style="max-width:200pt;">
-					<h3 class="hilight typSsTtrOrdi32 val">Créativité</h3>
+					<img class="d-none d-sm-flex" src="/images/OeilBleu1.png" alt="Oeil qui regarde le texte." data-alt-translate="oeilbleu1_alt">
+					<img class="d-sm-none" src="/images/OeilBleu2.png" alt="Oeil qui regarde le texte." style="max-width:200pt;" data-alt-translate="oeilbleu2_alt">
+					<h3 class="hilight typSsTtrOrdi32 val" data-translate="creativite">Créativité</h3>
 				</div>
 				<div id="oeilbleutxt" class=" d-flex col-12 col-sm-6 align-items-center">
 					<!--Taille Md-->
-					<p class="typTxtOrdi16 d-none d-md-block">1RIS développe des concepts <span class="hilight">uniques</span> et des stratégies <span class="hilight">innovantes</span> pour chaque projets.</p>
+					<p class="typTxtOrdi16 d-none d-md-block" data-translate="text_creativite">
+						1RIS développe des concepts <span class="hilight">uniques</span> et des stratégies <span class="hilight">innovantes</span> pour chaque projet.
+					</p>
 
 					<!--Taille Sm-->
-					<p class="typTxtOrdi16 d-block d-md-none fs-5 py-3">1RIS développe des concepts <span class="hilight">uniques</span> et des stratégies <span class="hilight">innovantes</span> pour chaque projet.</p>
+					<p class="typTxtOrdi16 d-block d-md-none fs-5 py-3" data-translate="text_creativite">
+						1RIS développe des concepts <span class="hilight">uniques</span> et des stratégies <span class="hilight">innovantes</span> pour chaque projet.
+					</p>
 				</div>
 			</div>
 
 			<!--Sm Mise en page-->
 			<div class="d-none d-sm-flex text-center py-5 h-75">
 				<div id="oeiljaunetxt"class="col-6 my-auto">
-					<p class="typTxtOrdi16 d-none d-sm-block">1RIS se distingue par son <span class="hilight">adaptabilité</span> s'ajustant aux besoins spécifiques de <span class="hilight">chaque clients</span> et en proposant des solutions <span class="hilight">sur-mesure</span>.</p>
+					<p class="typTxtOrdi16 d-none d-sm-block" data-translate="text_adaptabilite">1ris se distingue par son <span class="hilight">adaptabilité</span> s'ajustant aux besoins spécifiques de <span class="hilight">chaque clients</span> et en proposant des solutions <span class="hilight">sur-mesure</span>.</p>
 				</div>
 				<div id="oeiljaune" class="col-6 my-auto">
-					<img src="/images/OeilJaune1.png" alt="Oeil qui regarde le texte.">
-					<h3 class="hilight typSsTtrOrdi32 val">Adaptabilité</h3>
+					<img src="/images/OeilJaune1.png" alt="Oeil qui regarde le texte." data-alt-translate="oeiljaune1_alt">
+					<h3 class="hilight typSsTtrOrdi32 val" data-translate="adaptabilite">Adaptabilité</h3>
 				</div>
 			</div>
 
 			<!--xSm Mise en page-->
 			<div class="d-block d-sm-none text-center py-5 h-75">
 				<div id="oeiljaune" class="col-12 d-flex flex-column align-items-center gap-5">
-					<img src="/images/OeilJaune2.png" alt="Oeil qui regarde le texte." style="max-width:200pt;">
-					<h3 class="hilight typSsTtrOrdi32 va">Adaptabilité</h3>
+					<img src="/images/OeilJaune2.png" alt="Oeil qui regarde le texte." style="max-width:200pt;" data-alt-translate="oeiljaune2_alt">
+					<h3 class="hilight typSsTtrOrdi32 va" data-translate="adaptabilite">Adaptabilité</h3>
 				</div>
 				<div id="oeiljaunetxt" class="col-12">
 					<!--Taille Md-->
-					<p class="typTxtOrdi16 d-none d-md-block">1RIS se distingue par son <span class="hilight">adaptabilité</span> s'ajustant aux besoins spécifiques de <span class="hilight">chaque client</span> et en proposant des solutions <span class="hilight">sur-mesure</span>.</p>
+					<p class="typTxtOrdi16 d-none d-md-block" data-translate="text_adaptabilite">1ris se distingue par son <span class="hilight">adaptabilité</span> s'ajustant aux besoins spécifiques de <span class="hilight">chaque client</span> et en proposant des solutions <span class="hilight">sur-mesure</span>.</p>
 					
 					<!--Taille Sm-->
-					<p class="typTxtOrdi16 d-block d-md-none fs-5 py-3">1RIS se distingue par son <span class="hilight">adaptabilité</span> s'ajustant aux besoins spécifiques de <span class="hilight">chaque client</span> et en proposant des solutions <span class="hilight">sur-mesure</span>.</p>
+					<p class="typTxtOrdi16 d-block d-md-none fs-5 py-3" data-translate="text_adaptabilite">1ris se distingue par son <span class="hilight">adaptabilité</span> s'ajustant aux besoins spécifiques de <span class="hilight">chaque client</span> et en proposant des solutions <span class="hilight">sur-mesure</span>.</p>
 				</div>
 			</div>
 			<div class="row text-center py-5 h-75">
 				<div id="oeilviolet" class="col-12 col-sm-6 my-auto d-flex flex-column align-items-center  gap-5 gap-sm-1">
-					<img class="d-none d-sm-block" src="/images/OeilViolet1.png" alt="Oeil qui regarde le texte.">
-					<img class="d-sm-none" src="/images/OeilViolet2.png" alt="Oeil qui regarde le texte." style="max-width:200pt;">
-					<h3 class="hilight typSsTtrOrdi32 val">Respect</h3>
+					<img class="d-none d-sm-block" src="/images/OeilViolet1.png" alt="Oeil qui regarde le texte." data-alt-translate="oeilviolet1_alt">
+					<img class="d-sm-none" src="/images/OeilViolet2.png" alt="Oeil qui regarde le texte." style="max-width:200pt;" data-alt-translate="oeilviolet2_alt">
+					<h3 class="hilight typSsTtrOrdi32 val" data-translate="respect">Respect</h3>
 				</div>
 				<div id="oeilviolettxt" class="d-flex col-12 col-sm-6 align-items-center">
 					<!--Taille Md-->
-					<p class="typTxtOrdi16 d-none d-md-block">L'agence respecte les <span class="hilight">opinions,</span> les <span class="hilight">cultures</span> et les <span class="hilight">valeurs</span> de tous.</p>
+					<p class="typTxtOrdi16 d-none d-md-block" data-translate="text_respect">L'agence respecte les <span class="hilight">opinions,</span> les <span class="hilight">cultures</span> et les <span class="hilight">valeurs</span> de tous.</p>
 
 					<!--Taille Sm-->
-					<p class="typTxtOrdi16 d-block d-md-none fs-5 py-3">L'agence respecte les <span class="hilight">opinions,</span> les <span class="hilight">cultures</span> et les <span class="hilight">valeurs</span> de tous.</p>
+					<p class="typTxtOrdi16 d-block d-md-none fs-5 py-3" data-translate="text_respect">L'agence respecte les <span class="hilight">opinions,</span> les <span class="hilight">cultures</span> et les <span class="hilight">valeurs</span> de tous.</p>
 				</div>
 			</div>
 		</article>
 
 		<!--Partie des prestas-->
 		<article id="prestas" class="container-fluid text-center py-5">
-			<h2 class="typTtrOrdi32">NOS PRESTATIONS</h2>
+			<h2 class="typTtrOrdi32" data-translate="prestation_title">NOS PRESTATIONS</h2>
 			<section id="cards" class="container-fluid d-flex flex-column flex-lg-row align-items-center gap-5 gap-lg-1 justify-content-lg-around mt-5 px-0">
 				<div class="col-12 col-sm-9 col-lg-4">
 					<section class="card bg-black border border-5 rounded-5 pt-2" style="max-height: 70vh; height: 100vh;">
 						
 						<figure style="max-width: fit-content;">
 							<!--Taille xSm-->
-							<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;">
+							<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;" data-translate="imgbrain_alt">
 	
 							<!--Taille Sm-->
-							<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;" data-translate="imgbrain_alt">
 							
 							<!--Taille md-->
-							<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;">
+							<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;" data-translate="imgbrain_alt">
 							
 							<!--Taille lg-->
-							<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/Brain.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;" data-translate="imgbrain_alt">
 						
 							<figcaption class="position-absolute typTxtOrdi16" style="bottom: -8%; left: 5%; font-size: 14pt;">Designed by <span class="hilight">Freepik</span></figcaption>
 						</figure>
 
 						<div class="card-body d-flex flex-column gap-3">
-							<h4 class="card-title text-white typTtrOrdi25">Brain Content</h4>
-							<p class="card-text mt-4 typTxtOrdi16 text-white  p-lg-0 pb-5">La création de contenus impactant et efficace.</p>
+							<h4 class="card-title text-white typTtrOrdi25"data-translate="titre_carte1">Brain Content</h4>
+							<p class="card-text mt-4 typTxtOrdi16 text-white  p-lg-0 pb-5" data-translate="brain_text">La création de contenus impactant et efficace.</p>
 						</div>
 					</section>
 				</div>
@@ -273,23 +303,23 @@
 						
 						<figure style="max-width: fit-content;">
 							<!--Taille xSm-->
-							<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;">
+							<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;" data-translate="imgreseaux_alt">
 	
 							<!--Taille Sm-->
-							<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;"data-translate="imgreseaux_alt">
 							
 							<!--Taille md-->
-							<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;">
+							<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;"data-translate="imgreseaux_alt">
 							
 							<!--Taille lg-->
-							<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/RS.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;"data-translate="imgreseaux_alt">
 
 							<figcaption class="position-absolute typTxtOrdi16" style="bottom: -8%; left: 5%; font-size: 14pt;">Designed by <span class="hilight">Freepik</span></figcaption>
 						</figure>
 
 						<div class="card-body d-flex flex-column gap-3">
-							<h4 class="card-title text-white typTtrOrdi25">Réseaux Sociaux</h4>
-							<p class="card-text mt-4 typTxtOrdi16 text-white p-lg-0 pb-5">La diffusion sur les divers réseaux sociaux pour une plus grande influence.</p>
+							<h4 class="card-title text-white typTtrOrdi25" data-translate="titre_carte2">Réseaux Sociaux</h4>
+							<p class="card-text mt-4 typTxtOrdi16 text-white p-lg-0 pb-5" data-translate="reseaux_text">La diffusion sur les divers réseaux sociaux pour une plus grande influence.</p>
 					</section>
 				</div>
 				<div class="col-12 col-sm-9 col-lg-4">
@@ -297,23 +327,23 @@
 						
 						<figure style="max-width: fit-content;">
 							<!--Taille xSm-->
-							<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;">
+							<img class="d-block d-sm-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:50%; border-radius:60px;" data-translate="imgstrategie_alt">
 	
 							<!--Taille Sm-->
-							<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							<img class="d-none d-sm-block d-md-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;" data-translate="imgstrategie_alt">
 							
 							<!--Taille md-->
-							<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;">
+							<img class="d-none d-md-block d-lg-none card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:30%; border-radius:60px;" data-translate="imgstrategie_alt">
 							
 							<!--Taille lg-->
-							<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;">
+							<img class="d-none d-lg-block card-img-top m-auto m-md-0 p-2" src="/images/Ampoule.jpg" alt="Illustration du propos." style="width:40%; border-radius:60px;" data-translate="imgstrategie_alt">
 
 							<figcaption class="position-absolute typTxtOrdi16" style="bottom: -8%; left: 5%; font-size: 14pt;">Designed by <span class="hilight">Freepik</span></figcaption>
 						</figure>
 
 						<div class="card-body d-flex flex-column gap-3">
-							<h4 class="card-title text-white typTtrOrdi25">Stratégie digitale</h4>
-							<p class="card-text mt-4 typTxtOrdi16 text-white pb-5">La mise en place d'une stratégie personnalisée pour optimiser votre présence en ligne et atteindre vos objectifs.</p>
+							<h4 class="card-title text-white typTtrOrdi25" data-translate="titre_carte3">Stratégie digitale</h4>
+							<p class="card-text mt-4 typTxtOrdi16 text-white pb-5" data-translate="strategie_text">La mise en place d'une stratégie personnalisée pour optimiser votre présence en ligne et atteindre vos objectifs.</p>
 					</section>
 				</div>
 			</section>
@@ -321,11 +351,11 @@
 
 		<!--Partie des réalisations-->
 		<article id="reals" class="container-fluid text-center py-5 d-flex flex-column gap-4">
-			<h2 class="fw-bold typTtrOrdi32">NOS REALISATIONS</h2>
+			<h2 class="fw-bold typTtrOrdi32" data-translate="realisation_title">NOS REALISATIONS</h2>
 			<div class="d-flex flex-column container-fluid col align-items-center gap-4">
-				<p class="typTxtOrdi16">L'agence 1RIS en vidéo</p>
+				<p class="typTxtOrdi16" data-translate="realisation_subtitle">L'agence 1ris en vidéo</p>
 				<button class="btnPurp rounded typTxtOrdi16 py-1">
-					<a class="a2" href="https://www.youtube.com/embed/_YJnXR-S6MY?si=RaxMOtRhOMUFWqB1" style="text-decoration: none;">Nous découvrir</a>
+					<a class="a2" href="https://www.youtube.com/embed/_YJnXR-S6MY?si=RaxMOtRhOMUFWqB1" style="text-decoration: none;"data-translate="boutonnousdecouvrir">Nous découvrir</a>
 				</button>
 
 				<!--Teaser local-->
@@ -342,23 +372,24 @@
 
 		<!--Partie de l'identité-->
 		<article id="id" class="container-fluid py-5 text-center">
-			<h2 class="fw-bold typTtrOrdi32">NOTRE IDENTITE</h2>
+			<h2 class="fw-bold typTtrOrdi32" data-translate="identite_title">NOTRE IDENTITE</h2>
 			<div class="d-flex flex-column gap-5 gap-md-0 flex-md-row container-fluid pt-5 justify-content-center justify-content-md-around">
 				<a id=cgraphique class="col-12 col-md-5 text-center idDoc d-flex flex-column align-items-center" href="/Documents/Charte_Graphique_1RIS.pdf" target="_self">
 					<!--Taille Md-->
-					<h3 class="ident d-none d-md-block hilight idTtl typTxtOrdi16">Découvrez notre <span class="hilight">identité visuelle</span></h3>
+					<h3 class="ident d-none d-md-block hilight idTtl typTxtOrdi16" data-translate="identite1">Découvrez notre <span class="hilight">identité visuelle</span></h3>
 
 					<!--Taille Sm-->
-					<h3 class="ident d-block d-md-none hilight idTtl typTxtOrdi16">Découvrez notre <span class="hilight">identité visuelle</span> </h3>
-					<img class="py-4" src="/images/Miniature_Charte_Graphique.png" alt="Miniature de la charte graphique." style="max-width:300px; width:100%;">
+					<h3 class="ident d-block d-md-none hilight idTtl typTxtOrdi16" data-translate="identite1">Découvrez notre <span class="hilight">identité visuelle</span> </h3>
+					<img class="py-4" src="/images/Miniature_Charte_Graphique.png" alt="Miniature de la charte graphique."data-alt-translate="charte_graphique_miniature_alt" style="max-width:300px; width:100%;">
+
 				</a>
 				<a id=ceditoriale class="col-12 col-md-5 text-center idDoc d-flex flex-column align-items-center" href="/Documents/Charte_Editoriale_1RIS.pdf" target="_self">
 					<!--Taille Md-->
-					<h3 class="ident d-none d-md-block hilight idTtl typTxtOrdi16">Mais également <span class="hilight">notre manière d'être</span></h3>
+					<h3 class="ident d-none d-md-block hilight idTtl typTxtOrdi16"  data-translate="identite2">Mais également <span class="hilight">notre manière d'être</span></h3>
 
 					<!--Taille Sm-->
 					<h3 class="ident d-block d-md-none hilight idTtl typTxtOrdi16">Mais également <span class="hilight">notre manière d'être</span></h3>
-					<img class="py-4" src="/images/Miniature_Charte_Editoriale.png" alt="Miniature de la charte éditoriale." style="max-width:300px; width:100%;">
+					<img class="py-4" src="/images/Miniature_Charte_Editoriale.png" alt="Miniature de la charte éditoriale." style="max-width:300px; width:100%;" data-alt-translate="charte_editoriale_miniature_alt">
 				</a>
 			</div>
 		</article>
@@ -370,18 +401,18 @@
         <nav class="navbar navbar-expand-md px-4 justify-content-between pt-2">
             <div class="d-flex justify-content-center align-items-center col-12 col-md-2 m-0">          
 				<a href="index.html">
-				<img src="images/Logo.png" alt="Logo de l'agence." style="max-width:200px;">
+				<img src="images/Logo.png" alt="Logo de l'agence." style="max-width:200px;" data-alt-translate="logo1ris">
 				</a>
 			</div>            
             <div class="col-12 col-md-6 col-lg-7 text-center">
                 <ul class="navbar-nav align-items-center justify-content-center gap-lg-5">
-                    <li class="nav-item typTxtOrdi16"><a href="#" id="btnNav" class="nav-link ">Statut juridique</a></li>
-                    <li class="nav-item typTxtOrdi16"><a href="contact.html" id="btnNav" class="nav-link ">Contact</a></li>
-                    <li class="nav-item typTxtOrdi16"><a href="mentionsLegales.html" id="btnNav" class="nav-link ">Mentions Légales</a></li>
-                    <li class="nav-item typTxtOrdi16"><a href="fluxrss.xml" id="btnNav" class="nav-link ">Flux RSS</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="statuts.html" class="btnNav nav-link" data-translate="statut">Statuts juridiques</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="contact.html" class="btnNav nav-link" data-translate="contact">Contact</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="mentionsLegales.html" class="btnNav nav-link" data-translate="mentionslegales">Mentions Légales</a></li>
+                    <li class="nav-item typTxtOrdi16"><a href="fluxrss.xml" class="btnNav nav-link" data-translate="fluxrss">Flux RSS</a></li>
                 </ul>
                 <section class="col-12">
-                    <p id="copyR" class="fs-6 typTxtOrdi16 m-0 text-white">&copy;2024, 1RIS et ses affiliés</p>
+                    <p id="copyR" class="fs-6 typTxtOrdi16 m-0 text-white"data-translate="copyr">&copy;2024, 1ris et ses affiliés</p>
                 </section>
             </div>
             <section class="col-12 col-md-3 col-lg-2 pt-5 pt-md-0">
@@ -391,11 +422,12 @@
                     <li class="col-2" style="width: fit-content;"><a href="https://www.linkedin.com/company/1ris-agence/about/"><i class='bx bxl-linkedin'></i></a></li>
                 </ul>
                 <div class="row text-center">
-                    <a id="btnNav" class="p-0 fs-6 typTxtOrdi16" href="mailto:agence1ris@gmx.com">agence1ris@gmx.com</a>
+                    <a class="btnNav p-0 fs-6 typTxtOrdi16" href="mailto:agence1ris@gmx.com">agence1ris@gmx.com</a>
                 </div>
             </section>
         </nav>
     </footer>
+    <!--Fin footer-->
 
 	<!--Exécution des scripts-->
 	<!--Scripts Externes-->
@@ -405,10 +437,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 	<!--SCRIPTS LOCAUX-->
-	<script type="module" src="./JS/database/require.js"></script>
-	
+	<script type="module" src="JS/database.js"></script>
 	<script src="JS/components/header.js"></script>
-	<script src="JS/modesombre.js"></script>
 	<script src="JS/index.js"></script>
+	<script src="JS/modesombre.js"></script>
 </body>
 </html>

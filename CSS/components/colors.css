@@ -52,8 +52,3 @@
 .dark .hilight{
     color: var(--irisYellow)
 }
-
-/*Barres de progression*/
-.dark input[type="range"]{
-    background-color: var(--blackTheme);
-}

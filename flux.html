@@ -23,7 +23,7 @@
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<!--Liens locaux-->
 	<link rel="stylesheet" href="CSS/header.css">
-	<link rel="stylesheet" href="CSS/contact.css">
+	<link rel="stylesheet" href="CSS/inscription.css">
 </head>
 
 <body>
@@ -73,55 +73,15 @@
 <!--Fin header-->
 
 	<!--Début main-->
-	<!--Debut Main-->
-	<main>
-        <hgroup class="d-flex flex-column container-fluid justify-content-center text-center" style="height:70vh;">
-            <h1 class="text-center typTtrOrdi50" data-translate="nouscontacter">Nous contacter</h1>
-            <p class="typSsTtrOrdi18 text-center" data-translate="commentcontacter">Si vous souhaitez nous contacter, merci de remplir le formulaire <br>ci-dessous</p>
-        </hgroup>
-        <section class="d-flex flex-md-row flex-column container-fluid px-2 px-md-4 px-lg-5 align-items-center justify-content-xl-between justify-content-xxl-center" style="padding-bottom: 10vh;">
-
-			<ul class="d-flex flex-column flex-col-6 col-md-6 m-0 me-lg-3 justify-content-md-start justify-content-center" style="padding-left:0px;">
-				<li class="d-flex flex-md-row flex-column justify-content-center align-items-center">
-					<i class='bx bxs-map pe-0 pe-md-2' style='font-size:5vh;' id="icone"></i>
-					<p id="adr" class="d-flex col-12 col-md-8 typTxtOrdi16 justify-content-md-start m-0 py-2 text-center text-md-start" data-translate="adresse">70 Avenue Roger Devoucoux, 83000 Toulon</p>
-				</li>
-				<li class="d-flex flex-md-row flex-column justify-content-center align-items-center">
-					<i class='bx bxs-phone pe-0 pe-md-2' style='font-size:5vh;' id="icone"></i>
-					<p id="num" class="d-flex col-12 col-md-8 typTxtOrdi16 justify-content-md-start m-0 py-2 justify-content-center" data-translate="numtel">07.69.43.07.54</p>
-				</li>
-				<li class="d-flex flex-md-row flex-column justify-content-center align-items-center">
-					<i class='bx bxs-envelope pe-0 pe-md-2' style='font-size:5vh;' id="icone"></i>
-					<p id="adrm" class="d-flex col-12 col-md-8 typTxtOrdi16 justify-content-md-start m-0 py-2 justify-content-center" data-translate="email">agence-1ris@gmx.com</p>
-				</li>
-			</ul>
-			
-			<form id="form425" class="d-flex col-12 flex-column col-md-6 col-xxl-5 align-items-lg-end border border-2 my-5 me-xxl-5 p-5" style="margin:10px 0;" action="contact.html">
-					
-				<!-- Section d'informations du formulaire -->
-				<h2 class="typTtrOrdi32 text-center" 	style="width:100%;" data-translate="envoimessage">Envoyer un message</h2>
-
-				<fieldset class="mb-3">
-
-					<label class="typTxtOrdi16 py-1 pt-3" for="nom" data-translate="nom_form">Nom</label> <!-- Nom -->
-					<input class="case" type="text" id="nom" name="nom" style="width: 100%;" required> <!-- input de type text pour le nom requis pour l'envoie du formulaire-->
-
-					<label class="typTxtOrdi16 py-1 pt-3" for="prenom" data-translate="prenom_form">Prénom</label> <!-- Prénom -->
-					<input class="case" type="text" id="prenom" name="prenom" style="width: 100%;" required><!-- input de type text pour le prénom requis pour l'envoie du formulaire-->
-					
-					<label class="typTxtOrdi16 py-1 pt-3" for="email" data-translate="email_form">Email </label> <!-- Email -->
-					<input class="case" type="email" id="email" name="email" style="width: 100%;" required> <!-- input de type email pour l'adresse mail requis pour l'envoie du formulaire-->                      
-					
-					<label class="typTxtOrdi16 py-1 pt-3" for="description" data-translate="description_form">Description</label> <!-- Message -->
-					<textarea class="case2" id="description" name="date" placeholder="Votre message" data-translate="message_form"></textarea><!-- input de type date pour la date de naissance requis pour l'envoie du formulaire-->
-					
-					
-				</fieldset>
-
-				<button type="submit" id="envoyer" class="btnPurp typTxtOrdi16" data-translate="send_form">Envoyer</button> <!-- Bouton de soumission du formulaire -->
-			</form>
-		</section>
-	</main>
+	<main class="px-sm-4 my-5 pt-5">
+        <section>
+        <h2 class="typTtrOrdi32" data-translate="titreflux"> Lien vers notre flux RSS </h2>
+        <p data-translate="soustitreflux">Sélectionnez une langue pour afficher le flux RSS correspondant.</p>
+        <ul>
+            <li><a href="rss-fr.xml" class="language-link">Français</a></li>
+            <li><a href="rss-en.xml" class="language-link">English</a></li>
+        </ul></section>
+    </main>
 	<!--Fin Main-->
 
 	<!--Début footer-->
@@ -167,7 +127,7 @@
 	<!--SCRIPTS LOCAUX-->
 	<script type="module" src="JS/database.js"></script>
 	<script src="JS/components/header.js"></script>
-	<script src="JS/contact.js"></script>
+	<script src="JS/elementsfooter.js"></script>
 	<script src="JS/modesombre.js"></script>
 </body>
 

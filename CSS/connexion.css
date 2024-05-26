@@ -1,51 +1,28 @@
 @import url(components/navBar.css);
 @import url(components/fonts.css);
-@import url(components/footer.css);
+@import url(components/colors.css);
 
-header{
-	position: relative;
-}
-
-header nav{
-	z-index: 99;
-}
-
-header:after{
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 20vh;
-	width: 100%;
-	background-color: var(--irisPurple);
-	clip-path: polygon(0 0, 0 57%, 15% 80%, 65% 55%, 100% 100%, 100% 0, 0 0);
-	z-index: 90;
-}
 
 .case{
     border-radius:10px;
-	background-color: var(--irisBlue);
 	height:6vh;
 	width:100%;
-	color:white;
 }
 
 #envoyer{
-    background-color:var(--irisPurple);
-	color:white;
 	border-radius:10px;
 	width:200px;
 	height:7vh;
 }
 
-#envoyer:hover{
-	background-color: var(--irisBlue);
-}
-
 #compte{
     transition: transform 0.3 ease;
+	color:black;
+	text-decoration: none;
 }
-
+.dark #compte{
+	color: white;
+}
 #compte:hover{
     transform:scale(1.1);
 }

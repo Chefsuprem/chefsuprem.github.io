@@ -1,6 +1,6 @@
 
 import { db, auth, storage } from "../../database/require.js";
-import { closeModal } from "../components/functions.js";
+import { closeModal, taskRenderAdmin } from "../components/functions.js";
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { doc, getDoc, getDocs, collection, setDoc, deleteDoc, Timestamp, addDoc, updateDoc, query, where } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { ref, listAll, getMetadata, uploadBytes } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
@@ -103,7 +103,7 @@ function membreAccount(){
 			
 			`;
 
-			//taskRender();
+			taskRenderAdmin();
 
 		}else{
 			alert("Vous devez choisir un projet valide pour pouvoir travailler dans votre espace de travail..")

@@ -3,16 +3,16 @@
 @import url(components/colors.css);
 
 /*btnNav contient tout les textes du header et footer sauf "Connexion" du header qui est établi directement de le html*/
-#btnNav{
+.btnNav{
 	color: white;
 }
-#btnNav:hover{
+.btnNav:hover{
     color:var(--irisBlue);
 }
-.dark #btnNav{
+.dark .btnNav{
     color:var(--blackTheme);
 }
-.dark #btnNav:hover{
+.dark .btnNav:hover{
 	color:var(--irisPurple);
 }
 
@@ -20,23 +20,22 @@
     color: var(--blackTheme) !important;
 }
 
+
 #toggle-mode {
     color: white; /* Couleur par défaut Elle a été retirée du lien et placée ici afin de pouvoir utiliser :hover ensuite*/
 }
-  
 #toggle-mode:hover {
-    fill: var(--irisYellow); /* Couleur au survol */
+    color: var(--irisYellow); /* Couleur au survol */
     cursor: pointer;
 }
-
 .dark #toggle-mode{
     color: var(--blackTheme);
     cursor: pointer;
 }
-
 .dark #toggle-mode:hover {
-    fill: var(--irisPurple)!important; /* Couleur au survol */
+    color: var(--irisPurple)!important; /* Couleur au survol */
 }
+
 
 #btnconnexion:hover{
     background-color:var(--irisYellow)!important;
@@ -116,14 +115,6 @@ header:after {
     background-color: var(--irisYellow);
 }
 
-/* Paramètres dans main et qui se répètent sur différentes pages */
-#boutonclassiques{
-    background-color:var(--irisPurple);
-	color:white;
-	border-radius:10px;
-	width:200px;
-	height:7vh;
-}
 
 
 

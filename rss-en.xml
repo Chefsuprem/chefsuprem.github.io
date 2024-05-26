@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>1ris Agency RSS Feed</title>
+        <link>https://www.agence-1ris.com/blog.html</link>
+        <description>Latest news from the agency</description>
+        <language>fr-fr</language>
+        <pubDate>Wed, 19 May 2024 12:00:00 GMT</pubDate>
+        <lastBuildDate>Wed, 19 May 2024 12:00:00 GMT</lastBuildDate>
+        <item>
+            <title>How to Build Your Online Presence?</title>
+            <link>https://www.agence-1ris.com/blog.html</link>
+            <description>Looking to start on social media but don't know where to begin? Our agency has gathered the top 5 key points for your start!</description>
+            <pubDate>Wed, 19 May 2024 10:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Partnership for an Event</title>
+            <link>https://www.agence-1ris.com/blog.html</link>
+            <description>We are proud to announce our new partnership with a boutique in Toulon for an MMI event!</description>
+            <pubDate>Tue, 18 May 2024 14:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
