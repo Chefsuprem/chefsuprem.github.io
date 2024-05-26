@@ -3,7 +3,7 @@ import { db, auth, storage } from "../../database/require.js";
 import { closeModal } from "../components/functions.js";
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { doc, getDoc, getDocs, collection, setDoc, deleteDoc, Timestamp, addDoc, updateDoc, query, where } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { listAll, ref, getMetadata } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+import { listAll, ref, getMetadata, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
 import { currentProj, pageContent, userBroadcast } from "../gestionProj.js";
 
@@ -71,7 +71,7 @@ function clientAccount(){
 				})
 			});
 
-			select.addEventListener("mouseleave", () => {
+			select.addEventListener("focusout", () => {
 
 				if (select.value != "none"){
 
@@ -112,7 +112,7 @@ function clientAccount(){
 										const timeCreatedHours = metadata.timeCreated.substring(11, 19);
 										
 										li.classList = "text-center";
-										li.style = "width: fit-content;";
+										li.style = "width: fit-content; cursor: pointer;";
 										li.innerHTML = `
 			
 											<p>${metadata.name}</p>
@@ -123,6 +123,14 @@ function clientAccount(){
 											</section>
 			
 										`;
+
+										li.addEventListener("click", () => {
+
+											getDownloadURL(ref(storage, `${metadata.fullPath}`))
+											.then((url) => {
+												open(url);
+											})
+										})
 			
 										documentList.appendChild(li);
 			

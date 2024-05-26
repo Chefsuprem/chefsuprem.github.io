@@ -1,8 +1,10 @@
 
-import { db, auth } from "../../database/require.js";
+import { db, auth, storage } from "../../database/require.js";
 import { doc, getDocs, getDoc, collection, setDoc, deleteDoc, updateDoc, where, query} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { deleteUser, signInWithEmailAndPassword, updateEmail, updatePassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { currentProj } from "../gestionProj.js";
+import { ref, getMetadata, uploadBytes, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+
+import { currentProj, userBroadcast } from "../gestionProj.js";
 
 //====== Roles Create ======
 
@@ -408,11 +410,230 @@ function renderPending(wrapper){
 function closeModal(nomModal){
 
 	const modalBackdrop = document.querySelector("div.modal-backdrop");
+	const body = document.getElementsByTagName("body")[0];
+
+	body.style = "";
+	body.classList.remove("modal-open");
 
 	nomModal.style = "display: none;";
-	modalBackdrop.remove();
+	
+	if (modalBackdrop) {
+		modalBackdrop.remove();
+	}
+
+}
+
+function taskRenderAdmin(){
+
+	const tasksList = document.getElementById("tasksList");
+
+	//Génération de la liste des tâches
+	const queryProj = query(collection(db, "Projets"), where("nom", "==", `${currentProj.textContent}`));
+
+	getDocs(queryProj)
+	.then((snapshot) => {
+
+		const proj = snapshot.docs[0];
+		
+		getDocs(collection(db, "Projets", `${proj.id}`, "Taches"))
+		.then((taskRef) => {
+
+			taskRef.docs.forEach((task) => {
+
+				const data = task.data();
+
+				const li = document.createElement("li");
+
+				li.innerHTML = `
+				
+					<section class="d-flex taskHeader border-bottom border-secondary gap-3">
+						<p class="m-0 typTxtOrdi16"><span>[${data.status}]</span> ${data.nom}</p>
+							
+					</section>
+					<section class="d-flex flex-column mb-3 mt-2">
+						<p class="m-0 typTxtOrdi16" style="font-size: 9pt; color: var(--irisBlue);">Du ${data.dateDebut} au ${data.dateFin}</p>
+						<p class="my-1 typTxtOrdi16It" style="font-size: 10pt;">${data.description}</p>
+						<form class="mt-3">
+							<!--Barre de progression-->
+							<input type="range" min="0" max="100" step="1" value="${data.progression}" class="range">
+						</form>
+					</section>
+				
+				`;
+
+				//Génération de la liste des documents ("prefixes" ce sont des dossiers et "items" ce sont les fichiers)
+				const docOverview = document.createElement("section");
+
+				docOverview.classList = "d-flex flex-column gap-3";
+				docOverview.innerHTML = `
+
+					<div class="d-flex container-fluid justify-content-between pb-2 border-bottom border-secondary">
+						<p class="m-0 typTxtOrdi16" style="font-size: 14pt;">Documents récents:</p>
+						<button id="${task.id}" class="btn text-white" style="background-color: var(--irisBlue);" data-bs-toggle="modal" data-bs-target="#modalAddDoc">Ajouter un document à la tâche</button>
+					</div>
+					
+				`;
+
+				const docList = document.createElement("ul");
+				docList.classList = "d-flex gap-4 list-unstyled px-2";
+
+				const listRef = ref(storage, `${proj.id}/${task.id}`);
+
+				listAll(listRef)
+				.then((doc) => {
+
+					doc.prefixes.forEach((folderRef) => {
+						
+						listAll(folderRef)
+						.then((itemRef) => {
+
+							itemRef.items.forEach((item) => {
+
+								getMetadata(item)
+								.then((metadata) =>{
+
+									const li = document.createElement("li");
+									const timeCreatedDays = metadata.timeCreated.substring(0, 10);
+									const timeCreatedHours = metadata.timeCreated.substring(11, 19);
+									
+									li.classList = "text-center";
+									li.style = "width: fit-content; cursor: pointer;";
+									li.innerHTML = `
+
+										<p>${metadata.name}</p>
+
+										<section id="docMeta">
+											<p>${metadata.contentType}</p>
+											<p>${timeCreatedDays}/${timeCreatedHours}</p>
+										</section>
+
+									`;
+
+
+									li.addEventListener("click", () => {
+
+										getDownloadURL(ref(storage, `${metadata.fullPath}`))
+										.then((url) => {
+											open(url);
+										})
+									})
+
+
+									docList.appendChild(li);
+
+								})
+								.catch((error) => {
+									console.log(error.code);
+									console.log(error.message);
+								})
+							})
+						})
+					})
+				})
+				.catch((error) => {
+					console.log(error.code);
+					console.log(error.message);
+				})
+				
+
+				//Création de la barre de progression
+				const range = document.getElementsByClassName("range");
+				
+				Array.from(range).forEach((rangeElmnt) => {
+					
+					rangeElmnt.addEventListener("focus", () => {
+						
+						if (rangeElmnt.value != data.progression){
+							updateDoc(doc(db, `Projets/${currentProj.textContent}/Taches`, `${docTask.id}`), {
+								progression: rangeElmnt.value
+							})
+						}
+					})	
+				})
+
+				docOverview.appendChild(docList);
+				li.appendChild(docOverview);
+				tasksList.appendChild(li);
+
+
+				//====== LISTENER DU CLICK POUR AJOUTER UN DOCUMENT ======
+				const modalAddDoc = document.getElementById("modalAddDoc");
+				const addDoc = document.getElementById("addDoc"); //Boutton du modal
+				const docInput = document.getElementById("documentInput");
+				const btnAddDocTask = document.getElementById(task.id);
+
+				btnAddDocTask.addEventListener("click", () => {
+
+					const target = btnAddDocTask.id;
+
+					addDoc.addEventListener("click", () => {
+					
+						const file = docInput.files[0];
+		
+						if (file.type.includes("image")){
+							const fileRef = ref(storage, `${proj.id}/${target}/images/${file.name}`);
+							const metadata = {
+								contentType: `${file.type}`
+							}
+		
+							uploadBytes(fileRef, file, metadata)
+							.then((snapshot) => {
+								//Le fichier a été mis en ligne !
+							})
+							.catch((error) => {
+								console.log(error.code);
+								console.log(error.message);
+							});
+		
+							closeModal(modalAddDoc);
+		
+						}else if (file.type.includes("pdf")){
+							const fileRef = ref(storage, `${proj.id}/${target}/pdfs/${file.name}`);
+							const metadata = {
+								contentType: `${file.type}`
+							}
+		
+							uploadBytes(fileRef, file, metadata)
+							.then((snapshot) => {
+								//Le fichier a été mis en ligne !
+							})
+							.catch((error) => {
+								console.log(error.code);
+								console.log(error.message);
+							});
+		
+							closeModal(modalAddDoc);
+		
+						}else if (file.type.includes("video")){
+							const fileRef = ref(storage, `${proj.id}/${target}/videos/${file.name}`);
+							const metadata = {
+								contentType: `${file.type}`
+							}
+		
+							uploadBytes(fileRef, file, metadata)
+							.then((snapshot) => {
+								//Le fichier a été mis en ligne !
+							})
+							.catch((error) => {
+								console.log(error.code);
+								console.log(error.message);
+							});
+		
+							closeModal(modalAddDoc);
+		
+						}
+	
+						
+					})
+
+				})
+			})
+
+
+		})
+	})
 
 }
 
 
-export { renderPending, closeModal };
+export { renderPending, closeModal, taskRenderAdmin };

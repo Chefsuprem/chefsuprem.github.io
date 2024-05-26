@@ -372,7 +372,7 @@ function pendingAccount(){
 					})
 				});
 	
-				select.addEventListener("mouseleave", () => {
+				select.addEventListener("focusout", () => {
 	
 					if (select.value != "none"){
 	

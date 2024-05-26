@@ -4,6 +4,6 @@ sunBtn.addEventListener('mouseenter', () => {
     sunBtn.classList.add('bx-spin');
 });
 
-sunBtn.addEventListener('mouseleave', () => {
+sunBtn.addEventListener('focusout', () => {
     sunBtn.classList.remove('bx-spin');
 });
