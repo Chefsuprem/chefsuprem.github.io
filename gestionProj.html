@@ -14,35 +14,161 @@
 </head>
 <body class="d-flex gap-3 pe-3 position-relative">
 
+	<!--Définition des modals Bootstrap-->
+	<article id="modalNewTask" class="modal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<section class="modal-header">
+					<h5 class="modal-title">Ajouter une nouvelle tâche</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</section>
+				<section class="modal-body" style="background-color: var(--gestionBg);">
+					<form class="ms-2">
+						<fieldset class="py-2 ps-2 rounded-2" style="background-color: white;">
+							<legend>Informations Principales</legend>
+							<label class="ms-2" for="nameTask">Nom</label><br>
+							<input class="ms-2" type="text" name="nameTask" id="nameTask"><br>
+
+							<label class="ms-2" for="descTask">Description</label><br>
+							<textarea class="ms-2" cols="55" name="descTask" id="descTask"></textarea><br>
+
+							<label class="ms-2" for="statusTask">Statut</label><br>
+							<select class="ms-2" name="statusTask" id="statusTask">
+								<option value="aFaire">A faire</option>
+								<option value="enCours">En cours..</option>
+								<option value="terminee">Terminée</option>
+							</select><br>
+
+							<label class="ms-2" for="child">Est une sous tâche de:</label><br>
+							<select class="ms-2" name="child" id="child">
+								<option value="none">Aucune</option>
+							</select>
+						</fieldset>
+						<fieldset class="py-2 ps-2 mt-2 rounded-2" style="background-color: white;">
+							<legend>Echeancier</legend>
+							<label class="ms-2" for="dateD">Date de début</label><br>
+							<input class="ms-2" type="date" name="dateD" id="dateD"><br>
+	
+							<label class="ms-2" for="dateF">Date de fin</label><br>
+							<input class="ms-2" type="date" name="dateF" id="dateF"><br>
+						</fieldset>
+						<fieldset class="py-2 ps-2 mt-2 rounded-2" style="background-color: white;">
+							<legend>Roles</legend>
+							<ul id="rolesList" class="d-flex border border-secondary me-2 rounded ps-1 gap-2" style="max-width: 100%; height: 3vh;">
+
+							</ul>
+							<div class="d-flex gap-2">
+								<input type="text" name="roleArea" id="roleArea" placeholder="Créez votre rôle" class="rounded">
+								<button id="addRoleBtn" type="button" class='bx bxs-bookmark-plus bx-md' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ajouter le rôle à la tâche"></button>
+							</div>
+						</fieldset>
+					</form>
+				</section>
+				<section class="modal-footer">
+					<button id="newTaskbtn" type="button" class="btn btn-primary">Créer</button>
+				</section>
+			</div>
+		</div>
+	</article>
+
+	<article id="modalNewProj" class="modal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<section class="modal-header">
+					<h5 class="modal-title">Nouveau Projet</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</section>
+				<section class="modal-body">
+					<form class="ms-2">
+						<label for="nameTask">Nom</label><br>
+						<input type="text" name="nameProj" id="nameProj"><br><br>
+					</form>
+				</section>
+				<section class="modal-footer">
+					<button id="submitNewProj" type="button" class="btn btn-primary">Créer</button>
+				</section>
+			</div>
+		</div>
+	</article>
+
+	<article id="modalRemProj" class="modal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<section class="modal-header">
+					<h5 class="modal-title">Supprimer un projet</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</section>
+				<section class="modal-body">
+					<select id="removeProjetSelect">
+
+					</select>
+				</section>
+				<section class="modal-footer">
+					<button id="remBtn" type="button" class="btn btn-primary bg-danger">Supprimer</button>
+				</section>
+			</div>
+		</div>
+	</article>
+
+	<article id="modalAddDoc" class="modal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<section class="modal-header">
+					<h5 class="modal-title">Ajouter un document</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</section>
+				<section class="modal-body">
+					<form>
+						<label for="documentInput">Documents aceptés: images, videos, pdf</label>
+						<input type="file" name="documentInput" id="documentInput" accept="video/*, image/*, .pdf">
+					</form>
+				</section>
+				<section class="modal-footer">
+					<button id="addDoc" type="button" class="btn btn-primary">Ajouter</button>
+				</section>
+			</div>
+		</div>
+	</article>
+
 	<!--Début sidebar-->
 	<article id="sidebar" class="col-3 d-flex flex-column gap-3 overflow-hidden" style="height: 100vh; position: sticky; top: 0;">
 		<section id="navGestion" class="d-flex justify-content-between py-2 px-2 bg-white">
 			<nav class="col-9 navbar m-0">
 				<ul class="col-12 list-unstyled navbar-nav gap-2">
-					<li class="d-flex navbar-item mainBtn px-3 align-items-center">
-						<i class='bx bx-home-alt bx-md'></i>
-						<button class="btn text-white typTxtOrdi16">Home</button>
-					</li>
-					<li class="d-flex navbar-item mainBtn px-3 align-items-center px-2">
-						<i class='bx bxs-widget bx-md'></i>
-						<button class="btn text-white typTxtOrdi16">My Work</button>
-					</li>
+					<button id="home" class="btn d-flex navbar-item mainBtn px-3 align-items-center">
+						<i class='bx bx-home-alt bx-md me-3'></i>
+						<p class="typTxtOrdi16 m-0">Home</p>
+					</button>
+					<button id="triggerWork" class="btn d-flex navbar-item mainBtn px-3 align-items-center px-2">
+						<i class='bx bxs-widget bx-md me-3'></i>
+						<p class="typTxtOrdi16 m-0">My Work</p>
+					</button>
 				</ul>
 			</nav>
 			<i class='col-2 bx bx-chevron-left bx-lg'></i>
 		</section>
-		<section class="bg-white container-fluid pe-4 overflow-y-scroll">
+		<section id="sidebarContent" class="bg-white container-fluid pe-4 overflow-y-scroll">
 
 			<!--Section de sélection de projets-->
 			<section class="d-flex pt-3 pb-4 sticky-top bg-white">
-				<div class="d-flex align-items-center col" style="flex: auto;">
-					<h3 class="typTxtOrdi16 fs-3">Nom Projet</h3>
+				<button id="choixProj" type="button" class="d-flex align-items-center btn col" style="flex: auto;">
+					<h3 id="currentProj" class="typTxtOrdi16 fs-3">Aucun Projets</h3>
 					<i class='bx bx-chevron-down bx-md ms-2' style="transform: translateY(-.3vh)"></i>
-				</div>
+				</button>
 				<div class="d-flex col justify-content-end align-items-center" style=" flex: 1;">
 					<i class='bx bxs-bell bx-md' ></i>
 				</div>
 			</section>
+
+			<article id="projsOverlay" class="d-none">
+				<select name="projetSelect" id="projetSelect">
+
+				</select>
+				<section id="projsFooter" class="container-fluid">
+					<button id="addProj" class='bx bx-add-to-queue bx-md' data-bs-toggle="modal" data-bs-target="#modalNewProj"></button>
+					<button id="removeProj" class='bx bxs-checkbox-minus bx-md' data-bs-toggle="modal" data-bs-target="#modalRemProj"></button>
+				</section>
+			</article>
 
 			<div id="widWrapper" class="d-flex flex-column gap-4">
 
@@ -208,12 +334,12 @@
 				<h1 class="typTtrOrdi50">Phrase D'accueil</h1>
 				<p class="typSsTtrOrdi18">Phrase complémentaire</p>
 			</hgroup>
-			<div class="d-flex gap-5 container col-5 m-0 p-0">
-				<div id="status" class="d-flex flex-column text-end justify-content-center" style="flex: auto;">
-					<h2>Nom Prénom</h2>
-					<p>Status</p>
+			<div class="d-flex gap-4 container col-5 m-0 p-0">
+				<div id="status" class="d-flex flex-column text-end justify-content-center" style="flex: 100;">
+					<h2 id="headingAccount" class="typTtrOrdi25" style="font-size: 21pt;">Nom Prénom</h2>
+					<p class="typTxtOrdi16" style="font-size: 12pt;">Status</p>
 				</div>
-				<div id="imgProfil" style="width: 100%; flex: 2;">
+				<div id="imgProfil" style="width: 100%; flex: 40;">
 					<img class="img-fluid rounded-circle" src="images/images_profils/ppTest.jpg" alt="Image de profil de l'utilisateur">
 				</div>
 			</div>
@@ -296,5 +422,6 @@
 	<script type="module" src="./JS/gestionProjet/gestionProj.js"></script>
 	<script type="module" src="./JS/database/require.js"></script>
 	<script type="module" src="./JS/database/functions.js"></script>
+	<script type="module" src="./JS/gestionProjet/components/tooltipInit.js"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmail
 import { collection, doc, getDocs, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const signUpForm = document.getElementById("inscriptionForm");
+const currentProj = document.getElementById("currentProj");
 
 if (signUpForm != undefined){
 
@@ -19,8 +20,6 @@ if (signUpForm != undefined){
 		const email = signUpForm["email"].value;
 		const mdp = signUpForm["mdp"].value;
 
-		const colRef = collection(db, "Pending");
-
 		//Création de la collection qui va contenir tout les users
 
 		createUserWithEmailAndPassword(auth, email, mdp)
@@ -30,12 +29,13 @@ if (signUpForm != undefined){
 			console.log(userCred.user);
 
 			//Création de la collection qui va contenir tout les users
-			setDoc(doc(collection(db, "Pending"), `${userCred.user.uid}`), {
+			setDoc(doc(collection(db, "Users"), `${userCred.user.uid}`), {
 				
 				nom: pendingLastName,
 				prenom: pendingFirstName,
 				email: email,
-				mdp: mdp
+				mdp: mdp,
+				status: "Pending"
 			});
 
 		})

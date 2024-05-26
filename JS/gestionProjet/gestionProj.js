@@ -1,70 +1,61 @@
 
-import { db, auth } from "../database/require.js";
+import { db, auth, storageRef, storage } from "../database/require.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { doc, getDoc, getDocs, collection } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { ref } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
-//Evènement de trigger du toast
-const toastLiveExample = document.getElementById('liveToast')
+//Recuperation des differentes versions de status
+import { clientAccount } from "./statusUI/Client.js";
+import { membreAccount } from "./statusUI/Membre.js";
+import { pendingAccount } from "./statusUI/Pending.js";
+import { adminAccount } from "./statusUI/Admin.js";
+
+const pageContent = document.querySelector("#pageContent main");
+const currentProj = document.getElementById("currentProj");
+let userBroadcast;
 
 
 onAuthStateChanged(auth, (user) => {
+
+	userBroadcast = user;
+
+	//Création des références par projets
+	getDocs(collection(db, "Projets"))
+	.then((snapshot) => {
+		snapshot.docs.forEach(proj => {
+			const projRef = ref(storage, `${proj.data().nom}`);
+			const imageProjRef = ref(storage, `${proj.data().nom}/images`);
+			const pdfProjRef = ref(storage, `${proj.data().nom}/pdfs`);
+			const videoProjRef = ref(storage, `${proj.data().nom}/videos`);
+		});
+	})
+
 	if (user){
 
-		const uid = user.uid;
-		const userDoc = getDoc(doc(db, "Pending", `${uid}`));
-
-		if (userDoc){
-			
-			userDoc.then((snapshot) => {
-
-				const data = snapshot.data();
-
-				//Toast pour signaler l'attente de validité
-				//J'ai du faire le texte en plusieurs fois pour intégrer le span
-				const toastLiveExample = document.getElementById("liveToast");
-				const timesTamp = document.getElementsByClassName("toastTimestamp");
-
-				const timestampSliced = user.metadata.lastSignInTime.slice(0, 16);
-				timesTamp[0].textContent = `${timestampSliced}`;
-
-				const toastBody = document.getElementsByClassName("toast-body");
-				let span1 = document.createElement("span");
-				span1.setAttribute("class", "hilight");
-				span1.textContent = `${data.nom} ${data.prenom},`;
-
-				let pBodyStart = document.createElement("p");
-				pBodyStart.textContent = "Bonjour ";
-
-				let pBodyMid = document.createElement("p");
-				pBodyMid.textContent = "votre compte est en accès limité.";
-				pBodyMid.setAttribute("class", "mb-1")
-
-				let pBodyEnd = document.createElement("p");
-				pBodyEnd.textContent = "Toutes les fonctionnalités seront disponible après votre validation par nos équipes.";
-				pBodyEnd.setAttribute("class", "m-0");
-
-				pBodyStart.appendChild(span1);
-				pBodyStart.appendChild(pBodyMid);
-				pBodyStart.appendChild(pBodyEnd);
-
-				toastBody[0].appendChild(pBodyStart);
-
-				const toastOptions = {
-					delay: 10000
-				}
-
-  				const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample, toastOptions);
-				toastBootstrap.show()
-			})
-		
+		if (user.email == "sadmindir@agence-1ris.com" || user.email == "sadminchefProj@agence-1ris.com"){
+			adminAccount();
 		}else{
 
-			//Afficher toute la gestion de projet en fonction de son rôle
-			console.log("N'est pas en attente");
-		};
-
+			getDoc(doc(db, "Users", user.uid))
+			.then((snapshot) => {
+	
+				const data = snapshot.data();
+	
+				if (data.status == "Client"){
+					clientAccount();
+				}else if (data.status == "Membre"){
+					membreAccount();
+				}else if (data.status == "Pending"){
+					pendingAccount();
+				}
+			})
+		}
+		
+		
 	}else{
 
-		open("../connexion.html", "_self");
+		open("../../../connexion.html", "_self");
 	}
 })
+
+export { currentProj, pageContent, userBroadcast };
