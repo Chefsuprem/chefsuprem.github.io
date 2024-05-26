@@ -31,8 +31,7 @@ onAuthStateChanged(auth, (user) => {
 	})
 
 	if (user){
-
-		if (user.email == "sadmindir@agence-1ris.com" || user.email == "sadminchefProj@agence-1ris.com"){
+		if (user.email == "sadmindir@agence-1ris.com" || user.email == "sadminchefproj@agence-1ris.com"){
 			adminAccount();
 		}else{
 
@@ -54,7 +53,7 @@ onAuthStateChanged(auth, (user) => {
 		
 	}else{
 
-		open("../../../connexion.html", "_self");
+		//open("../../../connexion.html", "_self");
 	}
 })
 

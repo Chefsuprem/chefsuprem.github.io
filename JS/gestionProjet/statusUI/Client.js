@@ -71,7 +71,7 @@ function clientAccount(){
 				})
 			});
 
-			select.addEventListener("focusout", () => {
+			select.addEventListener("mouseleave", () => {
 
 				if (select.value != "none"){
 
@@ -87,78 +87,86 @@ function clientAccount(){
 		select.addEventListener("focusout", () => {
 			
 			const documentList = document.getElementById("documentsList");
-			const listRef = ref(storage, `${currentProj.textContent}`);
-		
-			listAll(listRef)
-			.then((doc) => {
-		
-				doc.prefixes.forEach((folderRef) => {
-		
-					listAll(folderRef)
-					.then((taskRef) => {
-		
-						taskRef.prefixes.forEach((folderRef) => {
-		
-							listAll(folderRef)
-							.then((itemRef) => {
-		
-								itemRef.items.forEach((item) => {
-		
-									getMetadata(item)
-									.then((metadata) =>{
+			const queryProj = query(collection(db, "Projets"), where("nom", "==", `${currentProj.textContent}`));
 			
-										const li = document.createElement("li");
-										const timeCreatedDays = metadata.timeCreated.substring(0, 10);
-										const timeCreatedHours = metadata.timeCreated.substring(11, 19);
-										
-										li.classList = "text-center";
-										li.style = "width: fit-content; cursor: pointer;";
-										li.innerHTML = `
-			
-											<p>${metadata.name}</p>
-			
-											<section id="docMeta">
-												<p>${metadata.contentType}</p>
-												<p>${timeCreatedDays}/${timeCreatedHours}</p>
-											</section>
-			
-										`;
+			getDocs(queryProj)
+			.then((proj) => {
 
-										li.addEventListener("click", () => {
+				const listRef = ref(storage, `${proj.docs[0].id}`);
+				
+				listAll(listRef)
+				.then((doc) => {
 
-											getDownloadURL(ref(storage, `${metadata.fullPath}`))
-											.then((url) => {
-												open(url);
+					doc.prefixes.forEach((folderRef) => {
+			
+						listAll(folderRef)
+						.then((taskRef) => {
+			
+							taskRef.prefixes.forEach((folderRef) => {
+			
+								listAll(folderRef)
+								.then((itemRef) => {
+			
+									itemRef.items.forEach((item) => {
+			
+										getMetadata(item)
+										.then((metadata) =>{
+				
+											const li = document.createElement("li");
+											const timeCreatedDays = metadata.timeCreated.substring(0, 10);
+											const timeCreatedHours = metadata.timeCreated.substring(11, 19);
+											
+											li.classList = "text-center";
+											li.style = "width: fit-content; cursor: pointer;";
+											li.innerHTML = `
+				
+												<p>${metadata.name}</p>
+				
+												<section id="docMeta">
+													<p>${metadata.contentType}</p>
+													<p>${timeCreatedDays}/${timeCreatedHours}</p>
+												</section>
+				
+											`;
+
+											li.addEventListener("click", () => {
+
+												getDownloadURL(ref(storage, `${metadata.fullPath}`))
+												.then((url) => {
+													open(url);
+												})
 											})
+				
+											documentList.appendChild(li);
+				
 										})
-			
-										documentList.appendChild(li);
-			
-									})
-									.catch((error) => {
-										console.log(error.code);
-										console.log(error.message);
+										.catch((error) => {
+											console.log(error.code);
+											console.log(error.message);
+										})
 									})
 								})
-							})
-							.catch((error) => {
-								console.log(error.code);
-								console.log(error.message);
+								.catch((error) => {
+									console.log(error.code);
+									console.log(error.message);
+								})
 							})
 						})
-					})
-					.catch((error) => {
-						console.log(error.code);
-						console.log(error.message);
+						.catch((error) => {
+							console.log(error.code);
+							console.log(error.message);
+						})
 					})
 				})
-			})
-			.catch((error) => {
-				console.log(error.code);
-				console.log(error.message);
+				.catch((error) => {
+					console.log(error.code);
+					console.log(error.message);
+				})
+				
 			})
 	
 		})
+
 	});
 
 	

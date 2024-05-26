@@ -84,14 +84,14 @@
             <!--Version xSm-->
             <h1 class=" d-md-none typTtrOrdi50 text-center px-3" style="font-size:40pt;" data-translate="connexion">Connectez-vous</h1>
         </section>
-        <form class=" col-12 col-md-5 d-flex flex-column align-items-center justify-content-center gap-5 px-3 mx-auto">
+        <form id="connexionForm" class=" col-12 col-md-5 d-flex flex-column align-items-center justify-content-center gap-5 px-3 mx-auto">
             <fieldset class="d-flex flex-column align-items-center" style="width:100%; max-width: 350px;">
 
                 <label class="typTxtOrdi16" style="align-self: start;"data-translate="email">Email</label>
                 <input class="mb-5 case" type="email" id="email" name="email" required>
 
                 <label class="typTxtOrdi16" style="align-self: start;"data-translate="mdp">Mot de passe</label>
-                <input class="case" type="password" id="password" name="password" required>
+                <input class="case" type="password" id="mdp" name="password" required>
 
             </fieldset>
 
@@ -142,7 +142,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 	<!--SCRIPTS LOCAUX-->
-	<script type="module" src="JS/database.js"></script>
+	<script type="module" src="JS/database/require.js"></script>
+	<script type="module" src="JS/database/authentication.js"></script>
 	<script src="JS/components/header.js"></script>
 	<script src="JS/connexion.js"></script>
 	<script src="JS/modesombre.js"></script>

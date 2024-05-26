@@ -233,7 +233,7 @@ function renderPending(wrapper){
 								})
 
 								//l'utilisateur a été supprimé
-								signInWithEmailAndPassword(auth, "SadminChefProj@agence-1ris.com", "$4Dm1nCh3F ")
+								signInWithEmailAndPassword(auth, "SadminChefProj@agence-1ris.com", "$4Dm1nCh3F")
 								.then(() => {
 
 									//reconnecté à l'utilisateur précédent
@@ -357,7 +357,7 @@ function renderPending(wrapper){
 								.then(() => {
 									
 									//l'utilisateur a été supprimé
-									signInWithEmailAndPassword(auth, "SadminChefProj@agence-1ris.com", "$4Dm1nCh3F ")
+									signInWithEmailAndPassword(auth, "SadminChefProj@agence-1ris.com", "$4Dm1nCh3F")
 									.then(() => {
 
 										//reconnecté à l'utilisateur précédent
@@ -443,11 +443,14 @@ function taskRenderAdmin(){
 				const data = task.data();
 
 				const li = document.createElement("li");
+				li.id = `${task.id}`;
 
 				li.innerHTML = `
 				
 					<section class="d-flex taskHeader border-bottom border-secondary gap-3">
 						<p class="m-0 typTxtOrdi16"><span>[${data.status}]</span> ${data.nom}</p>
+						<ul class="assignedMember"></ul>
+						<button id="${task.id}" type="button" class="assignTaskMemberBtn btn" data-bs-toggle="modal" data-bs-target="#modalAddMembre">Ajouter un membre</button>
 							
 					</section>
 					<section class="d-flex flex-column mb-3 mt-2">
@@ -460,6 +463,44 @@ function taskRenderAdmin(){
 					</section>
 				
 				`;
+
+				//====== AJOUTER UN MEMBRE A LA TACHE ====== 
+				li.addEventListener("click", (event) => {
+
+					if (event.target.classList.contains("assignTaskMemberBtn")){
+
+						const queryAssignMembers = query(collection(db, "Users"), where("status", "==", "Membre"));
+						const membersAssign = event.target.previousElementSibling;
+						
+						membersAssign.innerHTML = "";
+						
+						getDocs(queryAssignMembers)
+						.then((snapshot) => {
+							
+							snapshot.docs.forEach((membre) => {
+		
+								const data = membre.data();
+		
+								const option = document.createElement("option");
+								option.id = `${membre.id}`;
+								option.textContent = `${data.nom} ${data.prenom}`;
+		
+								membersAssign.appendChild(option);
+							})
+						})
+
+						const addMember = document.getElementById("addMember");
+						addMember.addEventListener("click", () => {
+
+							addDoc(collection(db, "Projets", `${task.id}`, "Taches", `${event.target.id}`, "Assignes"), {
+								nom: membersAssign.value
+							})
+
+
+						})
+					}
+				})
+					
 
 				//Génération de la liste des documents ("prefixes" ce sont des dossiers et "items" ce sont les fichiers)
 				const docOverview = document.createElement("section");
@@ -544,8 +585,32 @@ function taskRenderAdmin(){
 					rangeElmnt.addEventListener("focus", () => {
 						
 						if (rangeElmnt.value != data.progression){
-							updateDoc(doc(db, `Projets/${currentProj.textContent}/Taches`, `${docTask.id}`), {
-								progression: rangeElmnt.value
+
+							const queryProj = query(collection(db, "Projets"), where("nom", "==", `${currentProj.textContent}`));
+							
+							getDocs(queryProj)
+							.then((proj) => {
+
+								getDocs(collection(db, "Projets", `${proj.docs[0].id}`, "Taches"))
+								.then((taskRef) => {
+									
+									taskRef.docs.forEach((task) => {
+										
+										if (task.id == rangeElmnt.parentElement.parentElement.parentElement.id){
+
+											updateDoc(doc(db, `Projets/${proj.docs[0].id}/Taches`, `${task.id}`), {
+												progression: rangeElmnt.value
+											})
+
+										}
+
+									})
+
+								})
+							})
+							.catch((error) => {
+								console.log(error.code);
+								console.log(error.message);
 							})
 						}
 					})	
@@ -632,8 +697,218 @@ function taskRenderAdmin(){
 
 		})
 	})
-
 }
 
 
-export { renderPending, closeModal, taskRenderAdmin };
+
+function taskRenderMembre(){
+
+	//Génération de la liste des tâches
+	const queryProj = query(collection(db, "Projets"), where("nom", "==", `${currentProj.textContent}`));
+
+	const data = task.data();
+
+	const li = document.createElement("li");
+
+	li.innerHTML = `
+	
+		<section class="d-flex taskHeader border-bottom border-secondary gap-3">
+			<p class="m-0 typTxtOrdi16"><span>[${data.status}]</span> ${data.nom}</p>
+				
+		</section>
+		<section class="d-flex flex-column mb-3 mt-2">
+			<p class="m-0 typTxtOrdi16" style="font-size: 9pt; color: var(--irisBlue);">Du ${data.dateDebut} au ${data.dateFin}</p>
+			<p class="my-1 typTxtOrdi16It" style="font-size: 10pt;">${data.description}</p>
+			<form class="mt-3">
+
+				<!--Barre de progression-->
+				<section class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+					<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: ${data.progression}%"></div>
+				</div>
+
+			</form>
+		</section>
+	
+	`;
+
+	//Génération de la liste des documents ("prefixes" ce sont des dossiers et "items" ce sont les fichiers)
+	const docOverview = document.createElement("section");
+
+	docOverview.classList = "d-flex flex-column gap-3";
+	docOverview.innerHTML = `
+
+		<div class="d-flex container-fluid justify-content-between pb-2 border-bottom border-secondary">
+			<p class="m-0 typTxtOrdi16" style="font-size: 14pt;">Documents récents:</p>
+			<button id="${task.id}" class="btn text-white" style="background-color: var(--irisBlue);" data-bs-toggle="modal" data-bs-target="#modalAddDoc">Ajouter un document à la tâche</button>
+		</div>
+		
+	`;
+
+	const docList = document.createElement("ul");
+	docList.classList = "d-flex gap-4 list-unstyled px-2";
+
+	const listRef = ref(storage, `${proj.id}/${task.id}`);
+
+	listAll(listRef)
+	.then((doc) => {
+
+		doc.prefixes.forEach((folderRef) => {
+			
+			listAll(folderRef)
+			.then((itemRef) => {
+
+				itemRef.items.forEach((item) => {
+
+					getMetadata(item)
+					.then((metadata) =>{
+
+						const li = document.createElement("li");
+						const timeCreatedDays = metadata.timeCreated.substring(0, 10);
+						const timeCreatedHours = metadata.timeCreated.substring(11, 19);
+						
+						li.classList = "text-center";
+						li.style = "width: fit-content; cursor: pointer;";
+						li.innerHTML = `
+
+							<p>${metadata.name}</p>
+
+							<section id="docMeta">
+								<p>${metadata.contentType}</p>
+								<p>${timeCreatedDays}/${timeCreatedHours}</p>
+							</section>
+
+						`;
+
+
+						li.addEventListener("click", () => {
+
+							getDownloadURL(ref(storage, `${metadata.fullPath}`))
+							.then((url) => {
+								open(url);
+							})
+						})
+
+
+						docList.appendChild(li);
+
+					})
+					.catch((error) => {
+						console.log(error.code);
+						console.log(error.message);
+					})
+				})
+			})
+		})
+	})
+	.catch((error) => {
+		console.log(error.code);
+		console.log(error.message);
+	})
+	
+
+	//Création de la barre de progression
+	const range = document.getElementsByClassName("range");
+	
+	Array.from(range).forEach((rangeElmnt) => {
+		
+		rangeElmnt.addEventListener("focus", () => {
+			
+			if (rangeElmnt.value != data.progression){
+
+				const queryProj = query(collection(db, "Projets"), where("nom", "==", `${currentProj.textContent}`));
+				
+				getDocs(queryProj)
+				.then((proj) => {
+					console.log(proj);
+				})
+				.catch((error) => {
+					console.log(error.code);
+					console.log(error.message);
+				})
+
+				//updateDoc(doc(db, `Projets/${currentProj.textContent}/Taches`, `${docTask.id}`), {
+				//	progression: rangeElmnt.value
+				//})
+			}
+		})	
+	})
+
+	docOverview.appendChild(docList);
+	li.appendChild(docOverview);
+	tasksList.appendChild(li);
+
+
+	//====== LISTENER DU CLICK POUR AJOUTER UN DOCUMENT ======
+	const modalAddDoc = document.getElementById("modalAddDoc");
+	const addDoc = document.getElementById("addDoc"); //Boutton du modal
+	const docInput = document.getElementById("documentInput");
+	const btnAddDocTask = document.getElementById(task.id);
+
+	btnAddDocTask.addEventListener("click", () => {
+
+		const target = btnAddDocTask.id;
+
+		addDoc.addEventListener("click", () => {
+		
+			const file = docInput.files[0];
+
+			if (file.type.includes("image")){
+				const fileRef = ref(storage, `${proj.id}/${target}/images/${file.name}`);
+				const metadata = {
+					contentType: `${file.type}`
+				}
+
+				uploadBytes(fileRef, file, metadata)
+				.then((snapshot) => {
+					//Le fichier a été mis en ligne !
+				})
+				.catch((error) => {
+					console.log(error.code);
+					console.log(error.message);
+				});
+
+				closeModal(modalAddDoc);
+
+			}else if (file.type.includes("pdf")){
+				const fileRef = ref(storage, `${proj.id}/${target}/pdfs/${file.name}`);
+				const metadata = {
+					contentType: `${file.type}`
+				}
+
+				uploadBytes(fileRef, file, metadata)
+				.then((snapshot) => {
+					//Le fichier a été mis en ligne !
+				})
+				.catch((error) => {
+					console.log(error.code);
+					console.log(error.message);
+				});
+
+				closeModal(modalAddDoc);
+
+			}else if (file.type.includes("video")){
+				const fileRef = ref(storage, `${proj.id}/${target}/videos/${file.name}`);
+				const metadata = {
+					contentType: `${file.type}`
+				}
+
+				uploadBytes(fileRef, file, metadata)
+				.then((snapshot) => {
+					//Le fichier a été mis en ligne !
+				})
+				.catch((error) => {
+					console.log(error.code);
+					console.log(error.message);
+				});
+
+				closeModal(modalAddDoc);
+
+			}
+
+			
+		})
+
+	})
+}
+
+export { renderPending, closeModal, taskRenderAdmin, taskRenderMembre };
