@@ -1,7 +1,7 @@
 
 import { db, auth } from "../../database/require.js";
 import { closeModal, taskRenderAdmin } from "../components/functions.js";
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { doc, getDoc, getDocs, collection, setDoc, deleteDoc, Timestamp, addDoc, updateDoc, query, where } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { uploadBytes, ref, listAll, getMetadata } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
@@ -142,7 +142,8 @@ function adminAccount(){
 							dateDebut: newTaskForm["dateD"].value,
 							dateFin: newTaskForm["dateF"].value,
 							roles: roles,
-							progression: 0
+							progression: 0,
+							assignes: []
 						})
 			
 						closeModal(newTaskModal);
@@ -412,17 +413,6 @@ function adminAccount(){
 
 		roleInput.value = "";
 
-	})
-
-	const imgSignOut = document.getElementById("imgProfil");
-	imgSignOut.addEventListener("click", () => {
-
-		signOut(auth).then(() => {
-		// Sign-out successful.
-		}).catch((error) => {
-			console.log(error.code);
-			console.log(error.message);
-		});
 	})
 }
 

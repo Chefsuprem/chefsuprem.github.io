@@ -1,6 +1,6 @@
 
 import { db, auth, storageRef, storage } from "../database/require.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { doc, getDoc, getDocs, collection } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { ref } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
@@ -50,10 +50,20 @@ onAuthStateChanged(auth, (user) => {
 			})
 		}
 		
-		
+		const logOut = document.getElementById("logOut");
+		logOut.addEventListener("click", () => {
+
+			signOut(auth).then(() => {
+			// Sign-out successful.
+			}).catch((error) => {
+				console.log(error.code);
+				console.log(error.message);
+			});
+		})
+
 	}else{
 
-		//open("../../../connexion.html", "_self");
+		open("../../../connexion.html", "_self");
 	}
 })
 

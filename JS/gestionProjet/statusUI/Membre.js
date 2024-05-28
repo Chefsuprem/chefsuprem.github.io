@@ -1,7 +1,7 @@
 
 import { db, auth, storage } from "../../database/require.js";
 import { closeModal, taskRenderMembre } from "../components/functions.js";
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { doc, getDoc, getDocs, collection, setDoc, deleteDoc, Timestamp, addDoc, updateDoc, query, where } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { ref, listAll, getMetadata, uploadBytes } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
@@ -170,18 +170,6 @@ function membreAccount(){
 				</section>
 			</main>
 		`;
-	})
-
-
-	const imgSignOut = document.getElementById("imgProfil");
-	imgSignOut.addEventListener("click", () => {
-
-		signOut(auth).then(() => {
-		// Sign-out successful.
-		}).catch((error) => {
-			console.log(error.code);
-			console.log(error.message);
-		});
 	})
 
 }
