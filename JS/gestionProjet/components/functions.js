@@ -2,7 +2,7 @@
 import { db, auth, storage } from "../../database/require.js";
 import { doc, getDocs, getDoc, collection, setDoc, deleteDoc, updateDoc, where, query} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { deleteUser, signInWithEmailAndPassword, updateEmail, updatePassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { ref, getMetadata, uploadBytes, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+import { ref, getMetadata, uploadBytes, listAll, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
 import { currentProj, userBroadcast } from "../gestionProj.js";
 
@@ -435,6 +435,7 @@ function taskRenderAdmin(){
 
 		const proj = snapshot.docs[0];
 		
+		//const queryAssignes = query(collection(db, "Projets", `${proj.id}`, "Taches"), where("assignes"));
 		getDocs(collection(db, "Projets", `${proj.id}`, "Taches"))
 		.then((taskRef) => {
 
@@ -447,10 +448,15 @@ function taskRenderAdmin(){
 
 				li.innerHTML = `
 				
-					<section class="d-flex taskHeader border-bottom border-secondary gap-3">
-						<p class="m-0 typTxtOrdi16"><span>[${data.status}]</span> ${data.nom}</p>
-						<ul class="assignedMember"></ul>
-						<button id="${task.id}" type="button" class="assignTaskMemberBtn btn" data-bs-toggle="modal" data-bs-target="#modalAddMembre">Ajouter un membre</button>
+					<section class="d-flex taskHeader border-bottom border-secondary justify-content-between pb-1">
+						<div class="d-flex gap-3 align-items-center">
+							<p class="m-0 typTxtOrdi16"><span>[${data.status}]</span> ${data.nom}</p>
+							<p class="assignedMembers list-unstyled m-0" style="height: fit-content;"></p>
+							<button id="${task.id}" type="button" class="assignTaskMemberBtn btn" data-bs-toggle="modal" data-bs-target="#modalAddMembre">Ajouter un membre</button>
+						</div>
+						<div>
+							<button id="${task.id}" type="button" class="remTask btn bg-danger text-white">Supprimer</button>
+						</div>
 							
 					</section>
 					<section class="d-flex flex-column mb-3 mt-2">
@@ -464,15 +470,27 @@ function taskRenderAdmin(){
 				
 				`;
 
+				const assignedMembers = li.firstElementChild.firstElementChild.firstElementChild.nextElementSibling;
+
+				getDoc(doc(db, `Projets/${proj.id}/Taches`, task.id))
+				.then((snapshot) => {
+
+					const data = snapshot.data();
+					const nb = data.assignes;
+
+					assignedMembers.textContent = `${nb.length} membres assignés`;
+
+				})
+
 				//====== AJOUTER UN MEMBRE A LA TACHE ====== 
 				li.addEventListener("click", (event) => {
 
 					if (event.target.classList.contains("assignTaskMemberBtn")){
 
 						const queryAssignMembers = query(collection(db, "Users"), where("status", "==", "Membre"));
-						const membersAssign = event.target.previousElementSibling;
+						const membersAssign = document.getElementById("membersAssign");
 						
-						membersAssign.innerHTML = "";
+						membersAssign.innerHTML = "<option value='none'>Aucuns</option>";
 						
 						getDocs(queryAssignMembers)
 						.then((snapshot) => {
@@ -482,21 +500,103 @@ function taskRenderAdmin(){
 								const data = membre.data();
 		
 								const option = document.createElement("option");
-								option.id = `${membre.id}`;
+								option.value = `${membre.id}`
 								option.textContent = `${data.nom} ${data.prenom}`;
 		
 								membersAssign.appendChild(option);
 							})
 						})
 
+						const modalAddMembre = document.getElementById("modalAddMembre");
 						const addMember = document.getElementById("addMember");
 						addMember.addEventListener("click", () => {
 
-							addDoc(collection(db, "Projets", `${task.id}`, "Taches", `${event.target.id}`, "Assignes"), {
-								nom: membersAssign.value
+							let taches = [];
+							let assignes = [];
+							
+							//Récupérer le tableau de taches assignées
+							getDoc(doc(db, `Users`, membersAssign.value))
+							.then((snapshot) => {
+
+								const data = snapshot.data();
+
+								taches = data.taches;
+								taches.push(event.target.id);
+							})
+
+							taches.push(event.target.id); 
+
+							//Récupérer le membre assigné dans la tache
+							getDoc(doc(db, `Projets/${proj.id}/Taches`, task.id))
+							.then((snapshot) => {
+
+								const data = snapshot.data();
+
+								assignes = data.assignes;
+
+							})
+
+							getDoc(doc(db, "Users", `${membersAssign.value}`))
+							.then((snapshot) => {
+								
+								assignes.push(snapshot.id);
+								
+								updateDoc(doc(collection(db, "Projets", `${proj.id}`, "Taches"), `${event.target.id}`), {
+									assignes: assignes
+								})
+
+								updateDoc(doc(db, "Users", snapshot.id), {
+									taches: taches
+								})
+								
+								closeModal(modalAddMembre);
+							})
+							.catch((error) => {
+								console.log(error.code);
+								console.log(error.message);
 							})
 
 
+
+
+						})
+
+					}else if (event.target.classList.contains("remTask")){
+
+						deleteDoc(doc(db, `Projets/${proj.id}/Taches`, event.target.id));
+
+						li.remove();
+
+						const listRef = ref(storage, `${proj.id}/${task.id}`);
+
+						listAll(listRef)
+						.then((doc) => {
+
+							doc.prefixes.forEach((folderRef) => {
+								
+								listAll(folderRef)
+								.then((itemRef) => {
+
+									itemRef.items.forEach((item) => {
+
+										const remRef = ref(storage, item.fullPath);
+
+										deleteObject(remRef)
+										.then(() => {
+											//File removed
+										})
+										.catch((error) => {
+											console.log(error.code);
+											console.log(error.message);
+										})
+
+									})
+								})
+							})
+						})
+						.catch((error) => {
+							console.log(error.code);
+							console.log(error.message);
 						})
 					}
 				})
@@ -705,207 +805,232 @@ function taskRenderMembre(){
 
 	//Génération de la liste des tâches
 	const queryProj = query(collection(db, "Projets"), where("nom", "==", `${currentProj.textContent}`));
-
-	const data = task.data();
-
-	const li = document.createElement("li");
-
-	li.innerHTML = `
 	
-		<section class="d-flex taskHeader border-bottom border-secondary gap-3">
-			<p class="m-0 typTxtOrdi16"><span>[${data.status}]</span> ${data.nom}</p>
-				
-		</section>
-		<section class="d-flex flex-column mb-3 mt-2">
-			<p class="m-0 typTxtOrdi16" style="font-size: 9pt; color: var(--irisBlue);">Du ${data.dateDebut} au ${data.dateFin}</p>
-			<p class="my-1 typTxtOrdi16It" style="font-size: 10pt;">${data.description}</p>
-			<form class="mt-3">
-
-				<!--Barre de progression-->
-				<section class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-					<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: ${data.progression}%"></div>
-				</div>
-
-			</form>
-		</section>
-	
-	`;
-
-	//Génération de la liste des documents ("prefixes" ce sont des dossiers et "items" ce sont les fichiers)
-	const docOverview = document.createElement("section");
-
-	docOverview.classList = "d-flex flex-column gap-3";
-	docOverview.innerHTML = `
-
-		<div class="d-flex container-fluid justify-content-between pb-2 border-bottom border-secondary">
-			<p class="m-0 typTxtOrdi16" style="font-size: 14pt;">Documents récents:</p>
-			<button id="${task.id}" class="btn text-white" style="background-color: var(--irisBlue);" data-bs-toggle="modal" data-bs-target="#modalAddDoc">Ajouter un document à la tâche</button>
-		</div>
+	getDocs(queryProj)
+	.then((snapshot) => {
 		
-	`;
+		const proj = snapshot.docs[0];
+		
+		//Recupération des tâches en fonction des assignations
+		getDoc(doc(db, "Users", userBroadcast.uid))
+		.then((user) => {
 
-	const docList = document.createElement("ul");
-	docList.classList = "d-flex gap-4 list-unstyled px-2";
+			const data = user.data();
+			const assignedTasks = data.taches;
 
-	const listRef = ref(storage, `${proj.id}/${task.id}`);
+			assignedTasks.forEach((tasksId) => {
+				
+				getDoc(doc(db, `Projets/${proj.id}/Taches`, tasksId))
+				.then((task) => {
 
-	listAll(listRef)
-	.then((doc) => {
-
-		doc.prefixes.forEach((folderRef) => {
-			
-			listAll(folderRef)
-			.then((itemRef) => {
-
-				itemRef.items.forEach((item) => {
-
-					getMetadata(item)
-					.then((metadata) =>{
-
-						const li = document.createElement("li");
-						const timeCreatedDays = metadata.timeCreated.substring(0, 10);
-						const timeCreatedHours = metadata.timeCreated.substring(11, 19);
+					console.log(task);
+					const data = task.data();
+		
+					const li = document.createElement("li");
+		
+					li.innerHTML = `
+					
+						<section class="d-flex taskHeader border-bottom border-secondary gap-3">
+							<p class="m-0 typTxtOrdi16"><span>[${data.status}]</span> ${data.nom}</p>
+								
+						</section>
+						<section class="d-flex flex-column mb-3 mt-2">
+							<p class="m-0 typTxtOrdi16" style="font-size: 9pt; color: var(--irisBlue);">Du ${data.dateDebut} au ${data.dateFin}</p>
+							<p class="my-1 typTxtOrdi16It" style="font-size: 10pt;">${data.description}</p>
+							<form class="mt-3">
+		
+								<!--Barre de progression-->
+								<section class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+									<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: ${data.progression}%"></div>
+								</div>
+		
+							</form>
+						</section>
+					
+					`;
+		
+					//Génération de la liste des documents ("prefixes" ce sont des dossiers et "items" ce sont les fichiers)
+					const docOverview = document.createElement("section");
+		
+					docOverview.classList = "d-flex flex-column gap-3";
+					docOverview.innerHTML = `
+		
+						<div class="d-flex container-fluid justify-content-between pb-2 border-bottom border-secondary">
+							<p class="m-0 typTxtOrdi16" style="font-size: 14pt;">Documents récents:</p>
+							<button id="${task.id}" class="btn text-white" style="background-color: var(--irisBlue);" data-bs-toggle="modal" data-bs-target="#modalAddDoc">Ajouter un document à la tâche</button>
+						</div>
 						
-						li.classList = "text-center";
-						li.style = "width: fit-content; cursor: pointer;";
-						li.innerHTML = `
-
-							<p>${metadata.name}</p>
-
-							<section id="docMeta">
-								<p>${metadata.contentType}</p>
-								<p>${timeCreatedDays}/${timeCreatedHours}</p>
-							</section>
-
-						`;
-
-
-						li.addEventListener("click", () => {
-
-							getDownloadURL(ref(storage, `${metadata.fullPath}`))
-							.then((url) => {
-								open(url);
+					`;
+		
+					const docList = document.createElement("ul");
+					docList.classList = "d-flex gap-4 list-unstyled px-2";
+		
+					const listRef = ref(storage, `${proj.id}/${task.id}`);
+		
+					listAll(listRef)
+					.then((doc) => {
+		
+						doc.prefixes.forEach((folderRef) => {
+							
+							listAll(folderRef)
+							.then((itemRef) => {
+		
+								itemRef.items.forEach((item) => {
+		
+									getMetadata(item)
+									.then((metadata) =>{
+		
+										const li = document.createElement("li");
+										const timeCreatedDays = metadata.timeCreated.substring(0, 10);
+										const timeCreatedHours = metadata.timeCreated.substring(11, 19);
+										
+										li.classList = "text-center";
+										li.style = "width: fit-content; cursor: pointer;";
+										li.innerHTML = `
+		
+											<p>${metadata.name}</p>
+		
+											<section id="docMeta">
+												<p>${metadata.contentType}</p>
+												<p>${timeCreatedDays}/${timeCreatedHours}</p>
+											</section>
+		
+										`;
+		
+		
+										li.addEventListener("click", () => {
+		
+											getDownloadURL(ref(storage, `${metadata.fullPath}`))
+											.then((url) => {
+												open(url);
+											})
+										})
+		
+		
+										docList.appendChild(li);
+		
+									})
+									.catch((error) => {
+										console.log(error.code);
+										console.log(error.message);
+									})
+								})
 							})
 						})
-
-
-						docList.appendChild(li);
-
 					})
 					.catch((error) => {
 						console.log(error.code);
 						console.log(error.message);
 					})
+					
+		
+					//Création de la barre de progression
+					const range = document.getElementsByClassName("range");
+					
+					Array.from(range).forEach((rangeElmnt) => {
+						
+						rangeElmnt.addEventListener("focus", () => {
+							
+							if (rangeElmnt.value != data.progression){
+		
+								const queryProj = query(collection(db, "Projets"), where("nom", "==", `${currentProj.textContent}`));
+								
+								getDocs(queryProj)
+								.then((proj) => {
+									console.log(proj);
+								})
+								.catch((error) => {
+									console.log(error.code);
+									console.log(error.message);
+								})
+		
+								//updateDoc(doc(db, `Projets/${currentProj.textContent}/Taches`, `${docTask.id}`), {
+								//	progression: rangeElmnt.value
+								//})
+							}
+						})	
+					})
+		
+					docOverview.appendChild(docList);
+					li.appendChild(docOverview);
+					tasksList.appendChild(li);
+		
+		
+					//====== LISTENER DU CLICK POUR AJOUTER UN DOCUMENT ======
+					const modalAddDoc = document.getElementById("modalAddDoc");
+					const addDoc = document.getElementById("addDoc"); //Boutton du modal
+					const docInput = document.getElementById("documentInput");
+					const btnAddDocTask = document.getElementById(task.id);
+		
+					btnAddDocTask.addEventListener("click", () => {
+		
+						const target = btnAddDocTask.id;
+		
+						addDoc.addEventListener("click", () => {
+						
+							const file = docInput.files[0];
+		
+							if (file.type.includes("image")){
+								const fileRef = ref(storage, `${proj.id}/${target}/images/${file.name}`);
+								const metadata = {
+									contentType: `${file.type}`
+								}
+		
+								uploadBytes(fileRef, file, metadata)
+								.then((snapshot) => {
+									//Le fichier a été mis en ligne !
+								})
+								.catch((error) => {
+									console.log(error.code);
+									console.log(error.message);
+								});
+		
+								closeModal(modalAddDoc);
+		
+							}else if (file.type.includes("pdf")){
+								const fileRef = ref(storage, `${proj.id}/${target}/pdfs/${file.name}`);
+								const metadata = {
+									contentType: `${file.type}`
+								}
+		
+								uploadBytes(fileRef, file, metadata)
+								.then((snapshot) => {
+									//Le fichier a été mis en ligne !
+								})
+								.catch((error) => {
+									console.log(error.code);
+									console.log(error.message);
+								});
+		
+								closeModal(modalAddDoc);
+		
+							}else if (file.type.includes("video")){
+								const fileRef = ref(storage, `${proj.id}/${target}/videos/${file.name}`);
+								const metadata = {
+									contentType: `${file.type}`
+								}
+		
+								uploadBytes(fileRef, file, metadata)
+								.then((snapshot) => {
+									//Le fichier a été mis en ligne !
+								})
+								.catch((error) => {
+									console.log(error.code);
+									console.log(error.message);
+								});
+		
+								closeModal(modalAddDoc);
+		
+							}
+		
+							
+						})
+		
+					})
 				})
 			})
-		})
-	})
-	.catch((error) => {
-		console.log(error.code);
-		console.log(error.message);
-	})
-	
-
-	//Création de la barre de progression
-	const range = document.getElementsByClassName("range");
-	
-	Array.from(range).forEach((rangeElmnt) => {
-		
-		rangeElmnt.addEventListener("focus", () => {
 			
-			if (rangeElmnt.value != data.progression){
 
-				const queryProj = query(collection(db, "Projets"), where("nom", "==", `${currentProj.textContent}`));
-				
-				getDocs(queryProj)
-				.then((proj) => {
-					console.log(proj);
-				})
-				.catch((error) => {
-					console.log(error.code);
-					console.log(error.message);
-				})
-
-				//updateDoc(doc(db, `Projets/${currentProj.textContent}/Taches`, `${docTask.id}`), {
-				//	progression: rangeElmnt.value
-				//})
-			}
-		})	
-	})
-
-	docOverview.appendChild(docList);
-	li.appendChild(docOverview);
-	tasksList.appendChild(li);
-
-
-	//====== LISTENER DU CLICK POUR AJOUTER UN DOCUMENT ======
-	const modalAddDoc = document.getElementById("modalAddDoc");
-	const addDoc = document.getElementById("addDoc"); //Boutton du modal
-	const docInput = document.getElementById("documentInput");
-	const btnAddDocTask = document.getElementById(task.id);
-
-	btnAddDocTask.addEventListener("click", () => {
-
-		const target = btnAddDocTask.id;
-
-		addDoc.addEventListener("click", () => {
-		
-			const file = docInput.files[0];
-
-			if (file.type.includes("image")){
-				const fileRef = ref(storage, `${proj.id}/${target}/images/${file.name}`);
-				const metadata = {
-					contentType: `${file.type}`
-				}
-
-				uploadBytes(fileRef, file, metadata)
-				.then((snapshot) => {
-					//Le fichier a été mis en ligne !
-				})
-				.catch((error) => {
-					console.log(error.code);
-					console.log(error.message);
-				});
-
-				closeModal(modalAddDoc);
-
-			}else if (file.type.includes("pdf")){
-				const fileRef = ref(storage, `${proj.id}/${target}/pdfs/${file.name}`);
-				const metadata = {
-					contentType: `${file.type}`
-				}
-
-				uploadBytes(fileRef, file, metadata)
-				.then((snapshot) => {
-					//Le fichier a été mis en ligne !
-				})
-				.catch((error) => {
-					console.log(error.code);
-					console.log(error.message);
-				});
-
-				closeModal(modalAddDoc);
-
-			}else if (file.type.includes("video")){
-				const fileRef = ref(storage, `${proj.id}/${target}/videos/${file.name}`);
-				const metadata = {
-					contentType: `${file.type}`
-				}
-
-				uploadBytes(fileRef, file, metadata)
-				.then((snapshot) => {
-					//Le fichier a été mis en ligne !
-				})
-				.catch((error) => {
-					console.log(error.code);
-					console.log(error.message);
-				});
-
-				closeModal(modalAddDoc);
-
-			}
-
-			
 		})
 
 	})

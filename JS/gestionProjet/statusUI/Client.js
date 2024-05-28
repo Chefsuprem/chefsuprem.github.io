@@ -1,7 +1,7 @@
 
 import { db, auth, storage } from "../../database/require.js";
 import { closeModal } from "../components/functions.js";
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { doc, getDoc, getDocs, collection, setDoc, deleteDoc, Timestamp, addDoc, updateDoc, query, where } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { listAll, ref, getMetadata, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
@@ -193,17 +193,6 @@ function clientAccount(){
 	const projsOverlay = document.querySelector("#projsOverlay");
 	projsOverlay.firstElementChild.classList.add("container-fluid");
 
-
-	const imgSignOut = document.getElementById("imgProfil");
-	imgSignOut.addEventListener("click", () => {
-
-		signOut(auth).then(() => {
-		// Sign-out successful.
-		}).catch((error) => {
-			console.log(error.code);
-			console.log(error.message);
-		});
-	})
 }
 
 

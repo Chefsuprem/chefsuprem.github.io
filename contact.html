@@ -96,7 +96,7 @@
 				</li>
 			</ul>
 			
-			<form id="form425" class="d-flex col-12 flex-column col-md-6 col-xxl-5 align-items-lg-end border border-2 my-5 me-xxl-5 p-5" style="margin:10px 0;" action="contact.html">
+			<form id="contactForm" class="d-flex col-12 flex-column col-md-6 col-xxl-5 align-items-lg-end border border-2 my-5 me-xxl-5 p-5" style="margin:10px 0;">
 					
 				<!-- Section d'informations du formulaire -->
 				<h2 class="typTtrOrdi32 text-center" 	style="width:100%;" data-translate="envoimessage">Envoyer un message</h2>
@@ -113,7 +113,7 @@
 					<input class="case" type="email" id="email" name="email" style="width: 100%;" required> <!-- input de type email pour l'adresse mail requis pour l'envoie du formulaire-->                      
 					
 					<label class="typTxtOrdi16 py-1 pt-3" for="description" data-translate="description_form">Description</label> <!-- Message -->
-					<textarea class="case2" id="description" name="date" placeholder="Votre message" data-translate="message_form"></textarea><!-- input de type date pour la date de naissance requis pour l'envoie du formulaire-->
+					<textarea class="case2" id="description" name="description" placeholder="Votre message" data-translate="message_form"></textarea><!-- input de type date pour la date de naissance requis pour l'envoie du formulaire-->
 					
 					
 				</fieldset>
@@ -164,8 +164,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
+	<!--Pour les mails-->
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+
 	<!--SCRIPTS LOCAUX-->
-	<script type="module" src="JS/database/require.js"></script>
+	<script src="JS/database/mails.js"></script>
 	<script src="JS/components/header.js"></script>
 	<script src="JS/contact.js"></script>
 	<script src="JS/modesombre.js"></script>
