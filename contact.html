@@ -96,7 +96,7 @@
 				</li>
 			</ul>
 			
-			<form id="contactForm" class="d-flex col-12 flex-column col-md-6 col-xxl-5 align-items-lg-end border border-2 my-5 me-xxl-5 p-5" style="margin:10px 0;">
+			<form id="contactForm" action="mailto:agence-1ris@gmx.com?subject=Contact depuis le site web" method="POST" enctype="text/plain" class="d-flex col-12 flex-column col-md-6 col-xxl-5 align-items-lg-end border border-2 my-5 me-xxl-5 p-5" style="margin:10px 0;">
 					
 				<!-- Section d'informations du formulaire -->
 				<h2 class="typTtrOrdi32 text-center" 	style="width:100%;" data-translate="envoimessage">Envoyer un message</h2>
@@ -165,10 +165,17 @@
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 	<!--Pour les mails-->
-	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+			emailjs.init({
+				publicKey: "8CSI-XqZC-k0AOKcE",
+			});
+		})();
+	</script>
+	<script src="JS/database/mails.js"></script>
 
 	<!--SCRIPTS LOCAUX-->
-	<script src="JS/database/mails.js"></script>
 	<script src="JS/components/header.js"></script>
 	<script src="JS/contact.js"></script>
 	<script src="JS/modesombre.js"></script>
