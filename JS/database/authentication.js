@@ -4,6 +4,8 @@ import { collection, doc, getDocs, setDoc } from "https://www.gstatic.com/fireba
 
 const signUpForm = document.getElementById("inscriptionForm");
 const currentProj = document.getElementById("currentProj");
+const toastSucessAccountCreate = document.getElementById("toastSucessAccountCreate");
+
 
 if (signUpForm != undefined){
 
@@ -26,7 +28,12 @@ if (signUpForm != undefined){
 		.then((userCred) => {
 			
 			// Signed up 
-			console.log(userCred.user);
+			const toastOptions = {
+				delay: 10000
+			  }
+		  
+			const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastSucessAccountCreate, toastOptions);
+			toastBootstrap.show()
 
 			//Création de la collection qui va contenir tout les users
 			setDoc(doc(collection(db, "Users"), `${userCred.user.uid}`), {
