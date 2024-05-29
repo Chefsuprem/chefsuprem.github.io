@@ -1,5 +1,6 @@
 
 const contactForm = document.getElementById("contactForm");
+const toastSucessMail = document.getElementById("toastSucessMail");
 
 contactForm.addEventListener("submit", (event) => {
   
@@ -15,6 +16,12 @@ contactForm.addEventListener("submit", (event) => {
   .then(() => {
 
     //alert("C'est passé");
+    const toastOptions = {
+      delay: 10000
+    }
+
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastSucessMail, toastOptions);
+    toastBootstrap.show()
     
   })
   .catch((error) => {
